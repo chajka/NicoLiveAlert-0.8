@@ -10,7 +10,7 @@
 #define NicoLiveAlert_NicoLiveAlertDefinitions_h
 
 #pragma mark - URLs
-#define NicoLoginFormFQDN							@"https://secure.nicovideo.jp/secure/login_form"
+#define NicoLoginForm								@"https://secure.nicovideo.jp/secure/login_form"
 #define NicoLoginGetTicketURL						@"https://secure.nicovideo.jp/secure/login"
 #define NicoLiveGetAlertStatusURL					@"http://live.nicovideo.jp/api/getalertstatus"
 

@@ -12,10 +12,11 @@
 @interface NLUser : NSObject <NSXMLParserDelegate> {
 	YCHTTPSKeychainItem				*account;
 
+	NSString						*userID;
 	NSString						*nickname;
 	BOOL							watchEnable;
 
-	NSArray							*joined;
+	NSMutableArray					*joined;
 
 	NSString						*server;
 	NSInteger						port;
@@ -27,6 +28,8 @@
 }
 @property (readonly) NSString		*mailaddress;
 @property (readonly) NSString		*password;
+@property (readonly) NSString		*userID;
+@property (readonly) NSString		*nickname;
 @property (readwrite) BOOL			watchEnable;
 @property (readonly) NSArray		*joined;
 @property (readonly) NSString		*server;
@@ -34,4 +37,5 @@
 @property (readonly) NSString		*thread;
 @property (readonly) NSString		*ticket;
 
+- (id) initWithAccount:(NSString *)account;
 @end
