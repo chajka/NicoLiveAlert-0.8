@@ -23,6 +23,7 @@
 		C67335411B49BA2900AC88AD /* YCKeychainService.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C67335331B49B9CF00AC88AD /* YCKeychainService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C67335431B49BDA800AC88AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C673352A1B49B47900AC88AD /* Info.plist */; };
 		C67335461B49BDC800AC88AD /* NicoLiveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = C67335441B49BDC800AC88AD /* NicoLiveAlert.xib */; };
+		C67AF0941B49D08F000B8272 /* NLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0931B49D08F000B8272 /* NLUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		C673353A1B49B9F700AC88AD /* CocoaOniguruma.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaOniguruma.framework; path = External/CocoaOniguruma/CocoaOniguruma.framework; sourceTree = "<group>"; };
 		C67335451B49BDC800AC88AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Localizable/en.lproj/NicoLiveAlert.xib; sourceTree = "<group>"; };
 		C67335481B49C26B00AC88AD /* NicoLiveAlertDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NicoLiveAlertDefinitions.h; path = Application/NicoLiveAlertDefinitions.h; sourceTree = "<group>"; };
+		C67AF0921B49D08F000B8272 /* NLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLUser.h; path = "User Management/NLUser.h"; sourceTree = "<group>"; };
+		C67AF0931B49D08F000B8272 /* NLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLUser.m; path = "User Management/NLUser.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,7 @@
 		C650C35F1B49A944005AC163 /* NicoLiveAlert */ = {
 			isa = PBXGroup;
 			children = (
+				C67AF0901B49D04A000B8272 /* UserManagement */,
 				C67335471B49C23C00AC88AD /* Application */,
 				C650C3671B49A944005AC163 /* Images.xcassets */,
 				C650C3601B49A944005AC163 /* Supporting Files */,
@@ -201,6 +205,15 @@
 				C67335481B49C26B00AC88AD /* NicoLiveAlertDefinitions.h */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		C67AF0901B49D04A000B8272 /* UserManagement */ = {
+			isa = PBXGroup;
+			children = (
+				C67AF0921B49D08F000B8272 /* NLUser.h */,
+				C67AF0931B49D08F000B8272 /* NLUser.m */,
+			);
+			name = UserManagement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C673352D1B49B47900AC88AD /* main.m in Sources */,
+				C67AF0941B49D08F000B8272 /* NLUser.m in Sources */,
 				C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
