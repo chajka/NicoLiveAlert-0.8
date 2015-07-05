@@ -67,6 +67,7 @@
 		C67335381B49B9EB00AC88AD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = External/Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		C673353A1B49B9F700AC88AD /* CocoaOniguruma.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaOniguruma.framework; path = External/CocoaOniguruma/CocoaOniguruma.framework; sourceTree = "<group>"; };
 		C67335451B49BDC800AC88AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Localizable/en.lproj/NicoLiveAlert.xib; sourceTree = "<group>"; };
+		C67335481B49C26B00AC88AD /* NicoLiveAlertDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NicoLiveAlertDefinitions.h; path = Application/NicoLiveAlertDefinitions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +116,7 @@
 		C650C35F1B49A944005AC163 /* NicoLiveAlert */ = {
 			isa = PBXGroup;
 			children = (
-				C67335281B49B45E00AC88AD /* NicoLiveAlert.h */,
-				C67335271B49B45E00AC88AD /* NicoLiveAlert.m */,
-				C67335441B49BDC800AC88AD /* NicoLiveAlert.xib */,
+				C67335471B49C23C00AC88AD /* Application */,
 				C650C3671B49A944005AC163 /* Images.xcassets */,
 				C650C3601B49A944005AC163 /* Supporting Files */,
 			);
@@ -191,6 +190,17 @@
 				C67335331B49B9CF00AC88AD /* YCKeychainService.framework */,
 			);
 			name = YCKeychainService;
+			sourceTree = "<group>";
+		};
+		C67335471B49C23C00AC88AD /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C67335281B49B45E00AC88AD /* NicoLiveAlert.h */,
+				C67335271B49B45E00AC88AD /* NicoLiveAlert.m */,
+				C67335441B49BDC800AC88AD /* NicoLiveAlert.xib */,
+				C67335481B49C26B00AC88AD /* NicoLiveAlertDefinitions.h */,
+			);
+			name = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
