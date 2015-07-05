@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <YCKeychainService/YCKeychainService.h>
 
-@interface NLUser : NSObject
+@interface NLUser : NSObject <NSXMLParserDelegate> {
+	YCHTTPSKeychainItem				*account;
+
+	NSString						*nickname;
+	BOOL							*watchEnable;
+
+	NSArray							*joined;
+
+	NSString						*server;
+	NSInteger						port;
+	NSString						*thread;
+	NSString						*ticket;
+}
 
 @end
