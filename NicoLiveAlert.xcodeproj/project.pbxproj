@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C650C3681B49A944005AC163 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C650C3671B49A944005AC163 /* Images.xcassets */; };
 		C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */; };
 		C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C67335271B49B45E00AC88AD /* NicoLiveAlert.m */; };
 		C673352D1B49B47900AC88AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C673352B1B49B47900AC88AD /* main.m */; };
@@ -21,7 +20,6 @@
 		C673353F1B49BA2200AC88AD /* CocoaOniguruma.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C673353A1B49B9F700AC88AD /* CocoaOniguruma.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C67335401B49BA2500AC88AD /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C67335361B49B9DC00AC88AD /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C67335411B49BA2900AC88AD /* YCKeychainService.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C67335331B49B9CF00AC88AD /* YCKeychainService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C67335431B49BDA800AC88AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C673352A1B49B47900AC88AD /* Info.plist */; };
 		C67335461B49BDC800AC88AD /* NicoLiveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = C67335441B49BDC800AC88AD /* NicoLiveAlert.xib */; };
 		C67AF0941B49D08F000B8272 /* NLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0931B49D08F000B8272 /* NLUser.m */; };
 /* End PBXBuildFile section */
@@ -297,8 +295,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C650C3681B49A944005AC163 /* Images.xcassets in Resources */,
-				C67335431B49BDA800AC88AD /* Info.plist in Resources */,
 				C67335461B49BDC800AC88AD /* NicoLiveAlert.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
