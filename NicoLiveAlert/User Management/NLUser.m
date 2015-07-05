@@ -15,6 +15,8 @@
 #pragma mark - override
 #pragma mark - delegate
 #pragma mark - properties
+- (NSString *) mailaddress { return account.account; }
+- (NSString *) password	{ return account.password; }
 #pragma mark - actions
 #pragma mark - messages
 #pragma mark - private

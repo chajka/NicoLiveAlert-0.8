@@ -21,6 +21,11 @@
 	NSInteger						port;
 	NSString						*thread;
 	NSString						*ticket;
+
+	NSDictionary					*elementsDict;
+	NSMutableString					*stringBuffer;
 }
+@property (readonly) NSString		*mailaddress;
+@property (readonly) NSString		*password;
 
 @end
