@@ -9,6 +9,11 @@
 #import "NLUser.h"
 #import "NicoLiveAlertDefinitions.h"
 
+@interface NLUser ()
+- (BOOL) getTicket;
+- (void) getUserInfo;
+@end
+
 @implementation NLUser
 #pragma mark - synthesize properties
 @synthesize userID;
@@ -22,11 +27,20 @@
 
 #pragma mark - class method
 #pragma mark - constructor / destructor
-- (id) initWithAccount:(NSString *)account
+- (id) initWithAccount:(NSString *)account_
 {
 	self = [super init];
 	if (self) {
-		
+		account = [YCHTTPSKeychainItem userInKeychain:account_ forURL:[NSURL URLWithString:NicoLoginForm]];
+		if (account == nil)
+			return nil;
+		connection = [[HTTPConnection alloc] init];
+		if ([self getTicket] == NO)
+			return nil;
+		joined = [[NSMutableArray alloc] init];
+		[self getUserInfo];
+		if (nickname == nil)
+			return nil;
 	}// end if self
 
 	return self;
@@ -39,6 +53,42 @@
 #pragma mark - actions
 #pragma mark - messages
 #pragma mark - private
+- (BOOL) getTicket
+{
+	NSURL *url = [NSURL URLWithString:NicoLoginGetTicketURL];
+	NSMutableDictionary *params = [NSMutableDictionary dictionary];
+	[params setValue:@"nicolive_antenna" forKey:@"site"];
+	[params setValue:account.account forKey:@"mail"];
+	[params setValue:account.password forKey:@"password"];
+
+	NSError *err = nil;
+	[connection setURL:url andParams:params];
+	NSData *result = [connection dataByPost:&err];
+
+	NSXMLParser *parser = [[NSXMLParser alloc] initWithData:result];
+	[parser setDelegate:self];
+	[parser parse];
+
+	if (ticket == nil)
+		return NO;
+	else
+		return YES;
+}// end - (BOOL) getTicket
+
+- (void) getUserInfo
+{
+	NSURL *url = [NSURL URLWithString:NicoLiveGetAlertStatusURL];
+	NSMutableDictionary *params = [NSMutableDictionary dictionary];
+	[params setValue:ticket forKey:@"ticket"];
+
+	NSError *err = nil;
+	[connection setURL:url andParams:params];
+	NSData *result = [connection dataByPost:&err];
+	
+	NSXMLParser *parser = [[NSXMLParser alloc] initWithData:result];
+	[parser setDelegate:self];
+	[parser parse];
+}// end - (void) getUserInfo
 #pragma mark - C functions
 #pragma mark - NSXMLParser degegate methods
 

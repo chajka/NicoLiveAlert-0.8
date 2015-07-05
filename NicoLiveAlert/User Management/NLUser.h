@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <YCKeychainService/YCKeychainService.h>
+#import "HTTPConnection.h"
 
 @interface NLUser : NSObject <NSXMLParserDelegate> {
 	YCHTTPSKeychainItem				*account;
@@ -25,6 +26,7 @@
 
 	NSDictionary					*elementsDict;
 	NSMutableString					*stringBuffer;
+	HTTPConnection					*connection;
 }
 @property (readonly) NSString		*mailaddress;
 @property (readonly) NSString		*password;

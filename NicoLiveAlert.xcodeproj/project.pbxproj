@@ -22,6 +22,9 @@
 		C67335411B49BA2900AC88AD /* YCKeychainService.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C67335331B49B9CF00AC88AD /* YCKeychainService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C67335461B49BDC800AC88AD /* NicoLiveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = C67335441B49BDC800AC88AD /* NicoLiveAlert.xib */; };
 		C67AF0941B49D08F000B8272 /* NLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0931B49D08F000B8272 /* NLUser.m */; };
+		C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */; };
+		C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0981B49E137000B8272 /* HTTPConnection.m */; };
+		C67AF09D1B49E4A0000B8272 /* NLUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09C1B49E4A0000B8272 /* NLUserTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,11 @@
 		C67335481B49C26B00AC88AD /* NicoLiveAlertDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NicoLiveAlertDefinitions.h; path = Application/NicoLiveAlertDefinitions.h; sourceTree = "<group>"; };
 		C67AF0921B49D08F000B8272 /* NLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLUser.h; path = "User Management/NLUser.h"; sourceTree = "<group>"; };
 		C67AF0931B49D08F000B8272 /* NLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLUser.m; path = "User Management/NLUser.m"; sourceTree = "<group>"; };
+		C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YCStreamSessionGCD.m; path = NetworkBits/YCStreamSessionGCD.m; sourceTree = "<group>"; };
+		C67AF0971B49E137000B8272 /* YCStreamSessionGCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YCStreamSessionGCD.h; path = NetworkBits/YCStreamSessionGCD.h; sourceTree = "<group>"; };
+		C67AF0981B49E137000B8272 /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPConnection.m; path = NetworkBits/HTTPConnection.m; sourceTree = "<group>"; };
+		C67AF0991B49E137000B8272 /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPConnection.h; path = NetworkBits/HTTPConnection.h; sourceTree = "<group>"; };
+		C67AF09C1B49E4A0000B8272 /* NLUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLUserTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,7 @@
 			children = (
 				C67AF0901B49D04A000B8272 /* UserManagement */,
 				C67335471B49C23C00AC88AD /* Application */,
+				C67AF0951B49E114000B8272 /* Network */,
 				C650C3671B49A944005AC163 /* Images.xcassets */,
 				C650C3601B49A944005AC163 /* Supporting Files */,
 			);
@@ -139,6 +148,7 @@
 			children = (
 				C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */,
 				C650C3741B49A944005AC163 /* Supporting Files */,
+				C67AF09C1B49E4A0000B8272 /* NLUserTests.m */,
 			);
 			path = NicoLiveAlertTests;
 			sourceTree = "<group>";
@@ -212,6 +222,17 @@
 				C67AF0931B49D08F000B8272 /* NLUser.m */,
 			);
 			name = UserManagement;
+			sourceTree = "<group>";
+		};
+		C67AF0951B49E114000B8272 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C67AF0991B49E137000B8272 /* HTTPConnection.h */,
+				C67AF0981B49E137000B8272 /* HTTPConnection.m */,
+				C67AF0971B49E137000B8272 /* YCStreamSessionGCD.h */,
+				C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,8 +335,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C673352D1B49B47900AC88AD /* main.m in Sources */,
+				C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */,
 				C67AF0941B49D08F000B8272 /* NLUser.m in Sources */,
 				C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */,
+				C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C67AF09D1B49E4A0000B8272 /* NLUserTests.m in Sources */,
 				C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
