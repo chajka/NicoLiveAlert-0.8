@@ -45,6 +45,25 @@
 
 	return self;
 }// end - (id) initWithAccount:(NSString *)account
+
+- (id) initWithAccount:(NSString *)account_ password:(NSString *)passwd
+{
+	self = [super init];
+	if (self) {
+		account = [[YCHTTPSKeychainItem alloc] initWithAccount:account_ andPassword:passwd forURL:[NSURL URLWithString:NicoLoginForm]];
+		if (account == nil)
+			return nil;
+		connection = [[HTTPConnection alloc] init];
+		if ([self getTicket] == NO)
+			return nil;
+		joined = [[NSMutableArray alloc] init];
+		[self getUserInfo];
+		if (nickname == nil)
+			return nil;
+	}// end if self
+	
+	return self;
+}// end - (id) initWithAccount:(NSString *)account_ password:(NSString *)passwd
 #pragma mark - override
 #pragma mark - delegate
 #pragma mark - properties
