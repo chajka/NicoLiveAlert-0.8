@@ -10,6 +10,13 @@
 
 @implementation NLUser
 #pragma mark - synthesize properties
+@synthesize watchEnable;
+@synthesize joined;
+@synthesize server;
+@synthesize port;
+@synthesize thread;
+@synthesize ticket;
+
 #pragma mark - class method
 #pragma mark - constructor / destructor
 #pragma mark - override

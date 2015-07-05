@@ -13,7 +13,7 @@
 	YCHTTPSKeychainItem				*account;
 
 	NSString						*nickname;
-	BOOL							*watchEnable;
+	BOOL							watchEnable;
 
 	NSArray							*joined;
 
@@ -27,5 +27,11 @@
 }
 @property (readonly) NSString		*mailaddress;
 @property (readonly) NSString		*password;
+@property (readwrite) BOOL			watchEnable;
+@property (readonly) NSArray		*joined;
+@property (readonly) NSString		*server;
+@property (readonly) NSInteger		port;
+@property (readonly) NSString		*thread;
+@property (readonly) NSString		*ticket;
 
 @end
