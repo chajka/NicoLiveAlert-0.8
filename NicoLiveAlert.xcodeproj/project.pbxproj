@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C650C3641B49A944005AC163 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3631B49A944005AC163 /* AppDelegate.m */; };
-		C650C3661B49A944005AC163 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3651B49A944005AC163 /* main.m */; };
 		C650C3681B49A944005AC163 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C650C3671B49A944005AC163 /* Images.xcassets */; };
 		C650C36B1B49A944005AC163 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C650C3691B49A944005AC163 /* MainMenu.xib */; };
 		C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */; };
+		C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C67335271B49B45E00AC88AD /* NicoLiveAlert.m */; };
+		C673352C1B49B47900AC88AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C673352A1B49B47900AC88AD /* Info.plist */; };
+		C673352D1B49B47900AC88AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C673352B1B49B47900AC88AD /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,15 +27,15 @@
 
 /* Begin PBXFileReference section */
 		C650C35D1B49A944005AC163 /* NicoLiveAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NicoLiveAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C650C3611B49A944005AC163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C650C3621B49A944005AC163 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C650C3631B49A944005AC163 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C650C3651B49A944005AC163 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C650C3671B49A944005AC163 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C650C36A1B49A944005AC163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C650C3701B49A944005AC163 /* NicoLiveAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NicoLiveAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C650C3751B49A944005AC163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NicoLiveAlertTests.m; sourceTree = "<group>"; };
+		C67335271B49B45E00AC88AD /* NicoLiveAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NicoLiveAlert.m; path = Application/NicoLiveAlert.m; sourceTree = "<group>"; };
+		C67335281B49B45E00AC88AD /* NicoLiveAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NicoLiveAlert.h; path = Application/NicoLiveAlert.h; sourceTree = "<group>"; };
+		C673352A1B49B47900AC88AD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supporting Files/Info.plist"; sourceTree = "<group>"; };
+		C673352B1B49B47900AC88AD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +77,8 @@
 		C650C35F1B49A944005AC163 /* NicoLiveAlert */ = {
 			isa = PBXGroup;
 			children = (
-				C650C3621B49A944005AC163 /* AppDelegate.h */,
-				C650C3631B49A944005AC163 /* AppDelegate.m */,
+				C67335281B49B45E00AC88AD /* NicoLiveAlert.h */,
+				C67335271B49B45E00AC88AD /* NicoLiveAlert.m */,
 				C650C3671B49A944005AC163 /* Images.xcassets */,
 				C650C3691B49A944005AC163 /* MainMenu.xib */,
 				C650C3601B49A944005AC163 /* Supporting Files */,
@@ -88,8 +89,8 @@
 		C650C3601B49A944005AC163 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C650C3611B49A944005AC163 /* Info.plist */,
-				C650C3651B49A944005AC163 /* main.m */,
+				C673352A1B49B47900AC88AD /* Info.plist */,
+				C673352B1B49B47900AC88AD /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -193,6 +194,7 @@
 			files = (
 				C650C3681B49A944005AC163 /* Images.xcassets in Resources */,
 				C650C36B1B49A944005AC163 /* MainMenu.xib in Resources */,
+				C673352C1B49B47900AC88AD /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C650C3661B49A944005AC163 /* main.m in Sources */,
-				C650C3641B49A944005AC163 /* AppDelegate.m in Sources */,
+				C673352D1B49B47900AC88AD /* main.m in Sources */,
+				C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +331,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = NicoLiveAlert/Info.plist;
+				INFOPLIST_FILE = "NicoLiveAlert/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -340,7 +342,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = NicoLiveAlert/Info.plist;
+				INFOPLIST_FILE = "NicoLiveAlert/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -401,6 +403,7 @@
 				C650C37C1B49A944005AC163 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C650C37D1B49A944005AC163 /* Build configuration list for PBXNativeTarget "NicoLiveAlertTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +412,7 @@
 				C650C37F1B49A944005AC163 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
