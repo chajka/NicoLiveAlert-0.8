@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C65015131B4A943700FC44DD /* NLProgramSiever.m in Sources */ = {isa = PBXBuildFile; fileRef = C65015121B4A943700FC44DD /* NLProgramSiever.m */; };
 		C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */; };
 		C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C67335271B49B45E00AC88AD /* NicoLiveAlert.m */; };
 		C673352D1B49B47900AC88AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C673352B1B49B47900AC88AD /* main.m */; };
@@ -57,6 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C65015111B4A943700FC44DD /* NLProgramSiever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLProgramSiever.h; path = "Program Management/NLProgramSiever.h"; sourceTree = "<group>"; };
+		C65015121B4A943700FC44DD /* NLProgramSiever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgramSiever.m; path = "Program Management/NLProgramSiever.m"; sourceTree = "<group>"; };
 		C650C35D1B49A944005AC163 /* NicoLiveAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NicoLiveAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C650C3671B49A944005AC163 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C650C3701B49A944005AC163 /* NicoLiveAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NicoLiveAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C65015101B4A93E500FC44DD /* Program Management */ = {
+			isa = PBXGroup;
+			children = (
+				C65015111B4A943700FC44DD /* NLProgramSiever.h */,
+				C65015121B4A943700FC44DD /* NLProgramSiever.m */,
+			);
+			name = "Program Management";
+			sourceTree = "<group>";
+		};
 		C650C3541B49A944005AC163 = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				C67AF0A31B4A706C000B8272 /* NicoLiveAlert.entitlements */,
-				C67AF0901B49D04A000B8272 /* UserManagement */,
+				C65015101B4A93E500FC44DD /* Program Management */,
+				C67AF0901B49D04A000B8272 /* User Management */,
 				C67335471B49C23C00AC88AD /* Application */,
 				C67AF0951B49E114000B8272 /* Network */,
 				C650C3671B49A944005AC163 /* Images.xcassets */,
@@ -223,7 +236,7 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
-		C67AF0901B49D04A000B8272 /* UserManagement */ = {
+		C67AF0901B49D04A000B8272 /* User Management */ = {
 			isa = PBXGroup;
 			children = (
 				C67AF0921B49D08F000B8272 /* NLAccount.h */,
@@ -231,7 +244,7 @@
 				C67AF09E1B4A23CA000B8272 /* NLAccounts.h */,
 				C67AF09F1B4A23CA000B8272 /* NLAccounts.m */,
 			);
-			name = UserManagement;
+			name = "User Management";
 			sourceTree = "<group>";
 		};
 		C67AF0951B49E114000B8272 /* Network */ = {
@@ -354,6 +367,7 @@
 				C67AF0941B49D08F000B8272 /* NLAccount.m in Sources */,
 				C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */,
 				C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */,
+				C65015131B4A943700FC44DD /* NLProgramSiever.m in Sources */,
 				C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
