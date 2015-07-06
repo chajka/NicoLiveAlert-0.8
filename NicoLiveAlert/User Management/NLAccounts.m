@@ -59,6 +59,21 @@
 	return YES;
 }// end - (BOOL) addAccount:(NSString *)mailaddress password:(NSString *)password
 
+- (void) addManualWatchItem:(NSString *)item autoOpen:(BOOL)autoOpen_
+{
+	NSNumber *autoOpen = [NSNumber numberWithBool:autoOpen_];
+	[manualWatchList setValue:autoOpen forKey:item];
+	[self rebuildWatchlist];
+}// end - (void) addManualWatchItem:(NSString *)item autoOpen:(BOOL)autoOpen
+
+- (void) toggleAutoOpen:(NSString *)item
+{
+	BOOL autoopen = [[manualWatchList valueForKey:item] boolValue];
+	NSNumber *autoOpen = [NSNumber numberWithBool:((autoopen == YES) ? NO:YES)];
+	[manualWatchList setValue:autoOpen forKey:item];
+	[self rebuildWatchlist];
+}// end - (void) toggleAutoOpen:(NSString *)item
+
 - (void) refresh
 {
 	for (NLAccount *account in accounts) {

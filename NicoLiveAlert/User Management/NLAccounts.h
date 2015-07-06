@@ -21,5 +21,7 @@
 
 - (BOOL) addAccount:(NSString *)mailaddress;
 - (BOOL) addAccount:(NSString *)mailaddress password:(NSString *)password;
+- (void) addManualWatchItem:(NSString *)item autoOpen:(BOOL)autoOpen;
+- (void) toggleAutoOpen:(NSString *)item;
 - (void) refresh;
 @end
