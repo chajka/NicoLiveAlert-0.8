@@ -1,20 +1,20 @@
 //
-//  NLUser.m
+//  NLAccount.m
 //  NicoLiveAlert
 //
 //  Created by Чайка on 7/6/15.
 //  Copyright (c) 2015 Instrumentality of Mankind. All rights reserved.
 //
 
-#import "NLUser.h"
+#import "NLAccount.h"
 #import "NicoLiveAlertDefinitions.h"
 
-@interface NLUser ()
+@interface NLAccount ()
 - (BOOL) getTicket;
 - (void) getUserInfo;
 @end
 
-@implementation NLUser
+@implementation NLAccount
 #pragma mark - synthesize properties
 @synthesize userID;
 @synthesize nickname;

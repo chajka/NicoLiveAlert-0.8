@@ -1,5 +1,5 @@
 //
-//  NLUserTests.m
+//  NLAccountTests.m
 //  NicoLiveAlert
 //
 //  Created by Чайка on 7/6/15.
@@ -8,13 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
-#import "NLUser.h"
+#import "NLAccount.h"
 
-@interface NLUserTests : XCTestCase
+@interface NLAccountTests : XCTestCase
 
 @end
 
-@implementation NLUserTests
+@implementation NLAccountTests
 
 - (void)setUp {
     [super setUp];
@@ -27,7 +27,7 @@
 }
 
 - (void) test01_Allocation {
-	NLUser *user = [[NLUser alloc] initWithAccount:@"chajka.niconico@gmail.com"];
+	NLAccount *user = [[NLAccount alloc] initWithAccount:@"chajka.niconico@gmail.com"];
 	XCTAssertNotNil(user, @"Test01 allocation fail\"%s\"", __PRETTY_FUNCTION__);
 }
 

@@ -1,5 +1,5 @@
 //
-//  NLUser.h
+//  NLAccount.h
 //  NicoLiveAlert
 //
 //  Created by Чайка on 7/6/15.
@@ -10,7 +10,7 @@
 #import <YCKeychainService/YCKeychainService.h>
 #import "HTTPConnection.h"
 
-@interface NLUser : NSObject <NSXMLParserDelegate> {
+@interface NLAccount : NSObject <NSXMLParserDelegate> {
 	YCHTTPSKeychainItem				*account;
 
 	NSString						*userID;
