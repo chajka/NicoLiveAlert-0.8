@@ -59,6 +59,16 @@
 	return YES;
 }// end - (BOOL) addAccount:(NSString *)mailaddress password:(NSString *)password
 
+- (void) removeAccount:(NSString *)mailaddress
+{
+	for (NLAccount *account in [accounts reverseObjectEnumerator]) {
+		if ([account.mailaddress isEqualToString:mailaddress]) {
+			[accounts removeObject:account];
+			break;
+		}// end if found account to delete
+	}// end foreach all accounts
+}// end - (void) removeAccount:(NSString *)mailaddress
+
 - (void) addManualWatchItem:(NSString *)item autoOpen:(BOOL)autoOpen_
 {
 	NSNumber *autoOpen = [NSNumber numberWithBool:autoOpen_];
