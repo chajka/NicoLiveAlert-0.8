@@ -41,4 +41,6 @@
 
 - (id) initWithAccount:(NSString *)account;
 - (id) initWithAccount:(NSString *)account password:(NSString *)password;
+
+- (BOOL) refresh;
 @end

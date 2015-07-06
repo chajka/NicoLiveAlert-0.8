@@ -71,6 +71,15 @@
 - (NSString *) password	{ return account.password; }
 #pragma mark - actions
 #pragma mark - messages
+- (BOOL) refresh
+{
+	if ([self getTicket] == NO)
+		return NO;
+	[self getUserInfo];
+
+	return YES;
+}// end - (BOOL) refresh
+
 #pragma mark - private
 - (BOOL) getTicket
 {
