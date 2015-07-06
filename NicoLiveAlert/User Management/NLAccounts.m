@@ -41,10 +41,10 @@
 	accounts = [[NSMutableArray alloc] init];
 	NSArray *users = [ud arrayForKey:SavedAccountListKey];
 	for (NSDictionary *user in users) {
-		NSString *accnt = [user valueForKey:@"MailAddress"];
+		NSString *accnt = [user valueForKey:AccountValueMailAddress];
 		NLAccount *account = [[NLAccount alloc] initWithAccount:accnt];
 		if (account != nil) {
-			account.watchEnable = [[user valueForKey:@"WatchEnabled"] boolValue];
+			account.watchEnable = [[user valueForKey:AccountValueWatchEnabled] boolValue];
 			[accounts addObject:account];
 		}// end if account is there
 	}// end foreach
@@ -53,8 +53,8 @@
 	manualWatchList = [[NSMutableDictionary alloc] init];
 	NSArray *items = [ud arrayForKey:SavedWatchListKey];
 	for (NSDictionary *item in items) {
-		NSString *watch = [item valueForKey:@"WatchItem"];
-		NSNumber *autoOpen = [item valueForKey:@"AutoOpen"];
+		NSString *watch = [item valueForKey:WatchListValueWatchItem];
+		NSNumber *autoOpen = [item valueForKey:WatchListValueAutoOpen];
 		[manualWatchList setValue:autoOpen forKey:watch];
 	}// end foreach
 }// end - (void) restoreFromSavedPreference
