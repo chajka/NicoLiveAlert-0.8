@@ -19,23 +19,23 @@
 
 #pragma mark - account info xml element keys
 // Exception definition
-#define RESULTERRORNAME		@"XML parse error"
-#define RESULTERRORREASON	@"XML result is not ok"
+#define RESULTERRORNAME								@"XML parse error"
+#define RESULTERRORREASON							@"XML result is not ok"
 
 // XML element literal
-#define elementKeyResponse	@"nicovideo_user_response"
-#define elementKeyTicket	@"ticket"
-#define elementKeyStatus	@"getalertstatus"
-#define elementKeyUserID	@"user_id"
-#define elementKeyHash		@"user_hash"
-#define elementKeyUserName	@"user_name"
-#define elementKeyCommunity	@"community_id"
-#define elementKeyAddress	@"addr"
-#define elementKeyPort		@"port"
-#define elementKeyThread	@"thread"
-#define elementKeyError		@"error"
-#define elementKeyCode		@"code"
-#define elementKeyDesc		@"description"
+#define elementKeyResponse							@"nicovideo_user_response"
+#define elementKeyTicket							@"ticket"
+#define elementKeyStatus							@"getalertstatus"
+#define elementKeyUserID							@"user_id"
+#define elementKeyHash								@"user_hash"
+#define elementKeyUserName							@"user_name"
+#define elementKeyCommunity							@"community_id"
+#define elementKeyAddress							@"addr"
+#define elementKeyPort								@"port"
+#define elementKeyThread							@"thread"
+#define elementKeyError								@"error"
+#define elementKeyCode								@"code"
+#define elementKeyDesc								@"description"
 
 enum elementLiteralIndex {
 	indexResponse = 1,
@@ -54,15 +54,15 @@ enum elementLiteralIndex {
 };
 
 #pragma mark - saved preference keys
-#define SavedAccountListKey								@"AccountsList"
-#define AccountValueUserID								@"UserID"
-#define AccountValueNickname							@"Nickname"
-#define AccountValueMailAddress							@"MailAddress"
-#define AccountValueWatchEnabled						@"WatchEnabled"
+#define SavedAccountListKey							@"AccountsList"
+#define AccountValueUserID							@"UserID"
+#define AccountValueNickname						@"Nickname"
+#define AccountValueMailAddress						@"MailAddress"
+#define AccountValueWatchEnabled					@"WatchEnabled"
 
-#define SavedWatchListKey								@"WatchListTable"
-#define WatchListValueWatchItem							@"WatchItem"
-#define WatchListValueNote								@"Note"
-#define WatchListValueAutoOpen							@"AutoOpen"
+#define SavedWatchListKey							@"WatchListTable"
+#define WatchListValueWatchItem						@"WatchItem"
+#define WatchListValueNote							@"Note"
+#define WatchListValueAutoOpen						@"AutoOpen"
 
 #endif
