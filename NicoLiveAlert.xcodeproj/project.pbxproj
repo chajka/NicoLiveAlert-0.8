@@ -25,6 +25,8 @@
 		C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */; };
 		C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0981B49E137000B8272 /* HTTPConnection.m */; };
 		C67AF09D1B49E4A0000B8272 /* NLAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */; };
+		C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09F1B4A23CA000B8272 /* NLAccounts.m */; };
+		C67AF0A21B4A6E83000B8272 /* NLAccountsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,10 @@
 		C67AF0981B49E137000B8272 /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPConnection.m; path = NetworkBits/HTTPConnection.m; sourceTree = "<group>"; };
 		C67AF0991B49E137000B8272 /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPConnection.h; path = NetworkBits/HTTPConnection.h; sourceTree = "<group>"; };
 		C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLAccountTests.m; sourceTree = "<group>"; };
+		C67AF09E1B4A23CA000B8272 /* NLAccounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLAccounts.h; path = "User Management/NLAccounts.h"; sourceTree = "<group>"; };
+		C67AF09F1B4A23CA000B8272 /* NLAccounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLAccounts.m; path = "User Management/NLAccounts.m"; sourceTree = "<group>"; };
+		C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLAccountsTest.m; sourceTree = "<group>"; };
+		C67AF0A31B4A706C000B8272 /* NicoLiveAlert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NicoLiveAlert.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,7 @@
 		C650C35F1B49A944005AC163 /* NicoLiveAlert */ = {
 			isa = PBXGroup;
 			children = (
+				C67AF0A31B4A706C000B8272 /* NicoLiveAlert.entitlements */,
 				C67AF0901B49D04A000B8272 /* UserManagement */,
 				C67335471B49C23C00AC88AD /* Application */,
 				C67AF0951B49E114000B8272 /* Network */,
@@ -147,8 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */,
-				C650C3741B49A944005AC163 /* Supporting Files */,
 				C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */,
+				C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */,
+				C650C3741B49A944005AC163 /* Supporting Files */,
 			);
 			path = NicoLiveAlertTests;
 			sourceTree = "<group>";
@@ -220,6 +228,8 @@
 			children = (
 				C67AF0921B49D08F000B8272 /* NLAccount.h */,
 				C67AF0931B49D08F000B8272 /* NLAccount.m */,
+				C67AF09E1B4A23CA000B8272 /* NLAccounts.h */,
+				C67AF09F1B4A23CA000B8272 /* NLAccounts.m */,
 			);
 			name = UserManagement;
 			sourceTree = "<group>";
@@ -285,6 +295,11 @@
 				TargetAttributes = {
 					C650C35C1B49A944005AC163 = {
 						CreatedOnToolsVersion = 6.4;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					C650C36F1B49A944005AC163 = {
 						CreatedOnToolsVersion = 6.4;
@@ -337,6 +352,7 @@
 				C673352D1B49B47900AC88AD /* main.m in Sources */,
 				C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */,
 				C67AF0941B49D08F000B8272 /* NLAccount.m in Sources */,
+				C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */,
 				C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */,
 				C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */,
 			);
@@ -346,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C67AF0A21B4A6E83000B8272 /* NLAccountsTest.m in Sources */,
 				C67AF09D1B49E4A0000B8272 /* NLAccountTests.m in Sources */,
 				C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */,
 			);
@@ -456,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NicoLiveAlert/NicoLiveAlert.entitlements;
 				CODE_SIGN_IDENTITY = "Чайка";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -476,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NicoLiveAlert/NicoLiveAlert.entitlements;
 				CODE_SIGN_IDENTITY = "Чайка";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
