@@ -66,6 +66,12 @@
 	[self rebuildWatchlist];
 }// end - (void) addManualWatchItem:(NSString *)item autoOpen:(BOOL)autoOpen
 
+- (void) removeManualWatchItem:(NSString *)item
+{
+	[manualWatchList removeObjectForKey:item];
+	[self rebuildWatchlist];
+}// end - (void) removeManualWatchItem:(NSString *)item
+
 - (void) toggleAutoOpen:(NSString *)item
 {
 	BOOL autoopen = [[manualWatchList valueForKey:item] boolValue];
