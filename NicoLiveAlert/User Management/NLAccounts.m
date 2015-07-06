@@ -12,10 +12,12 @@
 @interface NLAccounts ()
 - (void) restoreFromSavedPreference;
 - (void) buildWatchlist;
+- (void) rebuildWatchlist;
 @end
 
 @implementation NLAccounts
 #pragma mark - synthesize properties
+@synthesize watchlist;
 #pragma mark - class method
 #pragma mark - constructor / destructor
 - (id) init
@@ -33,6 +35,39 @@
 #pragma mark - properties
 #pragma mark - actions
 #pragma mark - messages
+- (BOOL) addAccount:(NSString *)mailaddress
+{
+	NLAccount *account = [[NLAccount alloc] initWithAccount:mailaddress];
+	if (account == nil)
+		return NO;
+
+	[accounts addObject:account];
+	[self rebuildWatchlist];
+
+	return YES;
+}// end - (BOOL) addAccount:(NSString *)mailaddress
+
+- (BOOL) addAccount:(NSString *)mailaddress password:(NSString *)password
+{
+	NLAccount *account = [[NLAccount alloc] initWithAccount:mailaddress password:password];
+	if (account == nil)
+		return NO;
+	
+	[accounts addObject:account];
+	[self rebuildWatchlist];
+	
+	return YES;
+}// end - (BOOL) addAccount:(NSString *)mailaddress password:(NSString *)password
+
+- (void) refresh
+{
+	for (NLAccount *account in accounts) {
+		[account refresh];
+	}// end foreach account
+
+	[self rebuildWatchlist];
+}// end - (void) refresh
+
 #pragma mark - private
 - (void) restoreFromSavedPreference
 {
@@ -71,8 +106,21 @@
 	}// end foreach account
 
 	[watchlist addEntriesFromDictionary:manualWatchList];
-NSLog(@"%@", watchlist);
 }// end - (void) buildWatchlist
+
+- (void) rebuildWatchlist
+{
+	[watchlist removeAllObjects];
+	NSNumber *autoOpen = [NSNumber numberWithBool:NO];
+	for (NLAccount *account in accounts) {
+		NSArray *communities = account.joined;
+		for (NSString *item in communities) {
+			[watchlist setValue:autoOpen forKey:item];
+		}// end foreach joined community or channel
+	}// end foreach account
+	
+	[watchlist addEntriesFromDictionary:manualWatchList];
+}// end - (void) rebuildWatchlist
 #pragma mark - C functions
 
 @end

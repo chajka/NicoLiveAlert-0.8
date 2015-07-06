@@ -15,5 +15,11 @@
 	NSMutableDictionary			*manualWatchList;
 	NSMutableDictionary			*watchlist;
 }
+@property (readonly) NSMutableDictionary	*watchlist;
 
+- (id) init;
+
+- (BOOL) addAccount:(NSString *)mailaddress;
+- (BOOL) addAccount:(NSString *)mailaddress password:(NSString *)password;
+- (void) refresh;
 @end
