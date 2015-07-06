@@ -9,11 +9,16 @@
 #ifndef NicoLiveAlert_NicoLiveAlertDefinitions_h
 #define NicoLiveAlert_NicoLiveAlertDefinitions_h
 
+#define EmptyString									@""
+
 #pragma mark - URLs
 #define NicoLoginForm								@"https://secure.nicovideo.jp/secure/login_form"
 #define NicoLoginGetTicketURL						@"https://secure.nicovideo.jp/secure/login"
 #define NicoLiveGetAlertStatusURL					@"http://live.nicovideo.jp/api/getalertstatus"
-
+#define NicoStreamInfoQuery							@"http://live.nicovideo.jp/api/getstreaminfo/%@"
+#define NicoStreamEmbedQuery						@"http://live.nicovideo.jp/embed/%@"
+#define NicoProgramURLFormat						@"http://live.nicovideo.jp/watch/%@"
+#define NicknameQuery								@"http://seiga.nicovideo.jp/api/user/info?id=%@"
 
 #define StartStreamRequestElement					@"<thread thread=\"%@\" version=\"20061206\" res_from=\"-1\"/>\0"
 
@@ -52,6 +57,78 @@ enum elementLiteralIndex {
 	indexCode,
 	indexDesc
 };
+
+#pragma mark - definitions for Statusbar
+#define DeactiveConnection							@"Disconnected"
+#define ActiveNoprogString							@"Monitoring"
+#define userProgramOnly								@"%ld User program"
+#define officialProgramOnly							@"%ld Official program"
+#define TwoOrMoreSuffix								@"s"
+#define StringConcatinater							@", "
+
+enum statusBarMenuItems {
+	tagAutoOpen = 1001,
+	tagPorgrams,
+	tagOfficial,
+	tagSep1 = 1010,
+	tagAccounts,
+	tagResetConnection,
+	tagRescanRSS,
+	tagLaunchApplications,
+	tagSep2 = 1020,
+	tagPreference,
+	tagCheckUpdate,
+	tagQuit
+};
+
+// Status Bar menu's localized string definition
+#define TITLEAUTOOPEN								NSLocalizedString(@"TitleAutoOpen", @"")
+#define	TITLEPROGRAMS								NSLocalizedString(@"TitlePrograms", @"")
+
+#define	TITLEACCOUNTS								NSLocalizedString(@"TitleAccounts", @"")
+#define TITLERESETCONNECTION						NSLocalizedString(@"TitleResetConnection", @"")
+#define TITLESCANRSS								NSLocalizedString(@"TitleScanRSS", @"")
+#define	TITLELAUNCHER								NSLocalizedString(@"TitleLauncher", @"")
+#define	TITLEPREFERENCE								NSLocalizedString(@"TitlePreference", @"")
+#define TITLECHECKUPDATE							NSLocalizedString(@"TitleCheckUpdate", @"")
+
+#define TITLEABOUT									NSLocalizedString(@"TitleAbout", @"")
+#define	TITLEQUIT									NSLocalizedString(@"TitleQuit", @"")
+// Status Bar menu's alternative strings definition
+#define TITLEUSERNOPROG								NSLocalizedString(@"TitleUserNoProgram", @"")
+#define TITLEUSERSINGLEPROG							NSLocalizedString(@"TitleUserSingleProgram", @"")
+#define TITLEUSERSOMEPROG							NSLocalizedString(@"TitleUserSomePrograms", @"")
+#define TITLEOFFICIALNOPROG							NSLocalizedString(@"TitleOfficialNoProgram", @"")
+#define TITLEOFFICIALSINGLEPROG						NSLocalizedString(@"TitleOfficialSingleProgram", @"")
+#define TITLEOFFICIALSOMEPROG						NSLocalizedString(@"TitleOfficialSomePrograms", @"")
+
+// regular expression definition
+#define WatchKindRegex								@"^((co|ch|lv)\\d+)"
+
+//
+#define rangePrefix									NSMakeRange(0, 2)
+#define kindCommunity								@"co"
+#define kindChannel									@"ch"
+#define kindOfficial								@"of"
+#define kindProgram									@"lv"
+
+enum WatchTargetKind {
+	indexWatchCommunity = 1,
+	indexWatchChannel,
+	indexWatchProgram
+};
+// url format definition
+#define URLFormatCommunity							@"http://com.nicovideo.jp/community/%@"
+#define URLFormatChannel							@"http://ch.nicovideo.jp/channel/%@"
+#define URLFormatLive								@"http://live.nicovideo.jp/watch/%@"
+#define URLFormatUser								@"http://www.nicovideo.jp/user/%@"
+
+#pragma mark -
+#pragma mark definitions for NLStatusbar
+
+#pragma mark - users default constant
+#define UsersDefaultResourceType					@"plist"
+#define UsersDefaultFileName						@"UsersDefaults"
 
 #pragma mark - saved preference keys
 #define SavedAccountListKey							@"AccountsList"
