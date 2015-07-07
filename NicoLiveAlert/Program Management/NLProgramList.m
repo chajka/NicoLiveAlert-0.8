@@ -16,13 +16,14 @@
 #pragma mark - synthesize properties
 #pragma mark - class method
 #pragma mark - constructor / destructor
-- (id) initWithAccounts:(NLAccounts *)accnts
+- (id) initWithAccounts:(NLAccounts *)accnts siever:(NLProgramSiever *)siever_
 {
 	self = [super init];
 	if (self) {
 		reachable = NO;
 		requestPosted = NO;
 		accounts = accnts;
+		siever = siever_;
 		NLAccount *account = [accounts.accounts objectAtIndex:0];
 		NSString *hostName = account.server;
 		int port = (int)account.port;
@@ -117,6 +118,8 @@
 	if (result != nil) {
 		NSString *programlist = [kindProgram stringByAppendingString:[result stringAt:1]];
 //NSLog(@"} %@ {", programlist);
+		NSArray *programInfo = [programlist componentsSeparatedByString:@","];
+		[siever checkProgram:programInfo];
 	}
 }// end - (void) readStreamHasBytesAvailable:(NSInputStream *)stream
 

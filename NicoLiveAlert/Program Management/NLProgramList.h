@@ -10,10 +10,13 @@
 #import <CocoaOniguruma/OnigRegexp.h>
 #import "YCStreamSession.h"
 #import "NLAccounts.h"
+#import "NLProgramSiever.h"
 
 @interface NLProgramList : NSObject <YCStreamSessionDelegate> {
 	YCStreamSession					*session;
 	NLAccounts						*accounts;
+	NLProgramSiever					*siever;
+
 	NSString						*requestEelement;
 	BOOL							reachable;
 
@@ -25,5 +28,5 @@
 	CFMutableDataRef				recievedData;
 	OnigRegexp						*programlistRegex;
 }
-- (id) initWithAccounts:(NLAccounts *)accnts;
+- (id) initWithAccounts:(NLAccounts *)accounts siever:(NLProgramSiever *)siever;
 @end

@@ -9,9 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "NLAccounts.h"
 #import "NLProgramList.h"
+#import "NLProgramSiever.h"
 
 @interface NicoLiveAlert : NSObject <NSApplicationDelegate> {
 	NLAccounts							*allUsers;
+	NLProgramSiever						*siever;
 	NLProgramList						*programLister;
 }
 

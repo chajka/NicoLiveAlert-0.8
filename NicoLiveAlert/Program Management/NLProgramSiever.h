@@ -12,4 +12,6 @@
 	NSDictionary						*watchlist;
 }
 - (id) initWithWatchlist:(NSDictionary *)watchlist;
+
+- (void) checkProgram:(NSArray *)programInfo;
 @end

@@ -26,11 +26,12 @@
 - (void) applicationWillFinishLaunching:(NSNotification *)notification
 {
 	allUsers = [[NLAccounts alloc] init];
+	siever = [[NLProgramSiever alloc] initWithWatchlist:allUsers.watchlist];
 }// end - (void) applicationWillFinishLaunching:(NSNotification *)notification
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	programLister = [[NLProgramList alloc] initWithAccounts:allUsers];
+	programLister = [[NLProgramList alloc] initWithAccounts:allUsers siever:siever];
 }// end - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 
 - (void) applicationWillTerminate:(NSNotification *)aNotification

@@ -114,6 +114,9 @@ enum statusBarMenuItems {
 #define kindChannel									@"ch"
 #define kindOfficial								@"of"
 #define kindProgram									@"lv"
+#define kindOfficalProgram							@"official"
+#define OffsetLiveNumber							(0)
+#define OffsetOfficialTitle							(1)
 
 enum WatchTargetKind {
 	indexWatchCommunity = 1,
