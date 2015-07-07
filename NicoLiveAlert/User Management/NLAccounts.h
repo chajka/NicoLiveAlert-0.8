@@ -15,6 +15,7 @@
 	NSMutableDictionary			*manualWatchList;
 	NSMutableDictionary			*watchlist;
 }
+@property (readonly) NSMutableArray			*accounts;
 @property (readonly) NSMutableDictionary	*watchlist;
 
 - (id) init;

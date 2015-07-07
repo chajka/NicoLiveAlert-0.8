@@ -17,6 +17,7 @@
 
 @implementation NLAccounts
 #pragma mark - synthesize properties
+@synthesize accounts;
 @synthesize watchlist;
 #pragma mark - class method
 #pragma mark - constructor / destructor
