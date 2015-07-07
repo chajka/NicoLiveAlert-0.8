@@ -27,6 +27,7 @@
 {
 	allUsers = [[NLAccounts alloc] init];
 	siever = [[NLProgramSiever alloc] initWithWatchlist:allUsers.watchlist];
+	statusbar = [[NLStatusbar alloc] initWithMenu:menuStatusbar andImageName:@"sbicon"];
 }// end - (void) applicationWillFinishLaunching:(NSNotification *)notification
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification

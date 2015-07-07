@@ -10,11 +10,15 @@
 #import "NLAccounts.h"
 #import "NLProgramList.h"
 #import "NLProgramSiever.h"
+#import "NLStatusbar.h"
 
 @interface NicoLiveAlert : NSObject <NSApplicationDelegate> {
+	IBOutlet NSMenu						*menuStatusbar;
+	
 	NLAccounts							*allUsers;
 	NLProgramSiever						*siever;
 	NLProgramList						*programLister;
+	NLStatusbar							*statusbar;
 }
 
 
