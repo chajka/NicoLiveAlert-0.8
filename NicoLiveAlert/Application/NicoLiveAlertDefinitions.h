@@ -20,7 +20,10 @@
 #define NicoProgramURLFormat						@"http://live.nicovideo.jp/watch/%@"
 #define NicknameQuery								@"http://seiga.nicovideo.jp/api/user/info?id=%@"
 
-#define StartStreamRequestElement					@"<thread thread=\"%@\" version=\"20061206\" res_from=\"-1\"/>\0"
+#define StartStreamRequestElement					@"<thread thread=\"%@\" version=\"20061206\" res_from=\"-1\"/>"
+
+#pragma mark - Regular expressions
+#define ProgramListRegex							@"<chat .*>(.+)</chat>"
 
 #pragma mark - account info xml element keys
 // Exception definition
@@ -111,6 +114,9 @@ enum statusBarMenuItems {
 #define kindChannel									@"ch"
 #define kindOfficial								@"of"
 #define kindProgram									@"lv"
+#define kindOfficalProgram							@"official"
+#define OffsetLiveNumber							(0)
+#define OffsetOfficialTitle							(1)
 
 enum WatchTargetKind {
 	indexWatchCommunity = 1,
