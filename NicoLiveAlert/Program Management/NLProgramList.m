@@ -8,6 +8,7 @@
 
 #import "NLProgramList.h"
 #import "NicoLiveAlertDefinitions.h"
+#import <CocoaOniguruma/OnigRegexp.h>
 
 #define UNLIMITED								(0)
 
@@ -26,9 +27,10 @@
 		NSString *hostName = account.server;
 		int port = (int)account.port;
 		requestEelement = [[NSString alloc] initWithFormat:StartStreamRequestElement, account.thread];
-		GCDsession = [[YCStreamSessionGCD alloc] initWithHostName:hostName andPort:port];
-		[GCDsession setDelegate:self];
-		[GCDsession checkReadyToConnect];
+		session = [[YCStreamSession alloc] initWithHostName:hostName andPort:port];
+		[session setDelegate:self];
+		[session checkReadyToConnect];
+		programlistRegex = [OnigRegexp compile:ProgramListRegex];
 		recievedData = CFDataCreateMutable(kCFAllocatorDefault, UNLIMITED);
 	}// end if self;
 
@@ -65,13 +67,13 @@
 }// end - (void) write:(NSString *)str
 #pragma mark - C functions
 #pragma mark - Common StreamConnectionDelegate methods
-- (void) streamReadyToConnect:(YCStreamSessionGCD *)session reachable:(BOOL)reachable_
+- (void) streamReadyToConnect:(YCStreamSession*)session_ reachable:(BOOL)reachable_
 {
-	if (session == GCDsession)
+	if (session == session_)
 		reachable = reachable_;
 
 	if (reachable)
-		[GCDsession connect];
+		[session connect];
 }// end - (void) streamReadyToConnect:(YCStreamSessionGCD *)session reachable:(BOOL)reachable
 
 /*
@@ -108,9 +110,14 @@
 	} while (repeat);
 
 	NSString *resultElement = [[NSString alloc] initWithData:(__bridge NSData *)recievedData encoding:NSUTF8StringEncoding];
-NSLog(@"%@", resultElement);
 	CFRelease(recievedData);
 	recievedData = CFDataCreateMutable(kCFAllocatorDefault, UNLIMITED);
+
+	OnigResult *result = [programlistRegex search:resultElement];
+	if (result != nil) {
+		NSString *programlist = [kindProgram stringByAppendingString:[result stringAt:1]];
+//NSLog(@"} %@ {", programlist);
+	}
 }// end - (void) readStreamHasBytesAvailable:(NSInputStream *)stream
 
 - (void) readStreamEndEncounted:(NSInputStream *)stream

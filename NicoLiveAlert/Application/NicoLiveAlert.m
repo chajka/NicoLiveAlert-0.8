@@ -25,12 +25,12 @@
 
 - (void) applicationWillFinishLaunching:(NSNotification *)notification
 {
-	
+	allUsers = [[NLAccounts alloc] init];
 }// end - (void) applicationWillFinishLaunching:(NSNotification *)notification
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	// Insert code here to initialize your application
+	programLister = [[NLProgramList alloc] initWithAccounts:allUsers];
 }// end - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 
 - (void) applicationWillTerminate:(NSNotification *)aNotification

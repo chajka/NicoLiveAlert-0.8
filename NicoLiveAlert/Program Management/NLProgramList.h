@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YCStreamSessionGCD.h"
+#import <CocoaOniguruma/OnigRegexp.h>
+#import "YCStreamSession.h"
 #import "NLAccounts.h"
 
-@interface NLProgramList : NSObject <YCStreamSessionGCDDelegate> {
-	YCStreamSessionGCD				*GCDsession;
+@interface NLProgramList : NSObject <YCStreamSessionDelegate> {
+	YCStreamSession					*session;
 	NLAccounts						*accounts;
 	NSString						*requestEelement;
 	BOOL							reachable;
@@ -22,6 +23,7 @@
 	NSOutputStream					*streamToWrite;
 
 	CFMutableDataRef				recievedData;
+	OnigRegexp						*programlistRegex;
 }
-
+- (id) initWithAccounts:(NLAccounts *)accnts;
 @end

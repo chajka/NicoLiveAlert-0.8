@@ -20,7 +20,10 @@
 #define NicoProgramURLFormat						@"http://live.nicovideo.jp/watch/%@"
 #define NicknameQuery								@"http://seiga.nicovideo.jp/api/user/info?id=%@"
 
-#define StartStreamRequestElement					@"<thread thread=\"%@\" version=\"20061206\" res_from=\"-1\"/>\0"
+#define StartStreamRequestElement					@"<thread thread=\"%@\" version=\"20061206\" res_from=\"-1\"/>"
+
+#pragma mark - Regular expressions
+#define ProgramListRegex							@"<chat .*>(.+)</chat>"
 
 #pragma mark - account info xml element keys
 // Exception definition

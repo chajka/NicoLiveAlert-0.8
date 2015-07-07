@@ -7,8 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NLAccounts.h"
+#import "NLProgramList.h"
 
-@interface NicoLiveAlert : NSObject <NSApplicationDelegate>
+@interface NicoLiveAlert : NSObject <NSApplicationDelegate> {
+	NLAccounts							*allUsers;
+	NLProgramList						*programLister;
+}
 
 
 @end
