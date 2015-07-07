@@ -37,6 +37,11 @@
 
 	return self;
 }// end - (id) initWithAccounts:(NLAccounts *)accnts
+
+- (void) dealloc
+{
+	CFRelease(recievedData);
+}// end - (void) dealloc
 #pragma mark - override
 #pragma mark - delegate
 #pragma mark - properties
@@ -111,8 +116,10 @@
 	} while (repeat);
 
 	NSString *resultElement = [[NSString alloc] initWithData:(__bridge NSData *)recievedData encoding:NSUTF8StringEncoding];
-	CFRelease(recievedData);
-	recievedData = CFDataCreateMutable(kCFAllocatorDefault, UNLIMITED);
+	
+	CFIndex length = CFDataGetLength(recievedData);
+	CFRange range = CFRangeMake(0, length);
+	CFDataDeleteBytes(recievedData, range);
 
 	OnigResult *result = [programlistRegex search:resultElement];
 	if (result != nil) {
@@ -125,7 +132,6 @@
 
 - (void) readStreamEndEncounted:(NSInputStream *)stream
 {
-	CFRelease(recievedData);
 }// end - (void) readStreamEndEncounted:(NSInputStream *)stream
 /*
 - (void) readStreamErrorOccured:(NSInputStream *)iStream
