@@ -20,6 +20,7 @@
 {
 	self = [super init];
 	if (self) {
+		queue = dispatch_queue_create("NLProgramList", DISPATCH_QUEUE_CONCURRENT);
 		reachable = NO;
 		requestPosted = NO;
 		accounts = accnts;
@@ -114,20 +115,22 @@
 				break;
 		}// end switch
 	} while (repeat);
-
+	
 	NSString *resultElement = [[NSString alloc] initWithData:(__bridge NSData *)recievedData encoding:NSUTF8StringEncoding];
 	
 	CFIndex length = CFDataGetLength(recievedData);
 	CFRange range = CFRangeMake(0, length);
 	CFDataDeleteBytes(recievedData, range);
-
+	
 	OnigResult *result = [programlistRegex search:resultElement];
 	if (result != nil) {
-		NSString *programlist = [kindProgram stringByAppendingString:[result stringAt:1]];
+		dispatch_async(queue, ^{
+			NSString *programlist = [kindProgram stringByAppendingString:[result stringAt:1]];
 //NSLog(@"} %@ {", programlist);
-		NSArray *programInfo = [programlist componentsSeparatedByString:@","];
-		[siever checkProgram:programInfo];
-	}
+			NSArray *programInfo = [programlist componentsSeparatedByString:@","];
+			[siever checkProgram:programInfo];
+		});
+	}// end if result is there
 }// end - (void) readStreamHasBytesAvailable:(NSInputStream *)stream
 
 - (void) readStreamEndEncounted:(NSInputStream *)stream
