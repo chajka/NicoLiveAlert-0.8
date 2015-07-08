@@ -16,7 +16,7 @@
 #pragma mark - synthesize properties
 #pragma mark - class method
 #pragma mark - constructor / destructor
-- (id) initWithAccounts:(NLAccounts *)accnts siever:(NLProgramSiever *)siever_
+- (id) initWithAccounts:(NLAccounts *)accnts siever:(NLProgramSiever *)siever_  statusbar:(NLStatusbar *)statusbar_
 {
 	self = [super init];
 	if (self) {
@@ -25,6 +25,8 @@
 		requestPosted = NO;
 		accounts = accnts;
 		siever = siever_;
+		statusbar = statusbar_;
+
 		NLAccount *account = [accounts.accounts objectAtIndex:0];
 		NSString *hostName = account.server;
 		int port = (int)account.port;
@@ -37,7 +39,7 @@
 	}// end if self;
 
 	return self;
-}// end - (id) initWithAccounts:(NLAccounts *)accnts
+}// end - (id) initWithAccounts:(NLAccounts *)accnts siever:(NLProgramSiever *)siever_  statusbar:(NLStatusbar *)statusbar_
 
 - (void) dealloc
 {
@@ -81,6 +83,7 @@
 
 	if (reachable)
 		[session connect];
+	statusbar.connected = YES;
 }// end - (void) streamReadyToConnect:(YCStreamSessionGCD *)session reachable:(BOOL)reachable
 
 /*

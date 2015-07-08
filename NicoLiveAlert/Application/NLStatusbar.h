@@ -45,6 +45,9 @@
 
 
 - (id) initWithMenu:(NSMenu *)menu andImageName:(NSString *)imageName;
+
+- (void) updateUserState;
+
 - (void) addToUserMenu:(NSMenuItem *)item;
 - (void) removeFromUserMenu:(NSMenuItem *)item;
 - (void) addToOfficialMenu:(NSMenuItem *)item;

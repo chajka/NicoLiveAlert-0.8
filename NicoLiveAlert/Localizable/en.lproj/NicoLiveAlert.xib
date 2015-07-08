@@ -692,6 +692,7 @@
                 <menuItem isSeparatorItem="YES" tag="1010" id="lZv-YU-AAF"/>
                 <menuItem title="Accounts" state="mixed" onStateImage="NLOnState" offStateImage="NLOffState" mixedStateImage="NLMixedState" tag="1011" id="W9Z-Ee-MS3">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Menu" id="2Ld-G9-Dkt"/>
                 </menuItem>
                 <menuItem title="ResetConnection" tag="1012" id="kM8-Kg-kV4">
                     <modifierMask key="keyEquivalentModifierMask"/>

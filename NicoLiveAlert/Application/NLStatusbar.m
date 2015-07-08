@@ -125,6 +125,25 @@ static CGFloat disconnectedColorAlpha = 0.70;
 
 #pragma mark - actions
 #pragma mark - messages
+- (void) updateUserState
+{
+	NSMenu *usersMenu = [[statusbarMenu itemWithTag:tagAccounts] submenu];
+	NSArray *accounts = [usersMenu itemArray];
+	NSUInteger userCount = [accounts count];
+	int activeCount = 0;
+	for (NSMenuItem *item in accounts) {
+		if ([item state] == NSOnState)
+			activeCount++;
+	}// end foreach
+
+	if (activeCount == 0)
+		self.userState = NSOffState;
+	else if (activeCount == userCount)
+		self.userState = NSOnState;
+	else
+		self.userState = NSMixedState;
+}// end - (void) updateUserState
+
 - (void) addToUserMenu:(NSMenuItem *)item
 {
 	if (userProgramCount == 0)
@@ -296,17 +315,22 @@ static CGFloat disconnectedColorAlpha = 0.70;
 	[[statusbarMenu itemWithTag:tagPreference] setTitle:TITLEPREFERENCE];
 	[[statusbarMenu itemWithTag:tagCheckUpdate] setTitle:TITLECHECKUPDATE];
 	[[statusbarMenu itemWithTag:tagQuit] setTitle:TITLEQUIT];
-*/	
+*/
+
+	NSImage *onImage = [NSImage imageNamed:OnImageName];
+	NSImage *offImage = [NSImage imageNamed:OffImageName];
+	NSImage *mixedImage = [NSImage imageNamed:MixedImageName];
+	NSMenuItem *accountItem = [statusbarMenu itemWithTag:tagAccounts];
+	[accountItem setOnStateImage:onImage];
+	[accountItem setOffStateImage:offImage];
+	[accountItem setMixedStateImage:mixedImage];
+
 	[statusBarItem setMenu:statusbarMenu];
 }// end - (void) installStatusbarMenu
 
 - (void) makeStatusbarIcon
 {
-#if __has_feature(objc_arc)
 	@autoreleasepool {
-#else
-		NSAutoreleasePool *arp = [[NSAutoreleasePool alloc] init];
-#endif
 		CIImage *invertImage = nil;
 		CIImage *destImage = nil;
 		[statusbarIcon setSize:iconSize];
@@ -390,20 +414,13 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		// update status bar icon.
 		[statusBarItem setImage:statusbarIcon];
 		[statusBarItem setAlternateImage:statusbarAlt];
+
+		// update User state
+		[[statusbarMenu itemWithTag:tagAccounts] setState:userState];
 		
 		// update tooltip
 		[self updateToolTip];
-		
-#if __has_feature(objc_arc)
 	}
-#else
-	[statusbarIcon release];
-	[statusbarAlt release];
-	[arp drain];
-#endif
-#if __has_feature(objc_arc) == 0
-	//	[destImage release];
-#endif
 }// end - (CIImage *) makeStatusbarIcon
 
 - (void) updateToolTip
