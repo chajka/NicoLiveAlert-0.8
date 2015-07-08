@@ -16,14 +16,17 @@
 #pragma mark - synthesize properties
 #pragma mark - class method
 #pragma mark - constructor / destructor
-- (id) initWithAccounts:(NLAccounts *)accnts siever:(NLProgramSiever *)siever_
+- (id) initWithAccounts:(NLAccounts *)accnts siever:(NLProgramSiever *)siever_  statusbar:(NLStatusbar *)statusbar_
 {
 	self = [super init];
 	if (self) {
+		queue = dispatch_queue_create("NLProgramList", DISPATCH_QUEUE_CONCURRENT);
 		reachable = NO;
 		requestPosted = NO;
 		accounts = accnts;
 		siever = siever_;
+		statusbar = statusbar_;
+
 		NLAccount *account = [accounts.accounts objectAtIndex:0];
 		NSString *hostName = account.server;
 		int port = (int)account.port;
@@ -36,7 +39,12 @@
 	}// end if self;
 
 	return self;
-}// end - (id) initWithAccounts:(NLAccounts *)accnts
+}// end - (id) initWithAccounts:(NLAccounts *)accnts siever:(NLProgramSiever *)siever_  statusbar:(NLStatusbar *)statusbar_
+
+- (void) dealloc
+{
+	CFRelease(recievedData);
+}// end - (void) dealloc
 #pragma mark - override
 #pragma mark - delegate
 #pragma mark - properties
@@ -75,6 +83,7 @@
 
 	if (reachable)
 		[session connect];
+	statusbar.connected = YES;
 }// end - (void) streamReadyToConnect:(YCStreamSessionGCD *)session reachable:(BOOL)reachable
 
 /*
@@ -109,23 +118,26 @@
 				break;
 		}// end switch
 	} while (repeat);
-
+	
 	NSString *resultElement = [[NSString alloc] initWithData:(__bridge NSData *)recievedData encoding:NSUTF8StringEncoding];
-	CFRelease(recievedData);
-	recievedData = CFDataCreateMutable(kCFAllocatorDefault, UNLIMITED);
-
+	
+	CFIndex length = CFDataGetLength(recievedData);
+	CFRange range = CFRangeMake(0, length);
+	CFDataDeleteBytes(recievedData, range);
+	
 	OnigResult *result = [programlistRegex search:resultElement];
 	if (result != nil) {
-		NSString *programlist = [kindProgram stringByAppendingString:[result stringAt:1]];
+		dispatch_async(queue, ^{
+			NSString *programlist = [kindProgram stringByAppendingString:[result stringAt:1]];
 //NSLog(@"} %@ {", programlist);
-		NSArray *programInfo = [programlist componentsSeparatedByString:@","];
-		[siever checkProgram:programInfo];
-	}
+			NSArray *programInfo = [programlist componentsSeparatedByString:@","];
+			[siever checkProgram:programInfo];
+		});
+	}// end if result is there
 }// end - (void) readStreamHasBytesAvailable:(NSInputStream *)stream
 
 - (void) readStreamEndEncounted:(NSInputStream *)stream
 {
-	CFRelease(recievedData);
 }// end - (void) readStreamEndEncounted:(NSInputStream *)stream
 /*
 - (void) readStreamErrorOccured:(NSInputStream *)iStream

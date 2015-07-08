@@ -84,6 +84,10 @@ enum statusBarMenuItems {
 	tagQuit
 };
 
+#define OnImageName									@"NLOnState"
+#define OffImageName								@"NLOffState"
+#define MixedImageName								@"NLMixedState"
+
 // Status Bar menu's localized string definition
 #define TITLEAUTOOPEN								NSLocalizedString(@"TitleAutoOpen", @"")
 #define	TITLEPROGRAMS								NSLocalizedString(@"TitlePrograms", @"")

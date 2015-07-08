@@ -14,6 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="NicoLiveAlert">
             <connections>
+                <outlet property="menuStatusbar" destination="yMk-RP-AmN" id="eqT-fM-nWS"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -677,5 +678,54 @@
                 <autoresizingMask key="autoresizingMask"/>
             </view>
         </window>
+        <menu id="yMk-RP-AmN" userLabel="Statusbar Menu">
+            <items>
+                <menuItem title="AutoOpen Checked Live" tag="1001" alternate="YES" id="tBP-gJ-e4t">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Programs" onStateImage="NLOnState" tag="1002" id="Jfn-aI-GaP">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="OfficialPrograms" onStateImage="NLOnState" tag="1003" id="xq4-ai-Ovp">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" tag="1010" id="lZv-YU-AAF"/>
+                <menuItem title="Accounts" state="mixed" onStateImage="NLOnState" offStateImage="NLOffState" mixedStateImage="NLMixedState" tag="1011" id="W9Z-Ee-MS3">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Menu" id="2Ld-G9-Dkt"/>
+                </menuItem>
+                <menuItem title="ResetConnection" tag="1012" id="kM8-Kg-kV4">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Scan RSS" tag="1013" id="I45-BE-PKH">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Launch Applications" tag="1014" id="shh-uq-CSu">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Preference…" tag="1015" id="0CA-lg-AAu">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" tag="1020" id="Yua-ff-b5T"/>
+                <menuItem title="About NicoLiveAlert…" tag="1021" id="Pw3-6M-B3z">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Check for updates" tag="1022" id="n5C-nH-ol7">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Quit" tag="1023" id="Bas-nF-PqI">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="terminate:" target="-1" id="rth-8Y-dGa"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="71" y="390.5"/>
+        </menu>
     </objects>
+    <resources>
+        <image name="NLMixedState" width="12" height="12"/>
+        <image name="NLOffState" width="12" height="12"/>
+        <image name="NLOnState" width="12" height="12"/>
+    </resources>
 </document>

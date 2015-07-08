@@ -18,6 +18,7 @@
 @implementation NLAccounts
 #pragma mark - synthesize properties
 @synthesize accounts;
+@synthesize users;
 @synthesize watchlist;
 #pragma mark - class method
 #pragma mark - constructor / destructor
@@ -106,13 +107,15 @@
 	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
 		// restore accounts
 	accounts = [[NSMutableArray alloc] init];
-	NSArray *users = [ud arrayForKey:SavedAccountListKey];
-	for (NSDictionary *user in users) {
+	users = [[NSMutableDictionary alloc] init];
+	NSArray *prefusers = [ud arrayForKey:SavedAccountListKey];
+	for (NSDictionary *user in prefusers) {
 		NSString *accnt = [user valueForKey:AccountValueMailAddress];
 		NLAccount *account = [[NLAccount alloc] initWithAccount:accnt];
 		if (account != nil) {
 			account.watchEnable = [[user valueForKey:AccountValueWatchEnabled] boolValue];
 			[accounts addObject:account];
+			[users setValue:account forKey:account.nickname];
 		}// end if account is there
 	}// end foreach
 

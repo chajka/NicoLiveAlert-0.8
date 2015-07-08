@@ -7,15 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <dispatch/dispatch.h>
 #import <CocoaOniguruma/OnigRegexp.h>
 #import "YCStreamSession.h"
 #import "NLAccounts.h"
 #import "NLProgramSiever.h"
+#import "NLStatusbar.h"
 
 @interface NLProgramList : NSObject <YCStreamSessionDelegate> {
+	dispatch_queue_t				queue;
 	YCStreamSession					*session;
 	NLAccounts						*accounts;
 	NLProgramSiever					*siever;
+	NLStatusbar						*statusbar;
 
 	NSString						*requestEelement;
 	BOOL							reachable;
@@ -28,5 +32,5 @@
 	CFMutableDataRef				recievedData;
 	OnigRegexp						*programlistRegex;
 }
-- (id) initWithAccounts:(NLAccounts *)accounts siever:(NLProgramSiever *)siever;
+- (id) initWithAccounts:(NLAccounts *)accounts siever:(NLProgramSiever *)siever statusbar:(NLStatusbar *)statusbar;
 @end

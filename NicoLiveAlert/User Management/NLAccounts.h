@@ -11,11 +11,13 @@
 
 @interface NLAccounts : NSObject {
 	NSMutableArray				*accounts;
+	NSMutableDictionary			*users;
 
 	NSMutableDictionary			*manualWatchList;
 	NSMutableDictionary			*watchlist;
 }
 @property (readonly) NSMutableArray			*accounts;
+@property (readonly) NSMutableDictionary	*users;
 @property (readonly) NSMutableDictionary	*watchlist;
 
 - (id) init;
