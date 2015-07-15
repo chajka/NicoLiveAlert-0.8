@@ -10,9 +10,6 @@
 
 @interface NLCommunityProgram : NLOfficialProgram <NSXMLParserDelegate>{
 	NSString								*description;
-	NSString								*communityNumber;
-	NSString								*communityName;
-	NSString								*ownerName;
 	
 	NSDictionary							*elementsDict;
 	NSMutableString							*stringBuffer;

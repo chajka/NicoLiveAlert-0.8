@@ -55,7 +55,7 @@
 	OnigRegexp *regex = [OnigRegexp compile:NicknamePickupRegex];
 	OnigResult *res = [regex search:nicknameResult];
 	if (res != nil)
-		ownerName = [[NSString alloc] initWithString:[res stringAt:1]];
+		broadcastOwnerName = [[NSString alloc] initWithString:[res stringAt:1]];
 }// end - (void) correctOwnerName:(NSString *)ownerID
 
 - (void) notify

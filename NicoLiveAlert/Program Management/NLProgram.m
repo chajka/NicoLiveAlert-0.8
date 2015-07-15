@@ -28,9 +28,16 @@
 {
 	NSString *notificationName = GrowlNotifyStartOfficialProgram;
 	if (reserved == YES) {
-		NSTimer *notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:0 target:self selector:@selector(notify:) userInfo:nil repeats:NO];
+#ifdef DEBUG
+		NSLog(@"Hook Notify");
+#endif
+		NSTimer *notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:10 target:self selector:@selector(notify:) userInfo:nil repeats:NO];
 		[[NSRunLoop currentRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
 		notificationName = GrowlNotifyFoundOfficialProgram;
+#ifdef DEBUG
+		NSLog(@"Timer is %@", [notifyTimer isValid] ? @"valid" : @"invarid");
+		NSLog(@"FireDate : %@", [[notifyTimer fireDate] descriptionWithCalendarFormat:nil timeZone:[NSTimeZone localTimeZone] locale:nil]);
+#endif
 	}// end if
 	
 	[GrowlApplicationBridge notifyWithTitle:programTitle description:programDescription notificationName:notificationName iconData:[thumbnail TIFFRepresentation] priority:0 isSticky:NO clickContext:nil];
@@ -38,6 +45,9 @@
 #pragma mark - private
 - (void) notify:(NSTimer *)timer
 {
+#ifdef DEBUG
+	NSLog(@"Timerd Notify");
+#endif
 	[GrowlApplicationBridge notifyWithTitle:programTitle description:programDescription notificationName:GrowlNotifyStartOfficialProgram iconData:[thumbnail TIFFRepresentation] priority:0 isSticky:NO clickContext:nil];
 }// end - (void) notify:(NSTimer *)timer
 #pragma mark - C functions

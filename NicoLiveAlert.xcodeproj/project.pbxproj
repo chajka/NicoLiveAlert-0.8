@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		C63B1A531B4F853C005CA9B9 /* NLCommunityProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */; };
 		C64CBCB81B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */; };
+		C64CBCC51B5674E100ACA92D /* CollaborationNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = C64CBCC41B5674E100ACA92D /* CollaborationNotifier.m */; };
+		C64CBCC71B5674E100ACA92D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C64CBCC61B5674E100ACA92D /* main.m */; };
+		C64CBCCA1B5674E100ACA92D /* CollaborationNotifier.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = C64CBCBE1B5674E100ACA92D /* CollaborationNotifier.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C64CBCD71B5718A500ACA92D /* NLProgramTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C64CBCD61B5718A500ACA92D /* NLProgramTest.m */; };
 		C65015131B4A943700FC44DD /* NLProgramList.m in Sources */ = {isa = PBXBuildFile; fileRef = C65015121B4A943700FC44DD /* NLProgramList.m */; };
 		C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */; };
 		C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C67335271B49B45E00AC88AD /* NicoLiveAlert.m */; };
@@ -47,6 +51,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C64CBCC81B5674E100ACA92D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C650C3551B49A944005AC163 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C64CBCBD1B5674E100ACA92D;
+			remoteInfo = CollaborationNotifier;
+		};
 		C650C3711B49A944005AC163 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C650C3551B49A944005AC163 /* Project object */;
@@ -63,6 +74,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
 			dstSubfolderSpec = 16;
 			files = (
+				C64CBCCA1B5674E100ACA92D /* CollaborationNotifier.xpc in Embed XPC Services */,
 			);
 			name = "Embed XPC Services";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +99,13 @@
 		C63B1A511B4F853C005CA9B9 /* NLCommunityProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLCommunityProgram.h; path = "Program Management/NLCommunityProgram.h"; sourceTree = "<group>"; };
 		C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLCommunityProgram.m; path = "Program Management/NLCommunityProgram.m"; sourceTree = "<group>"; };
 		C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Growl Registration Ticket.growlRegDict"; path = "Supporting Files/Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		C64CBCBE1B5674E100ACA92D /* CollaborationNotifier.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = CollaborationNotifier.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		C64CBCC11B5674E100ACA92D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C64CBCC21B5674E100ACA92D /* CollaborationNotifierProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollaborationNotifierProtocol.h; sourceTree = "<group>"; };
+		C64CBCC31B5674E100ACA92D /* CollaborationNotifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollaborationNotifier.h; sourceTree = "<group>"; };
+		C64CBCC41B5674E100ACA92D /* CollaborationNotifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollaborationNotifier.m; sourceTree = "<group>"; };
+		C64CBCC61B5674E100ACA92D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C64CBCD61B5718A500ACA92D /* NLProgramTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLProgramTest.m; sourceTree = "<group>"; };
 		C65015111B4A943700FC44DD /* NLProgramList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLProgramList.h; path = "Program Management/NLProgramList.h"; sourceTree = "<group>"; };
 		C65015121B4A943700FC44DD /* NLProgramList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgramList.m; path = "Program Management/NLProgramList.m"; sourceTree = "<group>"; };
 		C650C35D1B49A944005AC163 /* NicoLiveAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NicoLiveAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +156,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C64CBCBB1B5674E100ACA92D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C650C35A1B49A944005AC163 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -163,8 +189,29 @@
 		C64CBCB91B56435C00ACA92D /* XPC */ = {
 			isa = PBXGroup;
 			children = (
+				C64CBCBF1B5674E100ACA92D /* CollaborationNotifier */,
 			);
 			name = XPC;
+			sourceTree = "<group>";
+		};
+		C64CBCBF1B5674E100ACA92D /* CollaborationNotifier */ = {
+			isa = PBXGroup;
+			children = (
+				C64CBCC21B5674E100ACA92D /* CollaborationNotifierProtocol.h */,
+				C64CBCC31B5674E100ACA92D /* CollaborationNotifier.h */,
+				C64CBCC41B5674E100ACA92D /* CollaborationNotifier.m */,
+				C64CBCC61B5674E100ACA92D /* main.m */,
+				C64CBCC01B5674E100ACA92D /* Supporting Files */,
+			);
+			path = CollaborationNotifier;
+			sourceTree = "<group>";
+		};
+		C64CBCC01B5674E100ACA92D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C64CBCC11B5674E100ACA92D /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C65015101B4A93E500FC44DD /* Program Management */ = {
@@ -200,6 +247,7 @@
 			children = (
 				C650C35D1B49A944005AC163 /* NicoLiveAlert.app */,
 				C650C3701B49A944005AC163 /* NicoLiveAlertTests.xctest */,
+				C64CBCBE1B5674E100ACA92D /* CollaborationNotifier.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,6 +284,7 @@
 				C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */,
 				C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */,
 				C650C3741B49A944005AC163 /* Supporting Files */,
+				C64CBCD61B5718A500ACA92D /* NLProgramTest.m */,
 			);
 			path = NicoLiveAlertTests;
 			sourceTree = "<group>";
@@ -347,6 +396,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C64CBCBD1B5674E100ACA92D /* CollaborationNotifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C64CBCCB1B5674E100ACA92D /* Build configuration list for PBXNativeTarget "CollaborationNotifier" */;
+			buildPhases = (
+				C64CBCBA1B5674E100ACA92D /* Sources */,
+				C64CBCBB1B5674E100ACA92D /* Frameworks */,
+				C64CBCBC1B5674E100ACA92D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CollaborationNotifier;
+			productName = CollaborationNotifier;
+			productReference = C64CBCBE1B5674E100ACA92D /* CollaborationNotifier.xpc */;
+			productType = "com.apple.product-type.xpc-service";
+		};
 		C650C35C1B49A944005AC163 /* NicoLiveAlert */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C650C37A1B49A944005AC163 /* Build configuration list for PBXNativeTarget "NicoLiveAlert" */;
@@ -361,6 +427,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C64CBCC91B5674E100ACA92D /* PBXTargetDependency */,
 			);
 			name = NicoLiveAlert;
 			productName = NicoLiveAlert;
@@ -394,6 +461,9 @@
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Instrumentality of Mankind";
 				TargetAttributes = {
+					C64CBCBD1B5674E100ACA92D = {
+						CreatedOnToolsVersion = 6.4;
+					};
 					C650C35C1B49A944005AC163 = {
 						CreatedOnToolsVersion = 6.4;
 						SystemCapabilities = {
@@ -423,11 +493,19 @@
 			targets = (
 				C650C35C1B49A944005AC163 /* NicoLiveAlert */,
 				C650C36F1B49A944005AC163 /* NicoLiveAlertTests */,
+				C64CBCBD1B5674E100ACA92D /* CollaborationNotifier */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C64CBCBC1B5674E100ACA92D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C650C35B1B49A944005AC163 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -473,6 +551,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C64CBCBA1B5674E100ACA92D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C64CBCC71B5674E100ACA92D /* main.m in Sources */,
+				C64CBCC51B5674E100ACA92D /* CollaborationNotifier.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C650C3591B49A944005AC163 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64CBCD71B5718A500ACA92D /* NLProgramTest.m in Sources */,
 				C67AF0A21B4A6E83000B8272 /* NLAccountsTest.m in Sources */,
 				C67AF09D1B49E4A0000B8272 /* NLAccountTests.m in Sources */,
 				C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */,
@@ -506,6 +594,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C64CBCC91B5674E100ACA92D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C64CBCBD1B5674E100ACA92D /* CollaborationNotifier */;
+			targetProxy = C64CBCC81B5674E100ACA92D /* PBXContainerItemProxy */;
+		};
 		C650C3721B49A944005AC163 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C650C35C1B49A944005AC163 /* NicoLiveAlert */;
@@ -525,6 +618,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C64CBCCC1B5674E100ACA92D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Чайка";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CollaborationNotifier/Info.plist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C64CBCCD1B5674E100ACA92D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Чайка";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CollaborationNotifier/Info.plist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		C650C3781B49A944005AC163 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -689,6 +808,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C64CBCCB1B5674E100ACA92D /* Build configuration list for PBXNativeTarget "CollaborationNotifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C64CBCCC1B5674E100ACA92D /* Debug */,
+				C64CBCCD1B5674E100ACA92D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C650C3581B49A944005AC163 /* Build configuration list for PBXProject "NicoLiveAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

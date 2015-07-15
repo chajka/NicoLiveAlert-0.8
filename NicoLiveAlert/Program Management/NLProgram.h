@@ -18,11 +18,23 @@
 	NSString								*programNumber;
 	NSString								*programTitle;
 	NSString								*programDescription;
+	NSString								*broadcastOwnerName;
+	NSString								*communityNumber;
+	NSString								*communityName;
 	NSImage									*thumbnail;
+
+	NSString								*primaryAccount;
 	
 	BOOL									reserved;
 	NSDate									*openTime;
 	NSDate									*startTime;
+	NSString								*startTimeString;
+
+		// variable for drawing
+	NSBezierPath							*background;
+	NSBezierPath							*timeMask;
+	NSMutableDictionary						*stringAttributes;
+	NSImage									*ownerName;
 }
 
 - (void) notify;

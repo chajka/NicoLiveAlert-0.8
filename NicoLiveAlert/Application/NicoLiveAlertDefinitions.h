@@ -64,6 +64,27 @@ enum elementLiteralIndex {
 	indexDesc
 };
 
+#pragma mark -
+#pragma mark definitions for class NLProgram
+// Attribute literal
+#define fontNameOfProgramTitle		@"HiraKakuPro-W6"
+#define fontNameOfProgramOwner		@"HiraKakuPro-W3"
+#define fontNameOfDescription		@"HiraMaruPro-W4"
+#define fontNameOfCommunity			@"HiraKakuPro-W6"
+#define fontNameOfPrimaryAccount	@"Futura-Medium"
+#define fontNameOfElapsedTime		@"CourierNewPS-BoldMT"
+
+#define ProgramFromRSSOwnerName		@"RSS"
+#define OfficialTitleString	NSLocalizedString(@"OfficialTitleString", @"")
+#define StartUserTimeFormat			@" %H:%M + 00:00"
+#define ReserveUserTimeFormat		@" %%H:%%M - 00:%02ld"
+#define StartOfficialTimeFormat		@"  %H:%M + 00:00"
+#define ReserveOfficialTimeFormat	@"  %%H:%%M - 00:%02ld"
+#define ElapsedTimeFormat			@"%02ld:%02ld"
+#define CountDownTimeFormat			@"%02ld:%02ld"
+#define TimeFormatString			@"%H:%M"
+#define TimeSanityFormatString		@"%@%@%@"
+
 #pragma mark - NLOfficialProgram
 #define ProgramTtileRegex							@"<h1 class=\"title\">(.*)</h1>"
 #define ProgramThumbnailRegex						@"<img src=\"(http://(icon\\.n|nl\\.s)img.jp/.*)\" alt=\"\">"

@@ -55,9 +55,6 @@
 		NSURL *url = [NSURL URLWithString:[res stringAt:1]];
 		NSData *thumbData = [HTTPConnection HTTPData:url response:&resp];
 		thumbnail = [[NSImage alloc] initWithData:thumbData];
-#ifdef DEBUG
-		NSLog(@"thumbnail : %@", thumbnail);
-#endif
 	}// end if
 
 		// get start time
@@ -68,19 +65,10 @@
 		NSString *sanitizedDateString = [originalDateString replaceAllByRegexp:DateSanityRegex with:EmptyString];
 		NSDictionary *localeDict = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
 		startTime = [NSDate dateWithNaturalLanguageString:sanitizedDateString locale:localeDict];
-	}// end if
-
-		// get time shift state
-	regex = [OnigRegexp compile:ProgramStatusRegex];
-	res = [regex search:embedSource];
-	if (res != nil) {
-		NSString *state = [res stringAt:1];
-		if ([state isEqualToString:BEFORETSSTATE])
+		if ([startTime compare:[NSDate date]] == NSOrderedDescending)
 			reserved = YES;
-		else
-			reserved = NO;
 	}// end if
-		
+	
 }// end - (void) parseEmbed:(NSString *)liveNumber
 #pragma mark - C functions
 
