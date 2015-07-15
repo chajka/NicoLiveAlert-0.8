@@ -63,6 +63,7 @@
 {
 	NSLog(@"Official : %@", liveNumber);
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
+	[prog notify];
 	NSLog(@"%@", prog);
 }// end - (void) officialProgram:(NSString *)liveNumber
 
@@ -80,6 +81,7 @@
 {
 	NSLog(@"Community : %@, autoOpen %c", liveNumber, (autoOpen == YES) ? 'Y':'N');
 	NLCommunityProgram *prog = [[NLCommunityProgram alloc] initWithLiveNumber:liveNumber owner:owner];
+	[prog notify];
 	NSLog(@"%@", prog);
 }// end - (void) communityProgram:(NSString *)liveNumber autoOpen:(BOOL)autoOpen
 #pragma mark - C functions

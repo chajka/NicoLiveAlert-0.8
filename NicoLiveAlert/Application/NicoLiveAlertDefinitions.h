@@ -171,6 +171,18 @@ enum WatchTargetKind {
 #define URLFormatUser								@"http://www.nicovideo.jp/user/%@"
 
 #pragma mark -
+#pragma mark Growling
+
+#define GrowlNotifyStartMonitoring		@"Start monitoring"
+#define GrowlNotifyDisconnected			@"Disconnected"
+#define GrowlNotifyFoundOfficialProgram	@"Found Official Program"
+#define GrowlNotifyStartOfficialProgram	@"Start Official Program"
+#define GrowlNotifyFoundUserProgram		@"Found User Program"
+#define GrowlNotifyStartUserProgram		@"Start User Program"
+#define	GrowlNotifyFoundListedProgram	@"Found in Manual Watch List"
+#define GrowlNotifyStartListedProgram	@"Start in Manual watch List"
+
+#pragma mark -
 #pragma mark definitions for NLStatusbar
 
 #pragma mark - users default constant

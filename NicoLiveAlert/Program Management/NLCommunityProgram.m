@@ -9,6 +9,7 @@
 #import "NLCommunityProgram.h"
 #import "NicoLiveAlertDefinitions.h"
 #import "HTTPConnection.h"
+#import <Growl/Growl.h>
 #import <CocoaOniguruma/OnigRegexp.h>
 
 @interface NLCommunityProgram ()
@@ -57,7 +58,23 @@
 		ownerName = [[NSString alloc] initWithString:[res stringAt:1]];
 }// end - (void) correctOwnerName:(NSString *)ownerID
 
-#pragma mark - C functions
+- (void) notify
+{
+	NSString *notificationName = GrowlNotifyStartUserProgram;
+	if (reserved == YES) {
+		NSTimer *notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:0 target:self selector:@selector(notify:) userInfo:nil repeats:NO];
+		[[NSRunLoop currentRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
+		notificationName = GrowlNotifyFoundUserProgram;
+	}// end if
+
+	[GrowlApplicationBridge notifyWithTitle:programTitle description:programDescription notificationName:notificationName iconData:[thumbnail TIFFRepresentation] priority:0 isSticky:NO clickContext:nil];
+}// end - (void) notify
+#pragma mark - private
+- (void) notify:(NSTimer *)timer
+{
+	[GrowlApplicationBridge notifyWithTitle:programTitle description:programDescription notificationName:GrowlNotifyStartUserProgram iconData:[thumbnail TIFFRepresentation] priority:0 isSticky:NO clickContext:nil];
+}// end - (void) notify:(NSTimer *)timer
+
 #pragma mark - NSXMLParser degegate methods
 - (void) parserDidStartDocument:(NSXMLParser *)parser
 {

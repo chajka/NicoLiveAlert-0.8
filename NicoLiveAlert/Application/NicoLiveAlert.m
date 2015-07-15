@@ -13,6 +13,14 @@
 
 @property (weak) IBOutlet NSWindow *window;
 - (void) setAccountsMenu;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+static void uncaughtExceptionHandler(NSException *exception);
+#ifdef __cplusplus
+} //end extern "C"
+#endif
 @end
 
 @implementation NicoLiveAlert
@@ -22,11 +30,15 @@
 #pragma mark - override
 - (void) awakeFromNib
 {
+	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 	statusbar = [[NLStatusbar alloc] initWithMenu:menuStatusbar andImageName:@"sbicon"];
 }// end - (void) awakeFromNib
 
 - (void) applicationWillFinishLaunching:(NSNotification *)notification
 {
+	[GrowlApplicationBridge registrationDictionaryFromBundle:nil];
+	[GrowlApplicationBridge setGrowlDelegate:self];
+
 	allUsers = [[NLAccounts alloc] init];
 	[self setAccountsMenu];
 	siever = [[NLProgramSiever alloc] initWithWatchlist:allUsers.watchlist statusbar:statusbar];
@@ -69,5 +81,12 @@
 	[statusbar updateUserState];
 }// end - (void) setAccountsMenu
 #pragma mark - C functions
+static
+void uncaughtExceptionHandler(NSException *exception)
+{
+	NSLog(@"%@", exception.name);
+	NSLog(@"%@", exception.reason);
+	NSLog(@"%@", exception.callStackSymbols);
+}// end void uncaughtExceptionHandler(NSException *exception)
 
 @end

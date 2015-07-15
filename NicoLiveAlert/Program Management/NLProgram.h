@@ -25,4 +25,5 @@
 	NSDate									*startTime;
 }
 
+- (void) notify;
 @end

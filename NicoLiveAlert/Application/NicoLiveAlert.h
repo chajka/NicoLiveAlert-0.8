@@ -7,12 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Growl/Growl.h>
 #import "NLAccounts.h"
 #import "NLProgramList.h"
 #import "NLProgramSiever.h"
 #import "NLStatusbar.h"
 
-@interface NicoLiveAlert : NSObject <NSApplicationDelegate> {
+@interface NicoLiveAlert : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate> {
 	IBOutlet NSMenu						*menuStatusbar;
 	
 	NLAccounts							*allUsers;

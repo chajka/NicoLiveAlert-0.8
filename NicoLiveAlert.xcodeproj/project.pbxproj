@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C63B1A531B4F853C005CA9B9 /* NLCommunityProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */; };
+		C64CBCB81B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */; };
 		C65015131B4A943700FC44DD /* NLProgramList.m in Sources */ = {isa = PBXBuildFile; fileRef = C65015121B4A943700FC44DD /* NLProgramList.m */; };
 		C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */; };
 		C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C67335271B49B45E00AC88AD /* NicoLiveAlert.m */; };
@@ -56,6 +57,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C64CBCB41B56371D00ACA92D /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C673353D1B49BA0200AC88AD /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,6 +86,7 @@
 /* Begin PBXFileReference section */
 		C63B1A511B4F853C005CA9B9 /* NLCommunityProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLCommunityProgram.h; path = "Program Management/NLCommunityProgram.h"; sourceTree = "<group>"; };
 		C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLCommunityProgram.m; path = "Program Management/NLCommunityProgram.m"; sourceTree = "<group>"; };
+		C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Growl Registration Ticket.growlRegDict"; path = "Supporting Files/Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		C65015111B4A943700FC44DD /* NLProgramList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLProgramList.h; path = "Program Management/NLProgramList.h"; sourceTree = "<group>"; };
 		C65015121B4A943700FC44DD /* NLProgramList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgramList.m; path = "Program Management/NLProgramList.m"; sourceTree = "<group>"; };
 		C650C35D1B49A944005AC163 /* NicoLiveAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NicoLiveAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +160,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C64CBCB91B56435C00ACA92D /* XPC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = XPC;
+			sourceTree = "<group>";
+		};
 		C65015101B4A93E500FC44DD /* Program Management */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				C650C35F1B49A944005AC163 /* NicoLiveAlert */,
+				C64CBCB91B56435C00ACA92D /* XPC */,
 				C673352E1B49B98600AC88AD /* Frameworks */,
 				C650C3731B49A944005AC163 /* NicoLiveAlertTests */,
 				C650C35E1B49A944005AC163 /* Products */,
@@ -202,6 +222,7 @@
 		C650C3601B49A944005AC163 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */,
 				C673352A1B49B47900AC88AD /* Info.plist */,
 				C673352B1B49B47900AC88AD /* main.m */,
 			);
@@ -331,9 +352,11 @@
 			buildConfigurationList = C650C37A1B49A944005AC163 /* Build configuration list for PBXNativeTarget "NicoLiveAlert" */;
 			buildPhases = (
 				C650C3591B49A944005AC163 /* Sources */,
-				C650C35A1B49A944005AC163 /* Frameworks */,
 				C650C35B1B49A944005AC163 /* Resources */,
+				C650C35A1B49A944005AC163 /* Frameworks */,
 				C673353D1B49BA0200AC88AD /* Copy Frameworks */,
+				C64CBCB41B56371D00ACA92D /* Embed XPC Services */,
+				C64CBCB61B563B6C00ACA92D /* Copy GNTP Client Service */,
 			);
 			buildRules = (
 			);
@@ -419,6 +442,7 @@
 				C67402671B4C2448009F956F /* About.png in Resources */,
 				C67402651B4C2448009F956F /* NicoLiveAlert.icns in Resources */,
 				C67402641B4C2448009F956F /* Password.png in Resources */,
+				C64CBCB81B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +454,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C64CBCB61B563B6C00ACA92D /* Copy GNTP Client Service */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy GNTP Client Service";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "XPC_START=\"$SRCROOT/External/Growl/XPC Client/\"\nXPC_SCRIPT=\"$SRCROOT/External/Growl/XPC Client/xpc-rename-move.rb\"\nruby \"$XPC_SCRIPT\" \"$XPC_START\" \"$BUILT_PRODUCTS_DIR/$WRAPPER_NAME\" \"$CODE_SIGN_IDENTITY\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C650C3591B49A944005AC163 /* Sources */ = {
