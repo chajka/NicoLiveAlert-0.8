@@ -29,7 +29,7 @@
 {
 	allUsers = [[NLAccounts alloc] init];
 	[self setAccountsMenu];
-	siever = [[NLProgramSiever alloc] initWithWatchlist:allUsers.watchlist];
+	siever = [[NLProgramSiever alloc] initWithWatchlist:allUsers.watchlist statusbar:statusbar];
 }// end - (void) applicationWillFinishLaunching:(NSNotification *)notification
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification

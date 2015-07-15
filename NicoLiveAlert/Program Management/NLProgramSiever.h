@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NLStatusbar.h"
 
 @interface NLProgramSiever : NSObject {
 	NSDictionary						*watchlist;
+	NLStatusbar							*statusbar;
 }
-- (id) initWithWatchlist:(NSDictionary *)watchlist;
+- (id) initWithWatchlist:(NSDictionary *)watchlist statusbar:(NLStatusbar *)statusbar;
 
 - (void) checkProgram:(NSArray *)programInfo;
 @end

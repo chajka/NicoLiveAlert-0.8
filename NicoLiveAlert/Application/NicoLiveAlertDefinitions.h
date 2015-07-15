@@ -15,15 +15,18 @@
 #define NicoLoginForm								@"https://secure.nicovideo.jp/secure/login_form"
 #define NicoLoginGetTicketURL						@"https://secure.nicovideo.jp/secure/login"
 #define NicoLiveGetAlertStatusURL					@"http://live.nicovideo.jp/api/getalertstatus"
-#define NicoStreamInfoQuery							@"http://live.nicovideo.jp/api/getstreaminfo/%@"
-#define NicoStreamEmbedQuery						@"http://live.nicovideo.jp/embed/%@"
-#define NicoProgramURLFormat						@"http://live.nicovideo.jp/watch/%@"
-#define NicknameQuery								@"http://seiga.nicovideo.jp/api/user/info?id=%@"
+#define NicoStreamInfoQuery							@"http://live.nicovideo.jp/api/getstreaminfo/"
+#define NicoStreamEmbedQuery						@"http://live.nicovideo.jp/embed/"
+#define NicoPlayerStatusQuery						@"http://live.nicovideo.jp/api/getplayerstatus?v="
+#define NicoProgramURLFormat						@"http://live.nicovideo.jp/watch/"
+#define NicknameQuery								@"http://seiga.nicovideo.jp/api/user/info?id="
 
 #define StartStreamRequestElement					@"<thread thread=\"%@\" version=\"20061206\" res_from=\"-1\"/>"
 
 #pragma mark - Regular expressions
 #define ProgramListRegex							@"<chat .*>(.+)</chat>"
+#define CommunityTitleRegex							@"<name>(.*)</name>"
+#define NicknamePickupRegex							@"<nickname>(.*)</nickname>"
 
 #pragma mark - account info xml element keys
 // Exception definition
@@ -60,6 +63,36 @@ enum elementLiteralIndex {
 	indexCode,
 	indexDesc
 };
+
+#pragma mark - NLOfficialProgram
+#define ProgramTtileRegex							@"<h1 class=\"title\">(.*)</h1>"
+#define ProgramThumbnailRegex						@"<img src=\"(http://(icon\\.n|nl\\.s)img.jp/.*)\" alt=\"\">"
+#define ProgramStatusRegex							@"<div class=\"status (before|beforeTS|onair|done|doneTS)\">"
+#define ProgramStartTimeRegex						@"<div class=\"data\">(.*)</div>"
+#define DateSanityRegex								@"<\\?font[^>]*>"
+
+#define ONAIRSTATE									@"onair"
+#define BEFORESTATE									@"before"
+#define BEFORETSSTATE								@"beforeTS"
+#define DONESTATE									@"done"
+#define DONETSSTATE									@"doneTS"
+
+#pragma mark - getstreaminfo xml keys
+#define elementKeyRequestID							@"request_id"
+#define elementKeyProgramTitle						@"title"
+#define elementKeyProgramDescription				@"description"
+#define elementKeyDefaultCommunity					@"default_community"
+#define elementKeyCommunityName						@"name"
+#define elementKeyCommunityThumbnail				@"thumbnail"
+enum getstreamInfoIndex {
+	IndexRequestID = 1,
+	IndexProgramTitle,
+	IndexProgramDesc,
+	IndexDefaultCommunity,
+	IndexCommunityName,
+	IndexCommunityThumbnail
+};
+
 
 #pragma mark - definitions for Statusbar
 #define DeactiveConnection							@"Disconnected"
@@ -119,8 +152,12 @@ enum statusBarMenuItems {
 #define kindOfficial								@"of"
 #define kindProgram									@"lv"
 #define kindOfficalProgram							@"official"
-#define OffsetLiveNumber							(0)
-#define OffsetOfficialTitle							(1)
+enum programInfoKind {
+	OffsetLiveNumber = 0,
+	OffsetOfficialTitle = 1,
+	OffsetCommunityChannelNumber = 1,
+	OffsetProgramOwnerID = 2
+};
 
 enum WatchTargetKind {
 	indexWatchCommunity = 1,

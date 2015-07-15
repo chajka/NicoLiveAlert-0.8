@@ -2,7 +2,7 @@
 //  NLProgram.m
 //  NicoLiveAlert
 //
-//  Created by Чайка on 7/8/15.
+//  Created by Чайка on 7/14/15.
 //  Copyright (c) 2015 Instrumentality of Mankind. All rights reserved.
 //
 

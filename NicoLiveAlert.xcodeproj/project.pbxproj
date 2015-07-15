@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C63B1A531B4F853C005CA9B9 /* NLCommunityProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */; };
 		C65015131B4A943700FC44DD /* NLProgramList.m in Sources */ = {isa = PBXBuildFile; fileRef = C65015121B4A943700FC44DD /* NLProgramList.m */; };
 		C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */; };
 		C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C67335271B49B45E00AC88AD /* NicoLiveAlert.m */; };
@@ -34,13 +35,14 @@
 		C67402651B4C2448009F956F /* NicoLiveAlert.icns in Resources */ = {isa = PBXBuildFile; fileRef = C674025C1B4C2448009F956F /* NicoLiveAlert.icns */; };
 		C67402661B4C2448009F956F /* Applications.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025D1B4C2448009F956F /* Applications.png */; };
 		C67402671B4C2448009F956F /* About.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025E1B4C2448009F956F /* About.png */; };
-		C674026B1B4CD764009F956F /* NLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C674026A1B4CD764009F956F /* NLProgram.m */; };
 		C67AF0941B49D08F000B8272 /* NLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0931B49D08F000B8272 /* NLAccount.m */; };
 		C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */; };
 		C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0981B49E137000B8272 /* HTTPConnection.m */; };
 		C67AF09D1B49E4A0000B8272 /* NLAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */; };
 		C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09F1B4A23CA000B8272 /* NLAccounts.m */; };
 		C67AF0A21B4A6E83000B8272 /* NLAccountsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */; };
+		C6CB9F861B5501DF001373ED /* NLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CB9F851B5501DF001373ED /* NLProgram.m */; };
+		C6F332A81B4D38AC009BE435 /* NLOfficialProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F332A71B4D38AC009BE435 /* NLOfficialProgram.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C63B1A511B4F853C005CA9B9 /* NLCommunityProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLCommunityProgram.h; path = "Program Management/NLCommunityProgram.h"; sourceTree = "<group>"; };
+		C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLCommunityProgram.m; path = "Program Management/NLCommunityProgram.m"; sourceTree = "<group>"; };
 		C65015111B4A943700FC44DD /* NLProgramList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLProgramList.h; path = "Program Management/NLProgramList.h"; sourceTree = "<group>"; };
 		C65015121B4A943700FC44DD /* NLProgramList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgramList.m; path = "Program Management/NLProgramList.m"; sourceTree = "<group>"; };
 		C650C35D1B49A944005AC163 /* NicoLiveAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NicoLiveAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,8 +107,6 @@
 		C674025C1B4C2448009F956F /* NicoLiveAlert.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = NicoLiveAlert.icns; path = Images/NicoLiveAlert.icns; sourceTree = "<group>"; };
 		C674025D1B4C2448009F956F /* Applications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Applications.png; path = Images/Applications.png; sourceTree = "<group>"; };
 		C674025E1B4C2448009F956F /* About.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = About.png; path = Images/About.png; sourceTree = "<group>"; };
-		C67402691B4CD764009F956F /* NLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLProgram.h; path = "Program Management/NLProgram.h"; sourceTree = "<group>"; };
-		C674026A1B4CD764009F956F /* NLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgram.m; path = "Program Management/NLProgram.m"; sourceTree = "<group>"; };
 		C67AF0921B49D08F000B8272 /* NLAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLAccount.h; path = "User Management/NLAccount.h"; sourceTree = "<group>"; };
 		C67AF0931B49D08F000B8272 /* NLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLAccount.m; path = "User Management/NLAccount.m"; sourceTree = "<group>"; };
 		C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YCStreamSessionGCD.m; path = NetworkBits/YCStreamSessionGCD.m; sourceTree = "<group>"; };
@@ -116,6 +118,10 @@
 		C67AF09F1B4A23CA000B8272 /* NLAccounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLAccounts.m; path = "User Management/NLAccounts.m"; sourceTree = "<group>"; };
 		C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLAccountsTest.m; sourceTree = "<group>"; };
 		C67AF0A31B4A706C000B8272 /* NicoLiveAlert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NicoLiveAlert.entitlements; sourceTree = "<group>"; };
+		C6CB9F841B5501DF001373ED /* NLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLProgram.h; path = "Program Management/NLProgram.h"; sourceTree = "<group>"; };
+		C6CB9F851B5501DF001373ED /* NLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgram.m; path = "Program Management/NLProgram.m"; sourceTree = "<group>"; };
+		C6F332A61B4D38AC009BE435 /* NLOfficialProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLOfficialProgram.h; path = "Program Management/NLOfficialProgram.h"; sourceTree = "<group>"; };
+		C6F332A71B4D38AC009BE435 /* NLOfficialProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLOfficialProgram.m; path = "Program Management/NLOfficialProgram.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +155,12 @@
 				C65015121B4A943700FC44DD /* NLProgramList.m */,
 				C674024F1B4BF576009F956F /* NLProgramSiever.h */,
 				C67402501B4BF576009F956F /* NLProgramSiever.m */,
-				C67402691B4CD764009F956F /* NLProgram.h */,
-				C674026A1B4CD764009F956F /* NLProgram.m */,
+				C6CB9F841B5501DF001373ED /* NLProgram.h */,
+				C6CB9F851B5501DF001373ED /* NLProgram.m */,
+				C6F332A61B4D38AC009BE435 /* NLOfficialProgram.h */,
+				C6F332A71B4D38AC009BE435 /* NLOfficialProgram.m */,
+				C63B1A511B4F853C005CA9B9 /* NLCommunityProgram.h */,
+				C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */,
 			);
 			name = "Program Management";
 			sourceTree = "<group>";
@@ -426,12 +436,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6CB9F861B5501DF001373ED /* NLProgram.m in Sources */,
 				C674024E1B4BEC1B009F956F /* YCStreamSession.m in Sources */,
 				C673352D1B49B47900AC88AD /* main.m in Sources */,
+				C63B1A531B4F853C005CA9B9 /* NLCommunityProgram.m in Sources */,
 				C67402511B4BF576009F956F /* NLProgramSiever.m in Sources */,
 				C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */,
 				C67AF0941B49D08F000B8272 /* NLAccount.m in Sources */,
-				C674026B1B4CD764009F956F /* NLProgram.m in Sources */,
+				C6F332A81B4D38AC009BE435 /* NLOfficialProgram.m in Sources */,
 				C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */,
 				C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */,
 				C67402541B4C193B009F956F /* NLStatusbar.m in Sources */,
