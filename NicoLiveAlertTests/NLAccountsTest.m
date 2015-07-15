@@ -26,9 +26,15 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void) test01_allocation {
 	NLAccounts *users = [[NLAccounts alloc] init];
     XCTAssertNotNil(users, @"Test01 allocation fail\"%s\"", __PRETTY_FUNCTION__);
+}
+
+- (void) test02_primaryAccount {
+	NLAccounts *users = [[NLAccounts alloc] init];
+	NSString *nickname = [users primaryAccountForCommunity:@"co547708"];
+	XCTAssertEqualObjects(nickname, @"Чайка", @"Test02 primary account fail\"%s\"", __PRETTY_FUNCTION__);
 }
 
 - (void)testPerformanceExample {

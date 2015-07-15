@@ -71,6 +71,17 @@
 	}// end foreach all accounts
 }// end - (void) removeAccount:(NSString *)mailaddress
 
+- (NSString *) primaryAccountForCommunity:(NSString *)community
+{
+	for (NSString *nickname in [users allKeys]) {
+		NLAccount *account = [users valueForKey:nickname];
+		if ([account.joined containsObject:community])
+			return nickname;
+	}// end foreach accounts
+
+	return @"Manual";
+}// end - (NSString *) primaryAccountForCommunity:(NSString *)community
+
 - (void) addManualWatchItem:(NSString *)item autoOpen:(BOOL)autoOpen_
 {
 	NSNumber *autoOpen = [NSNumber numberWithBool:autoOpen_];
