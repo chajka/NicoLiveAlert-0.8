@@ -35,6 +35,7 @@
 		// variable for drawing
 	NSImage									*imageBuffer;
 	NSMutableDictionary						*stringAttributes;
+}
 
 - (void) notify;
 - (NSMenuItem *) menuItem;

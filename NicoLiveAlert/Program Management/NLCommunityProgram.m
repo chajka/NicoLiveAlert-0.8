@@ -29,7 +29,7 @@ const static CGFloat CommunityNameBoundsH = 15;
 const static CGFloat NicknameOffsetX = CommunityNameOffsetX + CommunityNameBoundsW + 5;
 const static CGFloat NicknameOffsetY = CommunityNameOffsetY;
 
-const static CGFloat OffsetTitleX = 5;
+const static CGFloat OffsetTitleX = 0;
 const static CGFloat OffsetTitleY = thumnailSize + 2;
 
 const static CGFloat OffsetPrimaryX = thumnailSize + 3;

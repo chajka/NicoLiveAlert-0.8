@@ -23,6 +23,11 @@
 #pragma mark - delegate
 #pragma mark - properties
 #pragma mark - actions
+- (IBAction) openProgram:(id)sender
+{
+	NSURL *liveURL = [NSURL URLWithString:[NicoProgramURLFormat stringByAppendingString:programNumber]];
+	[[NSWorkspace sharedWorkspace] openURL:liveURL];
+}// end - (IBAction) openProgram:(id)sender
 #pragma mark - messages
 - (void) notify
 {
