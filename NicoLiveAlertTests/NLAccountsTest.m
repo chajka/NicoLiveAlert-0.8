@@ -33,7 +33,7 @@
 
 - (void) test02_primaryAccount {
 	NLAccounts *users = [[NLAccounts alloc] init];
-	NSString *nickname = [users primaryAccountForCommunity:@"co547708"];
+	NSString *nickname = [users primaryAccountForCommunity:@"co387285"];
 	XCTAssertEqualObjects(nickname, @"Чайка", @"Test02 primary account fail\"%s\"", __PRETTY_FUNCTION__);
 }
 

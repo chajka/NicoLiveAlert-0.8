@@ -26,7 +26,7 @@
 {
 	self = [super init];
 	if (self) {
-		accnts = accnts;
+		accounts = accnts;
 		watchlist = accnts.watchlist;
 		statusbar = bar;
 	}// end if self
@@ -71,6 +71,9 @@
 - (void) officialProgram:(NSString *)liveNumber title:(NSString *)title
 {
 	NSLog(@"Official : %@, Titile : %@", liveNumber, title);
+	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
+	[prog notify];
+	NSLog(@"%@", prog);
 }// end - (void) officialBroadcast:(NSString *)liveNumber title:(NSString *)title
 
 - (void) channelProgram:(NSString *)liveNumber

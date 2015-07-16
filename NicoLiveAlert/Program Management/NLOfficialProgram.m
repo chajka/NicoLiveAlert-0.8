@@ -25,6 +25,7 @@
 	if (self) {
 		[self parseEmbed:liveno];
 		programNumber = [[NSString alloc] initWithString:liveno];
+		communityName = @"Official";
 	}// end if self
 
 	return self;

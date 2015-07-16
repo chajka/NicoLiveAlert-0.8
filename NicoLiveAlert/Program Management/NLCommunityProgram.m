@@ -25,7 +25,7 @@
 {
 	self = [super initWithLiveNumber:liveno];
 	if (self) {
-		primaryAccount = [[NSString alloc] initWithString:primaryAccount];
+		primaryAccount = [[NSString alloc] initWithString:accnt];
 		[self parseStreamInfo:liveno];
 		[self correctOwnerName:owner];
 	}// end if self
