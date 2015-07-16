@@ -15,23 +15,24 @@
 - (void) officialProgram:(NSString *)liveNumber;
 - (void) officialProgram:(NSString *)liveNumber title:(NSString *)title;
 - (void) channelProgram:(NSString *)liveNumber;
-- (void) communityProgram:(NSString *)liveNumber owner:(NSString *)owner autoOpen:(BOOL)autoOpen;
+- (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen;
 @end
 
 @implementation NLProgramSiever
 #pragma mark - synthesize properties
 #pragma mark - class method
 #pragma mark - constructor / destructor
-- (id) initWithWatchlist:(NSDictionary *)watchlist_ statusbar:(NLStatusbar *)bar
+- (id) initWithAccounts:(NLAccounts *)accnts statusbar:(NLStatusbar *)bar
 {
 	self = [super init];
 	if (self) {
-		watchlist = watchlist_;
+		accnts = accnts;
+		watchlist = accnts.watchlist;
 		statusbar = bar;
 	}// end if self
 
 	return self;
-}// end - (id) initWithWatchlist:(NSDictionary *)watchlist_ statusbar:(NLStatusbar *)bar
+}// end - (id) initWithAccounts:(NLAccounts *)accnts statusbar:(NLStatusbar *)bar
 #pragma mark - override
 #pragma mark - delegate
 #pragma mark - properties
@@ -52,7 +53,7 @@
 	for (NSString *item in programInfo) {
 		NSNumber *autoOpen = [watchlist valueForKey:item];
 		if (autoOpen != nil) {
-			[self communityProgram:[programInfo objectAtIndex:OffsetLiveNumber] owner:[programInfo objectAtIndex:OffsetProgramOwnerID] autoOpen:[autoOpen boolValue]];
+			[self communityProgram:[programInfo objectAtIndex:OffsetLiveNumber] community:[programInfo objectAtIndex:OffsetCommunityChannelNumber] owner:[programInfo objectAtIndex:OffsetProgramOwnerID] autoOpen:[autoOpen boolValue]];
 			break;
 		}// end if
 	}//end foreach
@@ -77,13 +78,14 @@
 	NSLog(@"Channel : %@", liveNumber);
 }// end - (void) channelProgram:(NSString *)liveNumber
 
-- (void) communityProgram:(NSString *)liveNumber owner:(NSString *)owner autoOpen:(BOOL)autoOpen
+- (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen
 {
 	NSLog(@"Community : %@, autoOpen %c", liveNumber, (autoOpen == YES) ? 'Y':'N');
-	NLCommunityProgram *prog = [[NLCommunityProgram alloc] initWithLiveNumber:liveNumber owner:owner];
+	NSString *primaryAccount = [accounts primaryAccountForCommunity:community];
+	NLCommunityProgram *prog = [[NLCommunityProgram alloc] initWithLiveNumber:liveNumber owner:owner primaryAccount:primaryAccount];
 	[prog notify];
 	NSLog(@"%@", prog);
-}// end - (void) communityProgram:(NSString *)liveNumber autoOpen:(BOOL)autoOpen
+}// end - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen
 #pragma mark - C functions
 
 @end

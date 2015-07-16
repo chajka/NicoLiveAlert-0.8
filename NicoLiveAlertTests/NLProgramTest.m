@@ -30,7 +30,8 @@
 	NSDate *startDate = [NSDate dateWithNaturalLanguageString:@"7月16日(木) 01:00" locale:nil];
 	NSComparisonResult order = [startDate compare:openDate];
 	NSLog(@"%@", [startDate descriptionWithLocale:[NSLocale currentLocale]]);
- 
+	NSString *dateString = [startDate descriptionWithCalendarFormat:@"%H:%M"  timeZone:[NSTimeZone localTimeZone] locale:nil];
+	NSLog(@"%@", dateString);
     XCTAssert(YES, @"Pass");
 }
 

@@ -21,16 +21,17 @@
 #pragma mark - synthesize properties
 #pragma mark - class method
 #pragma mark - constructor / destructor
-- (id) initWithLiveNumber:(NSString *)liveno owner:(NSString *)owner
+- (id) initWithLiveNumber:(NSString *)liveno owner:(NSString *)owner primaryAccount:(NSString *)accnt
 {
 	self = [super initWithLiveNumber:liveno];
 	if (self) {
+		primaryAccount = [[NSString alloc] initWithString:primaryAccount];
 		[self parseStreamInfo:liveno];
 		[self correctOwnerName:owner];
 	}// end if self
 
 	return self;
-}// end - (id) initWithLiveNumber:(NSString *)liveno owner:(NSString *)owner
+}// end - (id) initWithLiveNumber:(NSString *)liveno owner:(NSString *)owner primaryAccount:(NSString *)accnt
 #pragma mark - override
 #pragma mark - delegate
 #pragma mark - properties
@@ -62,8 +63,15 @@
 {
 	NSString *notificationName = GrowlNotifyStartUserProgram;
 	if (reserved == YES) {
+#ifdef DEBUG
+		NSLog(@"Hook Notify");
+#endif
 		NSTimer *notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:0 target:self selector:@selector(notify:) userInfo:nil repeats:NO];
 		[[NSRunLoop currentRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
+#ifdef DEBUG
+		NSLog(@"Timer is %@", [notifyTimer isValid] ? @"valid" : @"invarid");
+		NSLog(@"FireDate : %@", [[notifyTimer fireDate] descriptionWithCalendarFormat:nil timeZone:[NSTimeZone localTimeZone] locale:nil]);
+#endif
 		notificationName = GrowlNotifyFoundUserProgram;
 	}// end if
 
@@ -72,7 +80,13 @@
 #pragma mark - private
 - (void) notify:(NSTimer *)timer
 {
-	[GrowlApplicationBridge notifyWithTitle:programTitle description:programDescription notificationName:GrowlNotifyStartUserProgram iconData:[thumbnail TIFFRepresentation] priority:0 isSticky:NO clickContext:nil];
+	[GrowlApplicationBridge notifyWithTitle:programTitle
+								description:programDescription
+						   notificationName:GrowlNotifyStartUserProgram
+								   iconData:[thumbnail TIFFRepresentation]
+								   priority:0
+								   isSticky:NO
+							   clickContext:nil];
 }// end - (void) notify:(NSTimer *)timer
 
 #pragma mark - NSXMLParser degegate methods

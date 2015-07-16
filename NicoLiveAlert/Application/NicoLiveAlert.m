@@ -41,7 +41,7 @@ static void uncaughtExceptionHandler(NSException *exception);
 
 	allUsers = [[NLAccounts alloc] init];
 	[self setAccountsMenu];
-	siever = [[NLProgramSiever alloc] initWithWatchlist:allUsers.watchlist statusbar:statusbar];
+	siever = [[NLProgramSiever alloc] initWithAccounts:allUsers statusbar:statusbar];
 }// end - (void) applicationWillFinishLaunching:(NSNotification *)notification
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification

@@ -31,7 +31,7 @@
 #ifdef DEBUG
 		NSLog(@"Hook Notify");
 #endif
-		NSTimer *notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:10 target:self selector:@selector(notify:) userInfo:nil repeats:NO];
+		NSTimer *notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:10 target:self selector:@selector(notify:) userInfo:nil repeats:YES];
 		[[NSRunLoop currentRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
 		notificationName = GrowlNotifyFoundOfficialProgram;
 #ifdef DEBUG
@@ -45,6 +45,7 @@
 #pragma mark - private
 - (void) notify:(NSTimer *)timer
 {
+	[timer invalidate];
 #ifdef DEBUG
 	NSLog(@"Timerd Notify");
 #endif

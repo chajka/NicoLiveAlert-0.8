@@ -14,5 +14,5 @@
 	NSDictionary							*elementsDict;
 	NSMutableString							*stringBuffer;
 }
-- (id) initWithLiveNumber:(NSString *)liveno owner:(NSString *)owner;
+- (id) initWithLiveNumber:(NSString *)liveno owner:(NSString *)owner primaryAccount:(NSString *)account;
 @end

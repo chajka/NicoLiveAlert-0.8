@@ -65,6 +65,7 @@
 		NSString *sanitizedDateString = [originalDateString replaceAllByRegexp:DateSanityRegex with:EmptyString];
 		NSDictionary *localeDict = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
 		startTime = [NSDate dateWithNaturalLanguageString:sanitizedDateString locale:localeDict];
+		startTimeString = [startTime descriptionWithCalendarFormat:@"%H:%M" timeZone:[NSTimeZone localTimeZone] locale:nil];
 		if ([startTime compare:[NSDate date]] == NSOrderedDescending)
 			reserved = YES;
 	}// end if

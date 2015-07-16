@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "NLStatusbar.h"
+#import "NLAccounts.h"
 
 @interface NLProgramSiever : NSObject {
+	NLAccounts							*accounts;
 	NSDictionary						*watchlist;
 	NLStatusbar							*statusbar;
 }
-- (id) initWithWatchlist:(NSDictionary *)watchlist statusbar:(NLStatusbar *)statusbar;
+- (id) initWithAccounts:(NLAccounts *)accnts statusbar:(NLStatusbar *)statusbar;
 
 - (void) checkProgram:(NSArray *)programInfo;
 @end
