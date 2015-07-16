@@ -156,6 +156,7 @@
 		C6F332A71B4D38AC009BE435 /* NLOfficialProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLOfficialProgram.m; path = "Program Management/NLOfficialProgram.m"; sourceTree = "<group>"; };
 		C6FD33CD1B581897005E9269 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C6FD33CE1B581897005E9269 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable/ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C6FD33D01B582B5D005E9269 /* NicoLiveAlertCollaboration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NicoLiveAlertCollaboration.h; path = Application/NicoLiveAlertCollaboration.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +352,7 @@
 				C67335271B49B45E00AC88AD /* NicoLiveAlert.m */,
 				C67335441B49BDC800AC88AD /* NicoLiveAlert.xib */,
 				C67335481B49C26B00AC88AD /* NicoLiveAlertDefinitions.h */,
+				C6FD33D01B582B5D005E9269 /* NicoLiveAlertCollaboration.h */,
 				C67402521B4C193B009F956F /* NLStatusbar.h */,
 				C67402531B4C193B009F956F /* NLStatusbar.m */,
 			);
