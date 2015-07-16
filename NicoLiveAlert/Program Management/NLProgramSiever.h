@@ -14,6 +14,8 @@
 	NLAccounts							*accounts;
 	NSDictionary						*watchlist;
 	NLStatusbar							*statusbar;
+
+	NSMutableArray						*activePrograms;
 }
 - (id) initWithAccounts:(NLAccounts *)accnts statusbar:(NLStatusbar *)statusbar;
 

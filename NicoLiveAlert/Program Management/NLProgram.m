@@ -12,7 +12,7 @@
 
 @interface NLProgram ()
 
-- (void) notify:(NSTimer *)timer;
+- (void) notifyTimer:(NSTimer *)timer;
 @end
 
 @implementation NLProgram
@@ -31,8 +31,7 @@
 #ifdef DEBUG
 		NSLog(@"Hook Notify");
 #endif
-		NSTimer *notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:10 target:self selector:@selector(notify:) userInfo:nil repeats:YES];
-		[[NSRunLoop currentRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
+		notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:0.0f target:self selector:@selector(notifyTimer:) userInfo:nil repeats:NO];
 		notificationName = GrowlNotifyFoundOfficialProgram;
 #ifdef DEBUG
 		NSLog(@"Timer is %@", [notifyTimer isValid] ? @"valid" : @"invarid");
@@ -43,9 +42,8 @@
 	[GrowlApplicationBridge notifyWithTitle:programTitle description:programDescription notificationName:notificationName iconData:[thumbnail TIFFRepresentation] priority:0 isSticky:NO clickContext:nil];
 }// end - (void) notify
 #pragma mark - private
-- (void) notify:(NSTimer *)timer
+- (void) notifyTimer:(NSTimer *)timer
 {
-	[timer invalidate];
 #ifdef DEBUG
 	NSLog(@"Timerd Notify");
 #endif

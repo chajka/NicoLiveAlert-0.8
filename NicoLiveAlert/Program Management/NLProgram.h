@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Instrumentality of Mankind. All rights reserved.
 //
 
+#import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
 #import "NLStatusbar.h"
 
@@ -29,13 +30,12 @@
 	NSDate									*openTime;
 	NSDate									*startTime;
 	NSString								*startTimeString;
+	NSTimer									*notifyTimer;
 
 		// variable for drawing
-	NSBezierPath							*background;
-	NSBezierPath							*timeMask;
+	NSImage									*imageBuffer;
 	NSMutableDictionary						*stringAttributes;
-	NSImage									*ownerName;
-}
 
 - (void) notify;
+- (NSMenuItem *) menuItem;
 @end

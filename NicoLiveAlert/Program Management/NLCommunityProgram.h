@@ -9,7 +9,6 @@
 #import "NLOfficialProgram.h"
 
 @interface NLCommunityProgram : NLOfficialProgram <NSXMLParserDelegate>{
-	NSString								*description;
 	
 	NSDictionary							*elementsDict;
 	NSMutableString							*stringBuffer;

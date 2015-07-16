@@ -12,6 +12,57 @@
 #import <Growl/Growl.h>
 #import <CocoaOniguruma/OnigRegexp.h>
 
+const static CGFloat ProgramBoundsW = 300;
+const static CGFloat ProgramBoundsH = 80;
+const static CGFloat thumnailSize = 50;
+
+const static CGFloat DescriptionOffsetX = thumnailSize + 5;
+const static CGFloat DescriptionOffsetY = 15;
+const static CGFloat DescriptionBoundsW = ProgramBoundsW - thumnailSize - 5;
+const static CGFloat DescriptionBoundsH = thumnailSize - DescriptionOffsetY;
+
+const static CGFloat CommunityNameOffsetX = 0;
+const static CGFloat CommunityNameOffsetY = 66;
+const static CGFloat CommunityNameBoundsW = ProgramBoundsW * 2 / 3;
+const static CGFloat CommunityNameBoundsH = 15;
+
+const static CGFloat NicknameOffsetX = CommunityNameOffsetX + CommunityNameBoundsW + 5;
+const static CGFloat NicknameOffsetY = CommunityNameOffsetY;
+
+const static CGFloat OffsetTitleX = 5;
+const static CGFloat OffsetTitleY = thumnailSize + 2;
+
+const static CGFloat OffsetPrimaryX = thumnailSize + 3;
+const static CGFloat OffsetPrimaryY = 0;
+
+#pragma mark color constant
+static const CGFloat alpha = 1.0;
+static const CGFloat fract = 1.0;
+// program title color
+static const CGFloat ProgramTitleColorRed = (0.0 / 255);
+static const CGFloat ProgramTitleColorGreen = (0.0 / 255);
+static const CGFloat ProgramTitleColorBlue = (255.0 / 255);
+// program owner color
+static const CGFloat ProgramOwnerColorRed = (128.0 / 255);
+static const CGFloat ProgramOwnerColorGreen = (64.0 / 255);
+static const CGFloat ProgramOwnerColorBlue = (0.0 / 255);
+// program description color
+static const CGFloat ProgramDescColorRed = (64.0 / 255);
+static const CGFloat ProgramDescColorGreen = (64.0 / 255);
+static const CGFloat ProgramDescColorBlue = (64.0 / 255);
+// commnunity name color
+static const CGFloat CommunityNameColorRed = (204.0 / 255);
+static const CGFloat CommunityNameColorGreen = (102.0 / 255);
+static const CGFloat CommunityNameColorBlue = (255.0 / 255);
+// account color
+static const CGFloat AccountColorRed = (0.0 / 255);
+static const CGFloat AccountColorGreen = (128.0 / 255);
+static const CGFloat AccountColorBlue = (128.0 / 255);
+// remain time color
+static const CGFloat TimeColorRed = (128.0 / 255);
+static const CGFloat TimeColorGreen = (0.0 / 255);
+static const CGFloat TimeColorBlue = (64.0 / 255);
+
 @interface NLCommunityProgram ()
 - (void) parseStreamInfo:(NSString *)liveNumber;
 - (void) correctOwnerName:(NSString *)ownerID;
@@ -66,7 +117,7 @@
 #ifdef DEBUG
 		NSLog(@"Hook Notify");
 #endif
-		NSTimer *notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:0 target:self selector:@selector(notify:) userInfo:nil repeats:NO];
+		notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:10 target:self selector:@selector(notifyTimer:) userInfo:nil repeats:NO];
 		[[NSRunLoop currentRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
 #ifdef DEBUG
 		NSLog(@"Timer is %@", [notifyTimer isValid] ? @"valid" : @"invarid");
@@ -78,8 +129,11 @@
 	[GrowlApplicationBridge notifyWithTitle:programTitle description:programDescription notificationName:notificationName iconData:[thumbnail TIFFRepresentation] priority:0 isSticky:NO clickContext:nil];
 }// end - (void) notify
 #pragma mark - private
-- (void) notify:(NSTimer *)timer
+- (void) notifyTimer:(NSTimer *)timer
 {
+#ifdef DEBUG
+	NSLog(@"Timerd Notify");
+#endif
 	[GrowlApplicationBridge notifyWithTitle:programTitle
 								description:programDescription
 						   notificationName:GrowlNotifyStartUserProgram
@@ -88,6 +142,50 @@
 								   isSticky:NO
 							   clickContext:nil];
 }// end - (void) notify:(NSTimer *)timer
+
+- (void) drawContents
+{
+	NSColor *titleColor = [NSColor colorWithCalibratedRed:ProgramTitleColorRed green:ProgramTitleColorGreen blue:ProgramTitleColorBlue alpha:alpha];
+	NSColor *nickColor = [NSColor colorWithCalibratedRed:ProgramOwnerColorRed green:ProgramOwnerColorGreen blue:ProgramOwnerColorBlue alpha:alpha];
+	NSColor *descColor = [NSColor colorWithCalibratedRed:ProgramDescColorRed green:ProgramDescColorGreen blue:ProgramDescColorBlue alpha:alpha];
+	NSColor *commnunityColor = [NSColor colorWithCalibratedRed:CommunityNameColorRed green:CommunityNameColorGreen blue:CommunityNameColorBlue alpha:alpha];
+	NSColor *accountColor = [NSColor colorWithCalibratedRed:AccountColorRed green:AccountColorGreen blue:AccountColorBlue alpha:alpha];
+	NSColor *timeColor = [NSColor colorWithCalibratedRed:TimeColorRed green:TimeColorGreen blue:TimeColorBlue alpha:alpha];
+	
+	menuImage = [[NSImage alloc] initWithSize:NSMakeSize(ProgramBoundsW, ProgramBoundsH)];
+	[menuImage lockFocus];
+		// draw thumbnail
+	[thumbnail setSize:NSMakeSize(thumnailSize, thumnailSize)];
+	[thumbnail drawInRect:NSMakeRect(0.0f, 0.0f, thumnailSize, thumnailSize)];
+	
+		// draw title
+	stringAttributes = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+						[NSFont fontWithName:fontNameOfProgramTitle size:11], NSFontAttributeName,
+						titleColor, NSForegroundColorAttributeName,
+						[NSNumber numberWithInteger:2], NSLigatureAttributeName,
+						[NSNumber numberWithFloat:-0.5f], NSKernAttributeName, nil];
+	[programTitle drawAtPoint:NSMakePoint(OffsetTitleX, OffsetTitleY) withAttributes:stringAttributes];
+		// draw description
+	[stringAttributes setValue:[NSFont fontWithName:fontNameOfDescription size:10] forKey:NSFontAttributeName];
+	[stringAttributes setValue:descColor forKey:NSForegroundColorAttributeName];
+	NSRect descriptionRect = NSMakeRect(DescriptionOffsetX, DescriptionOffsetY, DescriptionBoundsW, DescriptionBoundsH);
+	[programDescription drawInRect:descriptionRect withAttributes:stringAttributes];
+		// draw community title
+	[stringAttributes setValue:[NSFont fontWithName:fontNameOfCommunity size:11] forKey:NSFontAttributeName];
+	[stringAttributes setValue:commnunityColor forKey:NSForegroundColorAttributeName];
+	NSRect communityNameRect = NSMakeRect(CommunityNameOffsetX, CommunityNameOffsetY, CommunityNameBoundsW, CommunityNameBoundsH);
+	[communityName drawInRect:communityNameRect withAttributes:stringAttributes];
+		// draw program owner
+	[stringAttributes setValue:[NSFont fontWithName:fontNameOfProgramOwner size:11] forKey:NSFontAttributeName];
+	[stringAttributes setValue:nickColor forKey:NSForegroundColorAttributeName];
+	NSPoint ownerNamePoint = NSMakePoint(NicknameOffsetX, NicknameOffsetY);
+	[broadcastOwnerName drawAtPoint:ownerNamePoint withAttributes:stringAttributes];
+		// draw primary account
+	[stringAttributes setValue:[NSFont fontWithName:fontNameOfPrimaryAccount size:13] forKey:NSFontAttributeName];
+	[stringAttributes setValue:accountColor forKey:NSForegroundColorAttributeName];
+	[primaryAccount drawAtPoint:NSMakePoint(OffsetPrimaryX, OffsetPrimaryY) withAttributes:stringAttributes];
+	[menuImage unlockFocus];
+}// end - (void) drawContents
 
 #pragma mark - NSXMLParser degegate methods
 - (void) parserDidStartDocument:(NSXMLParser *)parser
@@ -129,7 +227,7 @@
 			communityNumber = [[NSString alloc] initWithString:stringBuffer];
 			break;
 		case IndexCommunityName:
-			if (communityName == nil)
+			if ([communityName isEqualToString:@"Official"])
 				communityName = [[NSString alloc] initWithString:stringBuffer];
 			break;
 		default:

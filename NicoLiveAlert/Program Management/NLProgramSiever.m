@@ -29,6 +29,7 @@
 		accounts = accnts;
 		watchlist = accnts.watchlist;
 		statusbar = bar;
+		activePrograms = [[NSMutableArray alloc] init];
 	}// end if self
 
 	return self;
@@ -65,7 +66,10 @@
 	NSLog(@"Official : %@", liveNumber);
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
 	[prog notify];
+	NSMenuItem *item = [prog menuItem];
+	[statusbar addToOfficialMenu:item];
 	NSLog(@"%@", prog);
+	[activePrograms addObject:prog];
 }// end - (void) officialProgram:(NSString *)liveNumber
 
 - (void) officialProgram:(NSString *)liveNumber title:(NSString *)title
@@ -73,7 +77,10 @@
 	NSLog(@"Official : %@, Titile : %@", liveNumber, title);
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
 	[prog notify];
+	NSMenuItem *item = [prog menuItem];
+	[statusbar addToOfficialMenu:item];
 	NSLog(@"%@", prog);
+	[activePrograms addObject:prog];
 }// end - (void) officialBroadcast:(NSString *)liveNumber title:(NSString *)title
 
 - (void) channelProgram:(NSString *)liveNumber
@@ -87,7 +94,10 @@
 	NSString *primaryAccount = [accounts primaryAccountForCommunity:community];
 	NLCommunityProgram *prog = [[NLCommunityProgram alloc] initWithLiveNumber:liveNumber owner:owner primaryAccount:primaryAccount];
 	[prog notify];
+	NSMenuItem *item = [prog menuItem];
+	[statusbar addToUserMenu:item];
 	NSLog(@"%@", prog);
+	[activePrograms addObject:prog];
 }// end - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen
 #pragma mark - C functions
 

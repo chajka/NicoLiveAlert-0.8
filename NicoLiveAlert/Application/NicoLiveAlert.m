@@ -61,6 +61,12 @@ static void uncaughtExceptionHandler(NSException *exception);
 {
 	
 }// end - (IBAction) toggleUserState:(id)sender
+
+- (IBAction) openProgram:(id)sender
+{
+	
+}// end - (IBAction) openProgram:(id)sender
+
 #pragma mark - messages
 #pragma mark - private
 - (void) setAccountsMenu
