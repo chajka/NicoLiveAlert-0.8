@@ -58,13 +58,26 @@
 			break;
 		}// end if
 	}//end foreach
-	
 }// end - (void) checkProgram:(NSArray *)programInfo
+
+#pragma mark NLProgramControll delegate Method
+- (void) removeProgram:(NLProgram *)program
+{
+	[activePrograms removeObject:program];
+	if ([[program class] isSubclassOfClass:[NLCommunityProgram class]])
+		[statusbar removeFromUserMenu:program.menuItem];
+	else
+		[statusbar removeFromOfficialMenu:program.menuItem];
+
+		// cleanup
+	program = nil;
+}// end - (void) removeProgram:(NLProgram *)program
 #pragma mark - private
 - (void) officialProgram:(NSString *)liveNumber
 {
 	NSLog(@"Official : %@", liveNumber);
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
+	prog.delegate = self;
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
@@ -76,6 +89,7 @@
 {
 	NSLog(@"Official : %@, Titile : %@", liveNumber, title);
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
+	prog.delegate = self;
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
@@ -93,6 +107,7 @@
 	NSLog(@"Community : %@, autoOpen %c", liveNumber, (autoOpen == YES) ? 'Y':'N');
 	NSString *primaryAccount = [accounts primaryAccountForCommunity:community];
 	NLCommunityProgram *prog = [[NLCommunityProgram alloc] initWithLiveNumber:liveNumber owner:owner primaryAccount:primaryAccount];
+	prog.delegate = self;
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToUserMenu:item];

@@ -48,9 +48,6 @@ static void uncaughtExceptionHandler(NSException *exception);
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	programLister = [[NLProgramList alloc] initWithAccounts:allUsers siever:siever statusbar:statusbar];
-		// hook timer test
-	NSDate *now = [NSDate date];
-	NSDate *fireDate = [now dateByAddingTimeInterval:60];
 }// end - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 
 - (void) applicationWillTerminate:(NSNotification *)aNotification

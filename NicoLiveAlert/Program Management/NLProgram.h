@@ -10,7 +10,15 @@
 #import <Foundation/Foundation.h>
 #import "NLStatusbar.h"
 
+@class NLProgram;
+@protocol NLProgramController <NSObject>
+
+- (void) removeProgram:(NLProgram *)program;
+
+@end
+
 @interface NLProgram : NSObject {
+	id<NLProgramController>					delegate;
 	NLStatusbar								*statusbar;
 
 	NSMenuItem								*programMenu;
@@ -31,11 +39,13 @@
 	NSDate									*startTime;
 	NSString								*startTimeString;
 	NSTimer									*notifyTimer;
+	NSTimer									*elapsedTimer;
 
 		// variable for drawing
 	NSImage									*imageBuffer;
 	NSMutableDictionary						*stringAttributes;
 }
+@property (readwrite) id<NLProgramController>	delegate;
 @property (readonly) NSString				*programNumber;
 
 - (IBAction) openProgram:(id)sender;

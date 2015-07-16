@@ -17,6 +17,7 @@
 
 @implementation NLProgram
 #pragma mark - synthesize properties
+@synthesize delegate;
 @synthesize programNumber;
 
 #pragma mark - class method

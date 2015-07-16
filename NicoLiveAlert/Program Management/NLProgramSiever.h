@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "NLStatusbar.h"
 #import "NLAccounts.h"
+#import "NLProgram.h"
 
-@interface NLProgramSiever : NSObject {
+@interface NLProgramSiever : NSObject<NLProgramController> {
 	NLAccounts							*accounts;
 	NSDictionary						*watchlist;
 	NLStatusbar							*statusbar;
