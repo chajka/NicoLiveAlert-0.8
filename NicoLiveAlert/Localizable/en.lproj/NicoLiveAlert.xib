@@ -707,9 +707,6 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" tag="1020" id="Yua-ff-b5T"/>
-                <menuItem title="About NicoLiveAlert…" tag="1021" id="Pw3-6M-B3z">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
                 <menuItem title="Check for updates" tag="1022" id="n5C-nH-ol7">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>

@@ -51,8 +51,6 @@ static void uncaughtExceptionHandler(NSException *exception);
 		// hook timer test
 	NSDate *now = [NSDate date];
 	NSDate *fireDate = [now dateByAddingTimeInterval:60];
-	checkTimer = [[NSTimer alloc] initWithFireDate:fireDate interval:10 target:self selector:@selector(testTimer:) userInfo:nil repeats:NO];
-	[[NSRunLoop currentRunLoop] addTimer:checkTimer forMode:NSDefaultRunLoopMode];
 }// end - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 
 - (void) applicationWillTerminate:(NSNotification *)aNotification
@@ -95,10 +93,6 @@ static void uncaughtExceptionHandler(NSException *exception);
 	[statusbar updateUserState];
 }// end - (void) setAccountsMenu
 
-- (void) testTimer:(NSTimer *)timer
-{
-	NSLog(@"testTimer working");
-}// end - (void) testTimer:(NSTimer *)timer
 #pragma mark - C functions
 static
 void uncaughtExceptionHandler(NSException *exception)

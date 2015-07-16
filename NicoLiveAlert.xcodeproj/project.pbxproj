@@ -48,6 +48,7 @@
 		C67AF0A21B4A6E83000B8272 /* NLAccountsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */; };
 		C6CB9F861B5501DF001373ED /* NLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CB9F851B5501DF001373ED /* NLProgram.m */; };
 		C6F332A81B4D38AC009BE435 /* NLOfficialProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F332A71B4D38AC009BE435 /* NLOfficialProgram.m */; };
+		C6FD33CF1B581897005E9269 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6FD33CC1B581897005E9269 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,8 @@
 		C6CB9F851B5501DF001373ED /* NLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgram.m; path = "Program Management/NLProgram.m"; sourceTree = "<group>"; };
 		C6F332A61B4D38AC009BE435 /* NLOfficialProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLOfficialProgram.h; path = "Program Management/NLOfficialProgram.h"; sourceTree = "<group>"; };
 		C6F332A71B4D38AC009BE435 /* NLOfficialProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLOfficialProgram.m; path = "Program Management/NLOfficialProgram.m"; sourceTree = "<group>"; };
+		C6FD33CD1B581897005E9269 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C6FD33CE1B581897005E9269 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable/ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +273,7 @@
 		C650C3601B49A944005AC163 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C6FD33CC1B581897005E9269 /* Localizable.strings */,
 				C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */,
 				C673352A1B49B47900AC88AD /* Info.plist */,
 				C673352B1B49B47900AC88AD /* main.m */,
@@ -485,6 +489,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = C650C3541B49A944005AC163;
 			productRefGroup = C650C35E1B49A944005AC163 /* Products */;
@@ -511,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C67402601B4C2448009F956F /* NLOffState.png in Resources */,
+				C6FD33CF1B581897005E9269 /* Localizable.strings in Resources */,
 				C67402631B4C2448009F956F /* sbicon.png in Resources */,
 				C67402611B4C2448009F956F /* NLMixedState.png in Resources */,
 				C674025F1B4C2448009F956F /* NLOnState.png in Resources */,
@@ -613,6 +619,15 @@
 				C67335451B49BDC800AC88AD /* en */,
 			);
 			name = NicoLiveAlert.xib;
+			sourceTree = "<group>";
+		};
+		C6FD33CC1B581897005E9269 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6FD33CD1B581897005E9269 /* en */,
+				C6FD33CE1B581897005E9269 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -815,6 +830,7 @@
 				C64CBCCD1B5674E100ACA92D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C650C3581B49A944005AC163 /* Build configuration list for PBXProject "NicoLiveAlert" */ = {
 			isa = XCConfigurationList;
