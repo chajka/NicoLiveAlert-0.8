@@ -8,6 +8,8 @@
 
 #import "NicoLiveAlert.h"
 #import "NicoLiveAlertDefinitions.h"
+#import "NicoLiveAlertCollaboration.h"
+#import "NicoLiveAlertCollaboratorProtocol.h"
 #import "NLProgram.h"
 
 @interface NicoLiveAlert ()
@@ -43,6 +45,10 @@ static void uncaughtExceptionHandler(NSException *exception);
 	allUsers = [[NLAccounts alloc] init];
 	[self setAccountsMenu];
 	siever = [[NLProgramSiever alloc] initWithAccounts:allUsers statusbar:statusbar];
+
+	collaborator = [[NSXPCConnection alloc] initWithServiceName:@"tv.from.chajka.NicoLiveAlertCollaborator"];
+	collaborator.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(NicoLiveAlertCollaboratorProtocol)];
+	[collaborator resume];
 }// end - (void) applicationWillFinishLaunching:(NSNotification *)notification
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -64,10 +70,23 @@ static void uncaughtExceptionHandler(NSException *exception);
 }// end - (IBAction) toggleUserState:(id)sender
 
 - (IBAction) openProgram:(id)sender
-{
+{		// open in browser
 	NLProgram *item = [sender representedObject];
 	NSURL *live = [NSURL URLWithString:[NicoProgramURLFormat stringByAppendingString:item.programNumber]];
 	[[NSWorkspace sharedWorkspace] openURL:live];
+
+		// open in comment viewer
+	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+	if ([ud boolForKey:PrefKeyKickCommentViewerByOpenFromMe]) {
+		NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+		NSString *url = [live absoluteString];
+		[userInfo setValue:url forKey:ProgramURL];
+		[userInfo setValue:item.programNumber forKey:LiveNumber];
+		[userInfo setValue:[NSNumber numberWithBool:YES] forKey:CommentViewer];
+		[userInfo setValue:[NSNumber numberWithBool:NO] forKey:BroadcastStreamer];
+		[userInfo setValue:[NSNumber numberWithInteger:broadcastKindUser] forKey:BroadCastKind];
+		[[collaborator remoteObjectProxy] notifyStartBroadcast:userInfo];
+	}// end if
 }// end - (IBAction) openProgram:(id)sender
 
 #pragma mark - messages

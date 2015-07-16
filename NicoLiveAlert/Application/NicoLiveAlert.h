@@ -22,8 +22,9 @@
 	NLStatusbar							*statusbar;
 
 	NSTimer								*checkTimer;
+	NSXPCConnection						*collaborator;
 }
 
-
+- (IBAction) openProgram:(id)sender;
 @end
 

@@ -114,6 +114,23 @@ enum getstreamInfoIndex {
 	IndexCommunityThumbnail
 };
 
+#pragma mark -
+#pragma mark Application Collaboration
+#pragma mark classic
+#define ServerCharleston			@"Charleston"
+#define ServerFMELauncher			@"FMELauncher"
+#pragma mark XPC
+#define CollaboratorXPCName			"tv.from.chajka.NicoLiveAlert.Collaborator"
+#define XPCNotificationName			@"XPCNotificationName"
+#define TypeProgramStart			@"TypeProgramStart"
+#define TypeProgramEnd				@"TypeProgramEnd"
+#define Information					@"Information"
+#define ImporterXPCName				"tv.from.chajka.NicoLiveAlert.Importer"
+#define ImporterQueueName			"tv.from.cjajka.NicoLiveAlert.Importer.queue"
+#define TypePreference				@"TypePreference"
+#define PrefSource					@"source"
+#define PrefDest					@"dest"
+#define PreferenceData				@"PreferenceData"
 
 #pragma mark - definitions for Statusbar
 #define DeactiveConnection							@"Disconnected"
@@ -191,17 +208,30 @@ enum WatchTargetKind {
 #define URLFormatLive								@"http://live.nicovideo.jp/watch/%@"
 #define URLFormatUser								@"http://www.nicovideo.jp/user/%@"
 
+#pragma mark - Preference keys
+#define PrefKeyNotifyStartUserProgram				@"NotifyStartUserProgram"
+#define PrefKeyNotifyStartOfficialProgram			@"NotifyStartOfficialProgram"
+#define PrefKeyCheckOfficialChannel					@"CheckOfficialChannel"
+#define PrefKeyAutoOpenCheckedLive					@"AutoOpenCheckedLive"
+#define PrefKeyKickCommentViewerByOpenFromMe		@"KickCommentViewerByOpenFromMe"
+#define PrefKeyKickCommentViewerAtAutoOpen			@"KickCommentViewerAtAutoOpen"
+#define PrefKeyKickCommentViewerOnMyBroadcast		@"KickCommentViewerOnMyBroadcast"
+#define PrefKeyNotifySoundDeviceName				@"NotifySoundDeviceName"
+#define PrefKeyStartUserProgramSound				@"StartUserProgramSound"
+#define PrefKeyStartOfficialProgramSound			@"StartOfficialProgramSound"
+
+
 #pragma mark -
 #pragma mark Growling
 
-#define GrowlNotifyStartMonitoring		@"Start monitoring"
-#define GrowlNotifyDisconnected			@"Disconnected"
-#define GrowlNotifyFoundOfficialProgram	@"Found Official Program"
-#define GrowlNotifyStartOfficialProgram	@"Start Official Program"
-#define GrowlNotifyFoundUserProgram		@"Found User Program"
-#define GrowlNotifyStartUserProgram		@"Start User Program"
-#define	GrowlNotifyFoundListedProgram	@"Found in Manual Watch List"
-#define GrowlNotifyStartListedProgram	@"Start in Manual watch List"
+#define GrowlNotifyStartMonitoring					@"Start monitoring"
+#define GrowlNotifyDisconnected						@"Disconnected"
+#define GrowlNotifyFoundOfficialProgram				@"Found Official Program"
+#define GrowlNotifyStartOfficialProgram				@"Start Official Program"
+#define GrowlNotifyFoundUserProgram					@"Found User Program"
+#define GrowlNotifyStartUserProgram					@"Start User Program"
+#define	GrowlNotifyFoundListedProgram				@"Found in Manual Watch List"
+#define GrowlNotifyStartListedProgram				@"Start in Manual watch List"
 
 #pragma mark -
 #pragma mark definitions for NLStatusbar

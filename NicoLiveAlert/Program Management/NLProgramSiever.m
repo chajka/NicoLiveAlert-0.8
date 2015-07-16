@@ -10,15 +10,18 @@
 #import "NicoLiveAlertDefinitions.h"
 #import "NLOfficialProgram.h"
 #import "NLCommunityProgram.h"
+#import "NicoLiveAlert.h"
 
 @interface NLProgramSiever ()
 - (void) officialProgram:(NSString *)liveNumber;
 - (void) officialProgram:(NSString *)liveNumber title:(NSString *)title;
 - (void) channelProgram:(NSString *)liveNumber;
 - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen;
+- (void) autoOpen:(NSMenuItem *)item;
 @end
 
 @implementation NLProgramSiever
+@synthesize service;
 #pragma mark - synthesize properties
 #pragma mark - class method
 #pragma mark - constructor / destructor
@@ -30,6 +33,7 @@
 		watchlist = accnts.watchlist;
 		statusbar = bar;
 		activePrograms = [[NSMutableArray alloc] init];
+		queue = dispatch_queue_create([[self className] UTF8String], DISPATCH_QUEUE_CONCURRENT);
 	}// end if self
 
 	return self;
@@ -113,7 +117,17 @@
 	[statusbar addToUserMenu:item];
 	NSLog(@"%@", prog);
 	[activePrograms addObject:prog];
+
+	if (autoOpen) {
+		[self autoOpen:prog.menuItem];
+	}// end if
 }// end - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen
+
+- (void) autoOpen:(NSMenuItem *)item
+{
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:PrefKeyAutoOpenCheckedLive])
+		dispatch_async(queue, ^{ [(NicoLiveAlert *)NSApp openProgram:item]; });
+}// end - (void) autoOpen:(NSMenuItem *)item
 #pragma mark - C functions
 
 @end

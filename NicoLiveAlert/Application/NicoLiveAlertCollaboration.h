@@ -18,7 +18,7 @@
  */
 /*!
  @define ProgramURL
- @abstract program url by NSURL object
+ @abstract program url by NSString object
  */
 #define ProgramURL						@"ProgramURL"
 /*!
@@ -46,9 +46,9 @@
 
 typedef NSInteger	BroadcastKind;
 enum BroadcastKind {
-	bradcastKindChannel = -1,
-	bradcastKindUser = 0,
-	bradcastKindOfficial = 1
+	broadcastKindChannel = -1,
+	broadcastKindUser = 0,
+	broadcastKindOfficial = 1
 };
 
 

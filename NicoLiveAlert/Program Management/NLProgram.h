@@ -47,6 +47,7 @@
 }
 @property (readwrite) id<NLProgramController>	delegate;
 @property (readonly) NSString				*programNumber;
+@property (readonly) NSDictionary			*userInfo;
 
 - (IBAction) openProgram:(id)sender;
 

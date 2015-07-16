@@ -9,6 +9,7 @@
 #import "NLProgram.h"
 #import <Growl/Growl.h>
 #import "NicoLiveAlertDefinitions.h"
+#import "NicoLiveAlertCollaboration.h"
 
 @interface NLProgram ()
 - (void) drawContents;
@@ -25,6 +26,21 @@
 #pragma mark - override
 #pragma mark - delegate
 #pragma mark - properties
+- (NSDictionary *) userInfo
+{
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	NSURL *liveURL = [NSURL URLWithString:[NicoProgramURLFormat stringByAppendingString:programNumber]];
+	[dict setValue:liveURL forKey:ProgramURL];
+	[dict setValue:programNumber forKey:LiveNumber];
+	[dict setValue:[NSNumber numberWithBool:YES] forKey:CommentViewer];
+	[dict setValue:[NSNumber numberWithBool:NO] forKey:BroadcastStreamer];
+	if ([[self className] isEqualToString:@"NLOfficialProgram"])
+		[dict setValue:[NSNumber numberWithInteger:broadcastKindOfficial] forKey:BroadCastKind];
+	else
+		[dict setValue:[NSNumber numberWithInteger:broadcastKindUser] forKey:BroadCastKind];
+
+	return dict;
+}// end - (NSDictionary *) userInfo
 #pragma mark - actions
 - (IBAction) openProgram:(id)sender
 {

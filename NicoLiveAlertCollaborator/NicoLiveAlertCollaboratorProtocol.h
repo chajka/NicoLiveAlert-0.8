@@ -1,17 +1,17 @@
 //
-//  CollaborationNotifierProtocol.h
-//  CollaborationNotifier
+//  NicoLiveAlertCollaboratorProtocol.h
+//  NicoLiveAlertCollaborator
 //
-//  Created by Чайка on 7/15/15.
+//  Created by Чайка on 7/17/15.
 //  Copyright (c) 2015 Instrumentality of Mankind. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 // The protocol that this service will vend as its API. This header file will also need to be visible to the process hosting the service.
-@protocol CollaborationNotifierProtocol
-
-- (void) launchCommentViewerNotification:(NSDictionary *)userInfo;
+@protocol NicoLiveAlertCollaboratorProtocol
+- (void) notifyStartBroadcast:(NSDictionary *)userInfo;
+- (void) notifyEndBroadcast:(NSDictionary *)userInfo;
 // Replace the API of this protocol with an API appropriate to the service you are vending.
 - (void)upperCaseString:(NSString *)aString withReply:(void (^)(NSString *))reply;
     
@@ -20,7 +20,7 @@
 /*
  To use the service from an application or other process, use NSXPCConnection to establish a connection to the service by doing something like this:
 
-     _connectionToService = [[NSXPCConnection alloc] initWithServiceName:@"tv.from.chajka.CollaborationNotifier"];
+     _connectionToService = [[NSXPCConnection alloc] initWithServiceName:@"tv.from.chajka.NicoLiveAlertCollaborator"];
      _connectionToService.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(StringModifing)];
      [_connectionToService resume];
 

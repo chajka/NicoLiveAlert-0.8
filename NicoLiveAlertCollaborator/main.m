@@ -1,13 +1,13 @@
 //
 //  main.m
-//  CollaborationNotifier
+//  NicoLiveAlertCollaborator
 //
-//  Created by Чайка on 7/15/15.
+//  Created by Чайка on 7/17/15.
 //  Copyright (c) 2015 Instrumentality of Mankind. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "CollaborationNotifier.h"
+#import "NicoLiveAlertCollaborator.h"
 
 @interface ServiceDelegate : NSObject <NSXPCListenerDelegate>
 @end
@@ -19,10 +19,10 @@
     
     // Configure the connection.
     // First, set the interface that the exported object implements.
-    newConnection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(CollaborationNotifierProtocol)];
+    newConnection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(NicoLiveAlertCollaboratorProtocol)];
     
     // Next, set the object that the connection exports. All messages sent on the connection to this service will be sent to the exported object to handle. The connection retains the exported object.
-    CollaborationNotifier *exportedObject = [CollaborationNotifier new];
+    NicoLiveAlertCollaborator *exportedObject = [NicoLiveAlertCollaborator new];
     newConnection.exportedObject = exportedObject;
     
     // Resuming the connection allows the system to deliver more incoming messages.
