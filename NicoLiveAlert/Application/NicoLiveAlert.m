@@ -8,6 +8,7 @@
 
 #import "NicoLiveAlert.h"
 #import "NicoLiveAlertDefinitions.h"
+#import "NLProgram.h"
 
 @interface NicoLiveAlert ()
 
@@ -47,6 +48,11 @@ static void uncaughtExceptionHandler(NSException *exception);
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	programLister = [[NLProgramList alloc] initWithAccounts:allUsers siever:siever statusbar:statusbar];
+		// hook timer test
+	NSDate *now = [NSDate date];
+	NSDate *fireDate = [now dateByAddingTimeInterval:60];
+	checkTimer = [[NSTimer alloc] initWithFireDate:fireDate interval:10 target:self selector:@selector(testTimer:) userInfo:nil repeats:NO];
+	[[NSRunLoop currentRunLoop] addTimer:checkTimer forMode:NSDefaultRunLoopMode];
 }// end - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 
 - (void) applicationWillTerminate:(NSNotification *)aNotification
@@ -64,7 +70,9 @@ static void uncaughtExceptionHandler(NSException *exception);
 
 - (IBAction) openProgram:(id)sender
 {
-	
+	NLProgram *item = [sender representedObject];
+	NSURL *live = [NSURL URLWithString:[NicoProgramURLFormat stringByAppendingString:item.programNumber]];
+	[[NSWorkspace sharedWorkspace] openURL:live];
 }// end - (IBAction) openProgram:(id)sender
 
 #pragma mark - messages
@@ -86,6 +94,11 @@ static void uncaughtExceptionHandler(NSException *exception);
 	}// end foreach
 	[statusbar updateUserState];
 }// end - (void) setAccountsMenu
+
+- (void) testTimer:(NSTimer *)timer
+{
+	NSLog(@"testTimer working");
+}// end - (void) testTimer:(NSTimer *)timer
 #pragma mark - C functions
 static
 void uncaughtExceptionHandler(NSException *exception)

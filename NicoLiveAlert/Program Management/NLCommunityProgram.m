@@ -37,7 +37,6 @@ const static CGFloat OffsetPrimaryY = 0;
 
 #pragma mark color constant
 static const CGFloat alpha = 1.0;
-static const CGFloat fract = 1.0;
 // program title color
 static const CGFloat ProgramTitleColorRed = (0.0 / 255);
 static const CGFloat ProgramTitleColorGreen = (0.0 / 255);
@@ -117,7 +116,7 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 #ifdef DEBUG
 		NSLog(@"Hook Notify");
 #endif
-		notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:10 target:self selector:@selector(notifyTimer:) userInfo:nil repeats:NO];
+		notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:0.0f target:self selector:@selector(notifyTimer:) userInfo:nil repeats:NO];
 		[[NSRunLoop currentRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
 #ifdef DEBUG
 		NSLog(@"Timer is %@", [notifyTimer isValid] ? @"valid" : @"invarid");

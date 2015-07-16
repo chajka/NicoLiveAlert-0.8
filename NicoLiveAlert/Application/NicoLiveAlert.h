@@ -20,6 +20,8 @@
 	NLProgramSiever						*siever;
 	NLProgramList						*programLister;
 	NLStatusbar							*statusbar;
+
+	NSTimer								*checkTimer;
 }
 
 

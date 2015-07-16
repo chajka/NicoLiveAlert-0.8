@@ -36,6 +36,9 @@
 	NSImage									*imageBuffer;
 	NSMutableDictionary						*stringAttributes;
 }
+@property (readonly) NSString				*programNumber;
+
+- (IBAction) openProgram:(id)sender;
 
 - (void) notify;
 - (NSMenuItem *) menuItem;
