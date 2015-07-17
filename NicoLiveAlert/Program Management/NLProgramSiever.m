@@ -32,7 +32,7 @@
 		accounts = accnts;
 		watchlist = accnts.watchlist;
 		statusbar = bar;
-		activePrograms = [[NSMutableArray alloc] init];
+		activePrograms = [[NSMutableDictionary alloc] init];
 		queue = dispatch_queue_create([[self className] UTF8String], DISPATCH_QUEUE_CONCURRENT);
 	}// end if self
 
@@ -67,11 +67,17 @@
 #pragma mark NLProgramControll delegate Method
 - (void) removeProgram:(NLProgram *)program
 {
-	[activePrograms removeObject:program];
 	if ([[program class] isSubclassOfClass:[NLCommunityProgram class]])
 		[statusbar removeFromUserMenu:program.menuItem];
 	else
 		[statusbar removeFromOfficialMenu:program.menuItem];
+
+	for (NSString *key in [activePrograms allKeys]) {
+		if ([[activePrograms valueForKey:key] isEqual:program]) {
+			[activePrograms removeObjectForKey:key];
+			break;
+		}// end if found old program
+	}// end foreach active programs
 
 		// cleanup
 	program = nil;
@@ -86,7 +92,7 @@
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
 	NSLog(@"%@", prog);
-	[activePrograms addObject:prog];
+	[activePrograms setValue:prog forKey:liveNumber];
 }// end - (void) officialProgram:(NSString *)liveNumber
 
 - (void) officialProgram:(NSString *)liveNumber title:(NSString *)title
@@ -98,7 +104,7 @@
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
 	NSLog(@"%@", prog);
-	[activePrograms addObject:prog];
+	[activePrograms setValue:prog forKey:liveNumber];
 }// end - (void) officialBroadcast:(NSString *)liveNumber title:(NSString *)title
 
 - (void) channelProgram:(NSString *)liveNumber
@@ -116,7 +122,11 @@
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToUserMenu:item];
 	NSLog(@"%@", prog);
-	[activePrograms addObject:prog];
+
+	NLProgram *oldProgram = [activePrograms valueForKey:owner];
+	if (oldProgram != nil)
+		[self removeProgram:oldProgram];
+	[activePrograms setValue:prog forKey:owner];
 
 	if (autoOpen) {
 		[self autoOpen:prog.menuItem];

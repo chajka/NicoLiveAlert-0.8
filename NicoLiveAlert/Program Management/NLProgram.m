@@ -20,6 +20,7 @@
 #pragma mark - synthesize properties
 @synthesize delegate;
 @synthesize programNumber;
+@synthesize broadcastOwnerName;
 
 #pragma mark - class method
 #pragma mark - constructor / destructor

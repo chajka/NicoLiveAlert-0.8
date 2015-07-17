@@ -18,7 +18,7 @@
 	NSDictionary						*watchlist;
 	NLStatusbar							*statusbar;
 
-	NSMutableArray						*activePrograms;
+	NSMutableDictionary					*activePrograms;
 
 }
 @property (readonly) NSXPCConnection	*service;

@@ -57,6 +57,11 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 
 	return self;
 }// end - (id) initWithLiveNumber:(NSString *)liveno
+
+- (void) dealloc
+{
+	[elapsedTimer invalidate];
+}// end - (void) dealloc
 #pragma mark - override
 #pragma mark - delegate
 #pragma mark - properties
@@ -67,7 +72,7 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 {
 	int elapsed = roundf([[NSDate date] timeIntervalSinceDate:startTime]);
 	
-	if ((elapsed % (60 * 5)) == 0) {
+	if ((((elapsed + 60) % (60 * 5)) == 0) || (elapsed == 60)) {
 		NSURLResponse *resp = nil;
 		NSString *embed = [HTTPConnection HTTPSource:embedURL response:&resp];
 		if (embed != nil) {
@@ -82,8 +87,8 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 	}// end if each 5 minute
 	
 	NSString *plusMinus = (elapsed < 0)? @"-" : @"+";
-	NSString *hour = [NSString stringWithFormat:@"%02d", (int)(elapsed / (60.0f * 60.0f))];
-	NSString *minute = [NSString stringWithFormat:@"%02d", (int)(elapsed / 60.0f)];
+	NSString *hour = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / (60.0f * 60.0f)))];
+	NSString *minute = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / 60.0f))];
 	
 	NSString *timeString = [NSString stringWithFormat:@"%@ %@ %@:%@", startTimeString, plusMinus, hour, minute];
 	
