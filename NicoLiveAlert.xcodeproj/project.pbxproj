@@ -7,11 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C650C3641B49A944005AC163 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3631B49A944005AC163 /* AppDelegate.m */; };
-		C650C3661B49A944005AC163 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3651B49A944005AC163 /* main.m */; };
-		C650C3681B49A944005AC163 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C650C3671B49A944005AC163 /* Images.xcassets */; };
-		C650C36B1B49A944005AC163 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C650C3691B49A944005AC163 /* MainMenu.xib */; };
+		C63B1A531B4F853C005CA9B9 /* NLCommunityProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */; };
+		C64CBCB81B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */; };
+		C64CBCD71B5718A500ACA92D /* NLProgramTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C64CBCD61B5718A500ACA92D /* NLProgramTest.m */; };
+		C65015131B4A943700FC44DD /* NLProgramList.m in Sources */ = {isa = PBXBuildFile; fileRef = C65015121B4A943700FC44DD /* NLProgramList.m */; };
 		C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */; };
+		C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C67335271B49B45E00AC88AD /* NicoLiveAlert.m */; };
+		C673352D1B49B47900AC88AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C673352B1B49B47900AC88AD /* main.m */; };
+		C67335341B49B9CF00AC88AD /* YCKeychainService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C67335331B49B9CF00AC88AD /* YCKeychainService.framework */; };
+		C67335351B49B9CF00AC88AD /* YCKeychainService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C67335331B49B9CF00AC88AD /* YCKeychainService.framework */; };
+		C67335371B49B9DC00AC88AD /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C67335361B49B9DC00AC88AD /* Growl.framework */; };
+		C67335391B49B9EB00AC88AD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C67335381B49B9EB00AC88AD /* Sparkle.framework */; };
+		C673353B1B49B9F700AC88AD /* CocoaOniguruma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C673353A1B49B9F700AC88AD /* CocoaOniguruma.framework */; };
+		C673353C1B49B9F700AC88AD /* CocoaOniguruma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C673353A1B49B9F700AC88AD /* CocoaOniguruma.framework */; };
+		C673353E1B49BA1A00AC88AD /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C67335381B49B9EB00AC88AD /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C673353F1B49BA2200AC88AD /* CocoaOniguruma.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C673353A1B49B9F700AC88AD /* CocoaOniguruma.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C67335401B49BA2500AC88AD /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C67335361B49B9DC00AC88AD /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C67335411B49BA2900AC88AD /* YCKeychainService.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = C67335331B49B9CF00AC88AD /* YCKeychainService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C67335461B49BDC800AC88AD /* NicoLiveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = C67335441B49BDC800AC88AD /* NicoLiveAlert.xib */; };
+		C674024E1B4BEC1B009F956F /* YCStreamSession.m in Sources */ = {isa = PBXBuildFile; fileRef = C674024C1B4BEC1B009F956F /* YCStreamSession.m */; };
+		C67402511B4BF576009F956F /* NLProgramSiever.m in Sources */ = {isa = PBXBuildFile; fileRef = C67402501B4BF576009F956F /* NLProgramSiever.m */; };
+		C67402541B4C193B009F956F /* NLStatusbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C67402531B4C193B009F956F /* NLStatusbar.m */; };
+		C674025F1B4C2448009F956F /* NLOnState.png in Resources */ = {isa = PBXBuildFile; fileRef = C67402561B4C2448009F956F /* NLOnState.png */; };
+		C67402601B4C2448009F956F /* NLOffState.png in Resources */ = {isa = PBXBuildFile; fileRef = C67402571B4C2448009F956F /* NLOffState.png */; };
+		C67402611B4C2448009F956F /* NLMixedState.png in Resources */ = {isa = PBXBuildFile; fileRef = C67402581B4C2448009F956F /* NLMixedState.png */; };
+		C67402621B4C2448009F956F /* watch.png in Resources */ = {isa = PBXBuildFile; fileRef = C67402591B4C2448009F956F /* watch.png */; };
+		C67402631B4C2448009F956F /* sbicon.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025A1B4C2448009F956F /* sbicon.png */; };
+		C67402641B4C2448009F956F /* Password.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025B1B4C2448009F956F /* Password.png */; };
+		C67402651B4C2448009F956F /* NicoLiveAlert.icns in Resources */ = {isa = PBXBuildFile; fileRef = C674025C1B4C2448009F956F /* NicoLiveAlert.icns */; };
+		C67402661B4C2448009F956F /* Applications.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025D1B4C2448009F956F /* Applications.png */; };
+		C67402671B4C2448009F956F /* About.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025E1B4C2448009F956F /* About.png */; };
+		C67AF0941B49D08F000B8272 /* NLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0931B49D08F000B8272 /* NLAccount.m */; };
+		C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */; };
+		C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0981B49E137000B8272 /* HTTPConnection.m */; };
+		C67AF09D1B49E4A0000B8272 /* NLAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */; };
+		C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09F1B4A23CA000B8272 /* NLAccounts.m */; };
+		C67AF0A21B4A6E83000B8272 /* NLAccountsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */; };
+		C6CB9F861B5501DF001373ED /* NLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CB9F851B5501DF001373ED /* NLProgram.m */; };
+		C6F332A81B4D38AC009BE435 /* NLOfficialProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F332A71B4D38AC009BE435 /* NLOfficialProgram.m */; };
+		C6FD33CF1B581897005E9269 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6FD33CC1B581897005E9269 /* Localizable.strings */; };
+		C6FD33E21B583A8E005E9269 /* NicoLiveAlertCollaborator.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FD33E11B583A8E005E9269 /* NicoLiveAlertCollaborator.m */; };
+		C6FD33E41B583A8E005E9269 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FD33E31B583A8E005E9269 /* main.m */; };
+		C6FD33E71B583A8E005E9269 /* NicoLiveAlertCollaborator.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = C6FD33DB1B583A8D005E9269 /* NicoLiveAlertCollaborator.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C6FD33EC1B583B1D005E9269 /* CollaborationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FD33EB1B583B1D005E9269 /* CollaborationTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,19 +60,105 @@
 			remoteGlobalIDString = C650C35C1B49A944005AC163;
 			remoteInfo = NicoLiveAlert;
 		};
+		C6FD33E51B583A8E005E9269 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C650C3551B49A944005AC163 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6FD33DA1B583A8D005E9269;
+			remoteInfo = NicoLiveAlertCollaborator;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C64CBCB41B56371D00ACA92D /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				C6FD33E71B583A8E005E9269 /* NicoLiveAlertCollaborator.xpc in Embed XPC Services */,
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C673353D1B49BA0200AC88AD /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C67335411B49BA2900AC88AD /* YCKeychainService.framework in Copy Frameworks */,
+				C673353F1B49BA2200AC88AD /* CocoaOniguruma.framework in Copy Frameworks */,
+				C67335401B49BA2500AC88AD /* Growl.framework in Copy Frameworks */,
+				C673353E1B49BA1A00AC88AD /* Sparkle.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		C63B1A511B4F853C005CA9B9 /* NLCommunityProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLCommunityProgram.h; path = "Program Management/NLCommunityProgram.h"; sourceTree = "<group>"; };
+		C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLCommunityProgram.m; path = "Program Management/NLCommunityProgram.m"; sourceTree = "<group>"; };
+		C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Growl Registration Ticket.growlRegDict"; path = "Supporting Files/Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
+		C64CBCD61B5718A500ACA92D /* NLProgramTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLProgramTest.m; sourceTree = "<group>"; };
+		C65015111B4A943700FC44DD /* NLProgramList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLProgramList.h; path = "Program Management/NLProgramList.h"; sourceTree = "<group>"; };
+		C65015121B4A943700FC44DD /* NLProgramList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgramList.m; path = "Program Management/NLProgramList.m"; sourceTree = "<group>"; };
 		C650C35D1B49A944005AC163 /* NicoLiveAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NicoLiveAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C650C3611B49A944005AC163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C650C3621B49A944005AC163 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C650C3631B49A944005AC163 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C650C3651B49A944005AC163 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C650C3671B49A944005AC163 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C650C36A1B49A944005AC163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C650C3701B49A944005AC163 /* NicoLiveAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NicoLiveAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C650C3751B49A944005AC163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NicoLiveAlertTests.m; sourceTree = "<group>"; };
+		C67335271B49B45E00AC88AD /* NicoLiveAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NicoLiveAlert.m; path = Application/NicoLiveAlert.m; sourceTree = "<group>"; };
+		C67335281B49B45E00AC88AD /* NicoLiveAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NicoLiveAlert.h; path = Application/NicoLiveAlert.h; sourceTree = "<group>"; };
+		C673352A1B49B47900AC88AD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supporting Files/Info.plist"; sourceTree = "<group>"; };
+		C673352B1B49B47900AC88AD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
+		C67335331B49B9CF00AC88AD /* YCKeychainService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YCKeychainService.framework; path = External/YCKeychainService/YCKeychainService.framework; sourceTree = "<group>"; };
+		C67335361B49B9DC00AC88AD /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = External/Growl/Growl.framework; sourceTree = "<group>"; };
+		C67335381B49B9EB00AC88AD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = External/Sparkle/Sparkle.framework; sourceTree = "<group>"; };
+		C673353A1B49B9F700AC88AD /* CocoaOniguruma.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaOniguruma.framework; path = External/CocoaOniguruma/CocoaOniguruma.framework; sourceTree = "<group>"; };
+		C67335451B49BDC800AC88AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Localizable/en.lproj/NicoLiveAlert.xib; sourceTree = "<group>"; };
+		C67335481B49C26B00AC88AD /* NicoLiveAlertDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NicoLiveAlertDefinitions.h; path = Application/NicoLiveAlertDefinitions.h; sourceTree = "<group>"; };
+		C674024C1B4BEC1B009F956F /* YCStreamSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YCStreamSession.m; path = NetworkBits/YCStreamSession.m; sourceTree = "<group>"; };
+		C674024D1B4BEC1B009F956F /* YCStreamSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YCStreamSession.h; path = NetworkBits/YCStreamSession.h; sourceTree = "<group>"; };
+		C674024F1B4BF576009F956F /* NLProgramSiever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLProgramSiever.h; path = "Program Management/NLProgramSiever.h"; sourceTree = "<group>"; };
+		C67402501B4BF576009F956F /* NLProgramSiever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgramSiever.m; path = "Program Management/NLProgramSiever.m"; sourceTree = "<group>"; };
+		C67402521B4C193B009F956F /* NLStatusbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLStatusbar.h; path = Application/NLStatusbar.h; sourceTree = "<group>"; };
+		C67402531B4C193B009F956F /* NLStatusbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLStatusbar.m; path = Application/NLStatusbar.m; sourceTree = "<group>"; };
+		C67402561B4C2448009F956F /* NLOnState.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NLOnState.png; path = Images/NLOnState.png; sourceTree = "<group>"; };
+		C67402571B4C2448009F956F /* NLOffState.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NLOffState.png; path = Images/NLOffState.png; sourceTree = "<group>"; };
+		C67402581B4C2448009F956F /* NLMixedState.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NLMixedState.png; path = Images/NLMixedState.png; sourceTree = "<group>"; };
+		C67402591B4C2448009F956F /* watch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watch.png; path = Images/watch.png; sourceTree = "<group>"; };
+		C674025A1B4C2448009F956F /* sbicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sbicon.png; path = Images/sbicon.png; sourceTree = "<group>"; };
+		C674025B1B4C2448009F956F /* Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Password.png; path = Images/Password.png; sourceTree = "<group>"; };
+		C674025C1B4C2448009F956F /* NicoLiveAlert.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = NicoLiveAlert.icns; path = Images/NicoLiveAlert.icns; sourceTree = "<group>"; };
+		C674025D1B4C2448009F956F /* Applications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Applications.png; path = Images/Applications.png; sourceTree = "<group>"; };
+		C674025E1B4C2448009F956F /* About.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = About.png; path = Images/About.png; sourceTree = "<group>"; };
+		C67AF0921B49D08F000B8272 /* NLAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLAccount.h; path = "User Management/NLAccount.h"; sourceTree = "<group>"; };
+		C67AF0931B49D08F000B8272 /* NLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLAccount.m; path = "User Management/NLAccount.m"; sourceTree = "<group>"; };
+		C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YCStreamSessionGCD.m; path = NetworkBits/YCStreamSessionGCD.m; sourceTree = "<group>"; };
+		C67AF0971B49E137000B8272 /* YCStreamSessionGCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YCStreamSessionGCD.h; path = NetworkBits/YCStreamSessionGCD.h; sourceTree = "<group>"; };
+		C67AF0981B49E137000B8272 /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPConnection.m; path = NetworkBits/HTTPConnection.m; sourceTree = "<group>"; };
+		C67AF0991B49E137000B8272 /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPConnection.h; path = NetworkBits/HTTPConnection.h; sourceTree = "<group>"; };
+		C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLAccountTests.m; sourceTree = "<group>"; };
+		C67AF09E1B4A23CA000B8272 /* NLAccounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLAccounts.h; path = "User Management/NLAccounts.h"; sourceTree = "<group>"; };
+		C67AF09F1B4A23CA000B8272 /* NLAccounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLAccounts.m; path = "User Management/NLAccounts.m"; sourceTree = "<group>"; };
+		C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLAccountsTest.m; sourceTree = "<group>"; };
+		C67AF0A31B4A706C000B8272 /* NicoLiveAlert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NicoLiveAlert.entitlements; sourceTree = "<group>"; };
+		C6CB9F841B5501DF001373ED /* NLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLProgram.h; path = "Program Management/NLProgram.h"; sourceTree = "<group>"; };
+		C6CB9F851B5501DF001373ED /* NLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgram.m; path = "Program Management/NLProgram.m"; sourceTree = "<group>"; };
+		C6F332A61B4D38AC009BE435 /* NLOfficialProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLOfficialProgram.h; path = "Program Management/NLOfficialProgram.h"; sourceTree = "<group>"; };
+		C6F332A71B4D38AC009BE435 /* NLOfficialProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLOfficialProgram.m; path = "Program Management/NLOfficialProgram.m"; sourceTree = "<group>"; };
+		C6FD33CD1B581897005E9269 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C6FD33CE1B581897005E9269 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizable/ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C6FD33D01B582B5D005E9269 /* NicoLiveAlertCollaboration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NicoLiveAlertCollaboration.h; path = Application/NicoLiveAlertCollaboration.h; sourceTree = "<group>"; };
+		C6FD33DB1B583A8D005E9269 /* NicoLiveAlertCollaborator.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = NicoLiveAlertCollaborator.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6FD33DE1B583A8E005E9269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6FD33DF1B583A8E005E9269 /* NicoLiveAlertCollaboratorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NicoLiveAlertCollaboratorProtocol.h; sourceTree = "<group>"; };
+		C6FD33E01B583A8E005E9269 /* NicoLiveAlertCollaborator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NicoLiveAlertCollaborator.h; sourceTree = "<group>"; };
+		C6FD33E11B583A8E005E9269 /* NicoLiveAlertCollaborator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NicoLiveAlertCollaborator.m; sourceTree = "<group>"; };
+		C6FD33E31B583A8E005E9269 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C6FD33EB1B583B1D005E9269 /* CollaborationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollaborationTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,10 +166,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C673353B1B49B9F700AC88AD /* CocoaOniguruma.framework in Frameworks */,
+				C67335371B49B9DC00AC88AD /* Growl.framework in Frameworks */,
+				C67335391B49B9EB00AC88AD /* Sparkle.framework in Frameworks */,
+				C67335341B49B9CF00AC88AD /* YCKeychainService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C650C36D1B49A944005AC163 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C673353C1B49B9F700AC88AD /* CocoaOniguruma.framework in Frameworks */,
+				C67335351B49B9CF00AC88AD /* YCKeychainService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6FD33D81B583A8D005E9269 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,10 +192,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C64CBCB91B56435C00ACA92D /* XPC */ = {
+			isa = PBXGroup;
+			children = (
+				C6FD33DC1B583A8E005E9269 /* NicoLiveAlertCollaborator */,
+			);
+			name = XPC;
+			sourceTree = "<group>";
+		};
+		C65015101B4A93E500FC44DD /* Program Management */ = {
+			isa = PBXGroup;
+			children = (
+				C65015111B4A943700FC44DD /* NLProgramList.h */,
+				C65015121B4A943700FC44DD /* NLProgramList.m */,
+				C674024F1B4BF576009F956F /* NLProgramSiever.h */,
+				C67402501B4BF576009F956F /* NLProgramSiever.m */,
+				C6CB9F841B5501DF001373ED /* NLProgram.h */,
+				C6CB9F851B5501DF001373ED /* NLProgram.m */,
+				C6F332A61B4D38AC009BE435 /* NLOfficialProgram.h */,
+				C6F332A71B4D38AC009BE435 /* NLOfficialProgram.m */,
+				C63B1A511B4F853C005CA9B9 /* NLCommunityProgram.h */,
+				C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */,
+			);
+			name = "Program Management";
+			sourceTree = "<group>";
+		};
 		C650C3541B49A944005AC163 = {
 			isa = PBXGroup;
 			children = (
 				C650C35F1B49A944005AC163 /* NicoLiveAlert */,
+				C64CBCB91B56435C00ACA92D /* XPC */,
+				C673352E1B49B98600AC88AD /* Frameworks */,
 				C650C3731B49A944005AC163 /* NicoLiveAlertTests */,
 				C650C35E1B49A944005AC163 /* Products */,
 			);
@@ -69,6 +233,7 @@
 			children = (
 				C650C35D1B49A944005AC163 /* NicoLiveAlert.app */,
 				C650C3701B49A944005AC163 /* NicoLiveAlertTests.xctest */,
+				C6FD33DB1B583A8D005E9269 /* NicoLiveAlertCollaborator.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,11 +241,14 @@
 		C650C35F1B49A944005AC163 /* NicoLiveAlert */ = {
 			isa = PBXGroup;
 			children = (
-				C650C3621B49A944005AC163 /* AppDelegate.h */,
-				C650C3631B49A944005AC163 /* AppDelegate.m */,
+				C67AF0A31B4A706C000B8272 /* NicoLiveAlert.entitlements */,
+				C65015101B4A93E500FC44DD /* Program Management */,
+				C67AF0901B49D04A000B8272 /* User Management */,
+				C67335471B49C23C00AC88AD /* Application */,
+				C67AF0951B49E114000B8272 /* Network */,
 				C650C3671B49A944005AC163 /* Images.xcassets */,
-				C650C3691B49A944005AC163 /* MainMenu.xib */,
 				C650C3601B49A944005AC163 /* Supporting Files */,
+				C67402551B4C2423009F956F /* Images */,
 			);
 			path = NicoLiveAlert;
 			sourceTree = "<group>";
@@ -88,8 +256,10 @@
 		C650C3601B49A944005AC163 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C650C3611B49A944005AC163 /* Info.plist */,
-				C650C3651B49A944005AC163 /* main.m */,
+				C6FD33CC1B581897005E9269 /* Localizable.strings */,
+				C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */,
+				C673352A1B49B47900AC88AD /* Info.plist */,
+				C673352B1B49B47900AC88AD /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -98,7 +268,11 @@
 			isa = PBXGroup;
 			children = (
 				C650C3761B49A944005AC163 /* NicoLiveAlertTests.m */,
+				C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */,
+				C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */,
 				C650C3741B49A944005AC163 /* Supporting Files */,
+				C64CBCD61B5718A500ACA92D /* NLProgramTest.m */,
+				C6FD33EB1B583B1D005E9269 /* CollaborationTest.m */,
 			);
 			path = NicoLiveAlertTests;
 			sourceTree = "<group>";
@@ -111,6 +285,123 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C673352E1B49B98600AC88AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C67335321B49B9B600AC88AD /* YCKeychainService */,
+				C67335311B49B9AD00AC88AD /* Growl */,
+				C67335301B49B9A200AC88AD /* CocoaOniguruma */,
+				C673352F1B49B99800AC88AD /* Sparkle */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C673352F1B49B99800AC88AD /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+				C67335381B49B9EB00AC88AD /* Sparkle.framework */,
+			);
+			name = Sparkle;
+			sourceTree = "<group>";
+		};
+		C67335301B49B9A200AC88AD /* CocoaOniguruma */ = {
+			isa = PBXGroup;
+			children = (
+				C673353A1B49B9F700AC88AD /* CocoaOniguruma.framework */,
+			);
+			name = CocoaOniguruma;
+			sourceTree = "<group>";
+		};
+		C67335311B49B9AD00AC88AD /* Growl */ = {
+			isa = PBXGroup;
+			children = (
+				C67335361B49B9DC00AC88AD /* Growl.framework */,
+			);
+			name = Growl;
+			sourceTree = "<group>";
+		};
+		C67335321B49B9B600AC88AD /* YCKeychainService */ = {
+			isa = PBXGroup;
+			children = (
+				C67335331B49B9CF00AC88AD /* YCKeychainService.framework */,
+			);
+			name = YCKeychainService;
+			sourceTree = "<group>";
+		};
+		C67335471B49C23C00AC88AD /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C67335281B49B45E00AC88AD /* NicoLiveAlert.h */,
+				C67335271B49B45E00AC88AD /* NicoLiveAlert.m */,
+				C67335441B49BDC800AC88AD /* NicoLiveAlert.xib */,
+				C67335481B49C26B00AC88AD /* NicoLiveAlertDefinitions.h */,
+				C6FD33D01B582B5D005E9269 /* NicoLiveAlertCollaboration.h */,
+				C67402521B4C193B009F956F /* NLStatusbar.h */,
+				C67402531B4C193B009F956F /* NLStatusbar.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		C67402551B4C2423009F956F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C67402561B4C2448009F956F /* NLOnState.png */,
+				C67402571B4C2448009F956F /* NLOffState.png */,
+				C67402581B4C2448009F956F /* NLMixedState.png */,
+				C67402591B4C2448009F956F /* watch.png */,
+				C674025A1B4C2448009F956F /* sbicon.png */,
+				C674025B1B4C2448009F956F /* Password.png */,
+				C674025C1B4C2448009F956F /* NicoLiveAlert.icns */,
+				C674025D1B4C2448009F956F /* Applications.png */,
+				C674025E1B4C2448009F956F /* About.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		C67AF0901B49D04A000B8272 /* User Management */ = {
+			isa = PBXGroup;
+			children = (
+				C67AF0921B49D08F000B8272 /* NLAccount.h */,
+				C67AF0931B49D08F000B8272 /* NLAccount.m */,
+				C67AF09E1B4A23CA000B8272 /* NLAccounts.h */,
+				C67AF09F1B4A23CA000B8272 /* NLAccounts.m */,
+			);
+			name = "User Management";
+			sourceTree = "<group>";
+		};
+		C67AF0951B49E114000B8272 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C67AF0991B49E137000B8272 /* HTTPConnection.h */,
+				C67AF0981B49E137000B8272 /* HTTPConnection.m */,
+				C674024D1B4BEC1B009F956F /* YCStreamSession.h */,
+				C674024C1B4BEC1B009F956F /* YCStreamSession.m */,
+				C67AF0971B49E137000B8272 /* YCStreamSessionGCD.h */,
+				C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		C6FD33DC1B583A8E005E9269 /* NicoLiveAlertCollaborator */ = {
+			isa = PBXGroup;
+			children = (
+				C6FD33DF1B583A8E005E9269 /* NicoLiveAlertCollaboratorProtocol.h */,
+				C6FD33E01B583A8E005E9269 /* NicoLiveAlertCollaborator.h */,
+				C6FD33E11B583A8E005E9269 /* NicoLiveAlertCollaborator.m */,
+				C6FD33E31B583A8E005E9269 /* main.m */,
+				C6FD33DD1B583A8E005E9269 /* Supporting Files */,
+			);
+			path = NicoLiveAlertCollaborator;
+			sourceTree = "<group>";
+		};
+		C6FD33DD1B583A8E005E9269 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C6FD33DE1B583A8E005E9269 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,12 +410,16 @@
 			buildConfigurationList = C650C37A1B49A944005AC163 /* Build configuration list for PBXNativeTarget "NicoLiveAlert" */;
 			buildPhases = (
 				C650C3591B49A944005AC163 /* Sources */,
-				C650C35A1B49A944005AC163 /* Frameworks */,
 				C650C35B1B49A944005AC163 /* Resources */,
+				C650C35A1B49A944005AC163 /* Frameworks */,
+				C673353D1B49BA0200AC88AD /* Copy Frameworks */,
+				C64CBCB41B56371D00ACA92D /* Embed XPC Services */,
+				C64CBCB61B563B6C00ACA92D /* Copy GNTP Client Service */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C6FD33E61B583A8E005E9269 /* PBXTargetDependency */,
 			);
 			name = NicoLiveAlert;
 			productName = NicoLiveAlert;
@@ -149,6 +444,23 @@
 			productReference = C650C3701B49A944005AC163 /* NicoLiveAlertTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C6FD33DA1B583A8D005E9269 /* NicoLiveAlertCollaborator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6FD33E81B583A8E005E9269 /* Build configuration list for PBXNativeTarget "NicoLiveAlertCollaborator" */;
+			buildPhases = (
+				C6FD33D71B583A8D005E9269 /* Sources */,
+				C6FD33D81B583A8D005E9269 /* Frameworks */,
+				C6FD33D91B583A8D005E9269 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NicoLiveAlertCollaborator;
+			productName = NicoLiveAlertCollaborator;
+			productReference = C6FD33DB1B583A8D005E9269 /* NicoLiveAlertCollaborator.xpc */;
+			productType = "com.apple.product-type.xpc-service";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -160,10 +472,18 @@
 				TargetAttributes = {
 					C650C35C1B49A944005AC163 = {
 						CreatedOnToolsVersion = 6.4;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					C650C36F1B49A944005AC163 = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = C650C35C1B49A944005AC163;
+					};
+					C6FD33DA1B583A8D005E9269 = {
+						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
@@ -174,6 +494,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = C650C3541B49A944005AC163;
 			productRefGroup = C650C35E1B49A944005AC163 /* Products */;
@@ -182,6 +503,7 @@
 			targets = (
 				C650C35C1B49A944005AC163 /* NicoLiveAlert */,
 				C650C36F1B49A944005AC163 /* NicoLiveAlertTests */,
+				C6FD33DA1B583A8D005E9269 /* NicoLiveAlertCollaborator */,
 			);
 		};
 /* End PBXProject section */
@@ -191,8 +513,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C650C3681B49A944005AC163 /* Images.xcassets in Resources */,
-				C650C36B1B49A944005AC163 /* MainMenu.xib in Resources */,
+				C67402601B4C2448009F956F /* NLOffState.png in Resources */,
+				C6FD33CF1B581897005E9269 /* Localizable.strings in Resources */,
+				C67402631B4C2448009F956F /* sbicon.png in Resources */,
+				C67402611B4C2448009F956F /* NLMixedState.png in Resources */,
+				C674025F1B4C2448009F956F /* NLOnState.png in Resources */,
+				C67335461B49BDC800AC88AD /* NicoLiveAlert.xib in Resources */,
+				C67402621B4C2448009F956F /* watch.png in Resources */,
+				C67402661B4C2448009F956F /* Applications.png in Resources */,
+				C67402671B4C2448009F956F /* About.png in Resources */,
+				C67402651B4C2448009F956F /* NicoLiveAlert.icns in Resources */,
+				C67402641B4C2448009F956F /* Password.png in Resources */,
+				C64CBCB81B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,15 +535,50 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C6FD33D91B583A8D005E9269 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C64CBCB61B563B6C00ACA92D /* Copy GNTP Client Service */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy GNTP Client Service";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "XPC_START=\"$SRCROOT/External/Growl/XPC Client/\"\nXPC_SCRIPT=\"$SRCROOT/External/Growl/XPC Client/xpc-rename-move.rb\"\nruby \"$XPC_SCRIPT\" \"$XPC_START\" \"$BUILT_PRODUCTS_DIR/$WRAPPER_NAME\" \"$CODE_SIGN_IDENTITY\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C650C3591B49A944005AC163 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C650C3661B49A944005AC163 /* main.m in Sources */,
-				C650C3641B49A944005AC163 /* AppDelegate.m in Sources */,
+				C6CB9F861B5501DF001373ED /* NLProgram.m in Sources */,
+				C674024E1B4BEC1B009F956F /* YCStreamSession.m in Sources */,
+				C673352D1B49B47900AC88AD /* main.m in Sources */,
+				C63B1A531B4F853C005CA9B9 /* NLCommunityProgram.m in Sources */,
+				C67402511B4BF576009F956F /* NLProgramSiever.m in Sources */,
+				C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */,
+				C67AF0941B49D08F000B8272 /* NLAccount.m in Sources */,
+				C6F332A81B4D38AC009BE435 /* NLOfficialProgram.m in Sources */,
+				C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */,
+				C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */,
+				C67402541B4C193B009F956F /* NLStatusbar.m in Sources */,
+				C65015131B4A943700FC44DD /* NLProgramList.m in Sources */,
+				C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +586,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64CBCD71B5718A500ACA92D /* NLProgramTest.m in Sources */,
+				C67AF0A21B4A6E83000B8272 /* NLAccountsTest.m in Sources */,
+				C6FD33EC1B583B1D005E9269 /* CollaborationTest.m in Sources */,
+				C67AF09D1B49E4A0000B8272 /* NLAccountTests.m in Sources */,
 				C650C3771B49A944005AC163 /* NicoLiveAlertTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6FD33D71B583A8D005E9269 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6FD33E41B583A8E005E9269 /* main.m in Sources */,
+				C6FD33E21B583A8E005E9269 /* NicoLiveAlertCollaborator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,15 +611,29 @@
 			target = C650C35C1B49A944005AC163 /* NicoLiveAlert */;
 			targetProxy = C650C3711B49A944005AC163 /* PBXContainerItemProxy */;
 		};
+		C6FD33E61B583A8E005E9269 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6FD33DA1B583A8D005E9269 /* NicoLiveAlertCollaborator */;
+			targetProxy = C6FD33E51B583A8E005E9269 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C650C3691B49A944005AC163 /* MainMenu.xib */ = {
+		C67335441B49BDC800AC88AD /* NicoLiveAlert.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C650C36A1B49A944005AC163 /* Base */,
+				C67335451B49BDC800AC88AD /* en */,
 			);
-			name = MainMenu.xib;
+			name = NicoLiveAlert.xib;
+			sourceTree = "<group>";
+		};
+		C6FD33CC1B581897005E9269 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6FD33CD1B581897005E9269 /* en */,
+				C6FD33CE1B581897005E9269 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -328,9 +722,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NicoLiveAlert/NicoLiveAlert.entitlements;
+				CODE_SIGN_IDENTITY = "Чайка";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = NicoLiveAlert/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/YCKeychainService",
+					"$(PROJECT_DIR)/External/Growl",
+					"$(PROJECT_DIR)/External/Sparkle",
+					"$(PROJECT_DIR)/External/CocoaOniguruma",
+				);
+				INFOPLIST_FILE = "NicoLiveAlert/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -339,9 +743,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NicoLiveAlert/NicoLiveAlert.entitlements;
+				CODE_SIGN_IDENTITY = "Чайка";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = NicoLiveAlert/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/YCKeychainService",
+					"$(PROJECT_DIR)/External/Growl",
+					"$(PROJECT_DIR)/External/Sparkle",
+					"$(PROJECT_DIR)/External/CocoaOniguruma",
+				);
+				INFOPLIST_FILE = "NicoLiveAlert/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -354,6 +768,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/External/YCKeychainService",
+					"$(PROJECT_DIR)/External/CocoaOniguruma",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -374,11 +790,39 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/External/YCKeychainService",
+					"$(PROJECT_DIR)/External/CocoaOniguruma",
 				);
 				INFOPLIST_FILE = NicoLiveAlertTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NicoLiveAlert.app/Contents/MacOS/NicoLiveAlert";
+			};
+			name = Release;
+		};
+		C6FD33E91B583A8E005E9269 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Чайка";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NicoLiveAlertCollaborator/Info.plist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C6FD33EA1B583A8E005E9269 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Чайка";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NicoLiveAlertCollaborator/Info.plist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -401,6 +845,7 @@
 				C650C37C1B49A944005AC163 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C650C37D1B49A944005AC163 /* Build configuration list for PBXNativeTarget "NicoLiveAlertTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +854,16 @@
 				C650C37F1B49A944005AC163 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6FD33E81B583A8E005E9269 /* Build configuration list for PBXNativeTarget "NicoLiveAlertCollaborator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6FD33E91B583A8E005E9269 /* Debug */,
+				C6FD33EA1B583A8E005E9269 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
