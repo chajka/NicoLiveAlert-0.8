@@ -863,6 +863,7 @@
 				C6FD33EA1B583A8E005E9269 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
