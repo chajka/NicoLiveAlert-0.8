@@ -20,6 +20,7 @@
 #pragma mark - synthesize properties
 @synthesize delegate;
 @synthesize programNumber;
+@synthesize broadcastOwnerName;
 
 #pragma mark - class method
 #pragma mark - constructor / destructor
@@ -53,14 +54,10 @@
 {
 	NSString *notificationName = GrowlNotifyStartOfficialProgram;
 	if (reserved == YES) {
-#ifdef DEBUG
-		NSLog(@"Hook Notify");
-#endif
 		notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:0.0f target:self selector:@selector(notifyTimer:) userInfo:nil repeats:NO];
-		[[NSRunLoop currentRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
+		[[NSRunLoop mainRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
 		notificationName = GrowlNotifyFoundOfficialProgram;
 #ifdef DEBUG
-		NSLog(@"Timer is %@", [notifyTimer isValid] ? @"valid" : @"invarid");
 		NSLog(@"FireDate : %@", [[notifyTimer fireDate] descriptionWithCalendarFormat:nil timeZone:[NSTimeZone localTimeZone] locale:nil]);
 #endif
 	}// end if
@@ -73,8 +70,9 @@
 	if (programMenu == nil)
 		[self drawContents];
 	programMenu = [[NSMenuItem alloc] initWithTitle:EmptyString action:@selector(openProgram:) keyEquivalent:EmptyString];
-	[programMenu setImage:menuImage];
+	[programMenu setImage:imageBuffer];
 	[programMenu setRepresentedObject:self];
+	
 	
 	return programMenu;
 }// end - (NSMenuItem *) menuItem

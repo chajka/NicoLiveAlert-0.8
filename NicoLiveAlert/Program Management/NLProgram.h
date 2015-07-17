@@ -36,10 +36,12 @@
 	
 	BOOL									reserved;
 	NSDate									*openTime;
+	NSString								*openTimeString;
 	NSDate									*startTime;
 	NSString								*startTimeString;
 	NSTimer									*notifyTimer;
 	NSTimer									*elapsedTimer;
+	NSURL									*embedURL;
 
 		// variable for drawing
 	NSImage									*imageBuffer;
@@ -48,6 +50,7 @@
 @property (readwrite) id<NLProgramController>	delegate;
 @property (readonly) NSString				*programNumber;
 @property (readonly) NSDictionary			*userInfo;
+@property (readonly) NSString				*broadcastOwnerName;
 
 - (IBAction) openProgram:(id)sender;
 

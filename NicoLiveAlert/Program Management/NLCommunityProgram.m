@@ -82,12 +82,50 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 
 	return self;
 }// end - (id) initWithLiveNumber:(NSString *)liveno owner:(NSString *)owner primaryAccount:(NSString *)accnt
+
+- (void) dealloc
+{
+	[elapsedTimer invalidate];
+}// end - (void) dealloc
 #pragma mark - override
 #pragma mark - delegate
 #pragma mark - properties
 #pragma mark - actions
 #pragma mark - messages
 #pragma mark - private
+- (void) elapsedTimer:(NSTimer *)timer
+{
+	int elapsed = roundf([[NSDate date] timeIntervalSinceDate:startTime]);
+
+	if ((elapsed % (60 * 5)) == 0) {
+		NSURLResponse *resp = nil;
+		NSString *embed = [HTTPConnection HTTPSource:embedURL response:&resp];
+		if (embed != nil) {
+			OnigRegexp *stateRegex = [OnigRegexp compile:ProgramStatusRegex];
+			OnigResult *res = [stateRegex search:embed];
+			if (res != nil) {
+				NSString *state = [res stringAt:1];
+				if (![state isEqualToString:ONAIRSTATE])
+					[delegate removeProgram:self];
+			}// end if found state
+		}// end if can fetch embed url
+	}// end if each 5 minute
+	
+	NSString *plusMinus = (elapsed < 0)? @"-" : @"+";
+	NSString *hour = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / (60.0f * 60.0f)))];
+	NSString *minute = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / 60.0f))];
+	
+	NSString *timeString = [NSString stringWithFormat:@"%@ %@ %@:%@", startTimeString, plusMinus, hour, minute];
+
+		// update time
+	imageBuffer = [[NSImage alloc] initWithSize:NSMakeSize(ProgramBoundsW, ProgramBoundsH)];
+	[imageBuffer lockFocus];
+	[menuImage drawInRect:NSMakeRect(0.0f, 0.0f, ProgramBoundsW, ProgramBoundsH)];
+	[timeString drawAtPoint:NSMakePoint(200.0f, 0.0f) withAttributes:stringAttributes];
+	[imageBuffer unlockFocus];
+	[programMenu setImage:imageBuffer];
+}// end - (void) elapsedTimer:(NSTimer *)timer
+
 - (void) parseStreamInfo:(NSString *)liveNumber
 {
 	NSString *streaminfoString = [NicoStreamInfoQuery stringByAppendingString:liveNumber];
@@ -113,13 +151,9 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 {
 	NSString *notificationName = GrowlNotifyStartUserProgram;
 	if (reserved == YES) {
-#ifdef DEBUG
-		NSLog(@"Hook Notify");
-#endif
 		notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:0.0f target:self selector:@selector(notifyTimer:) userInfo:nil repeats:NO];
-		[[NSRunLoop currentRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
+		[[NSRunLoop mainRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
 #ifdef DEBUG
-		NSLog(@"Timer is %@", [notifyTimer isValid] ? @"valid" : @"invarid");
 		NSLog(@"FireDate : %@", [[notifyTimer fireDate] descriptionWithCalendarFormat:nil timeZone:[NSTimeZone localTimeZone] locale:nil]);
 #endif
 		notificationName = GrowlNotifyFoundUserProgram;
@@ -184,6 +218,21 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 	[stringAttributes setValue:accountColor forKey:NSForegroundColorAttributeName];
 	[primaryAccount drawAtPoint:NSMakePoint(OffsetPrimaryX, OffsetPrimaryY) withAttributes:stringAttributes];
 	[menuImage unlockFocus];
+		// draw elapsed time
+	[stringAttributes setValue:[NSFont fontWithName:fontNameOfElapsedTime size:12] forKey:NSFontAttributeName];
+	[stringAttributes setValue:timeColor forKey:NSForegroundColorAttributeName];
+	imageBuffer = [[NSImage alloc] initWithSize:NSMakeSize(ProgramBoundsW, ProgramBoundsH)];
+	[imageBuffer lockFocus];
+	[menuImage drawInRect:NSMakeRect(0.0f, 0.0f, ProgramBoundsW, ProgramBoundsH)];
+		// update time
+	int elapsed = roundf([[NSDate date] timeIntervalSinceDate:startTime]);
+	NSString *plusMinus = (elapsed < 0)? @"-" : @"+";
+	NSString *hour = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / (60.0f * 60.0f)))];
+	NSString *minute = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / 60.0f))];
+	
+	NSString *timeString = [NSString stringWithFormat:@"%@ %@ %@:%@", startTimeString, plusMinus, hour, minute];
+	[timeString drawAtPoint:NSMakePoint(200.0f, 0.0f) withAttributes:stringAttributes];
+	[imageBuffer unlockFocus];
 }// end - (void) drawContents
 
 #pragma mark - NSXMLParser degegate methods

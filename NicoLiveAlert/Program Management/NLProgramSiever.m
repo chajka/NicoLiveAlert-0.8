@@ -32,7 +32,7 @@
 		accounts = accnts;
 		watchlist = accnts.watchlist;
 		statusbar = bar;
-		activePrograms = [[NSMutableArray alloc] init];
+		activePrograms = [[NSMutableDictionary alloc] init];
 		queue = dispatch_queue_create([[self className] UTF8String], DISPATCH_QUEUE_CONCURRENT);
 	}// end if self
 
@@ -67,11 +67,17 @@
 #pragma mark NLProgramControll delegate Method
 - (void) removeProgram:(NLProgram *)program
 {
-	[activePrograms removeObject:program];
 	if ([[program class] isSubclassOfClass:[NLCommunityProgram class]])
 		[statusbar removeFromUserMenu:program.menuItem];
 	else
 		[statusbar removeFromOfficialMenu:program.menuItem];
+
+	for (NSString *key in [activePrograms allKeys]) {
+		if ([[activePrograms valueForKey:key] isEqual:program]) {
+			[activePrograms removeObjectForKey:key];
+			break;
+		}// end if found old program
+	}// end foreach active programs
 
 		// cleanup
 	program = nil;
@@ -79,26 +85,30 @@
 #pragma mark - private
 - (void) officialProgram:(NSString *)liveNumber
 {
-	NSLog(@"Official : %@", liveNumber);
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
 	prog.delegate = self;
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
+#ifdef DEBUG
+	NSLog(@"Official : %@", liveNumber);
 	NSLog(@"%@", prog);
-	[activePrograms addObject:prog];
+#endif
+	[activePrograms setValue:prog forKey:liveNumber];
 }// end - (void) officialProgram:(NSString *)liveNumber
 
 - (void) officialProgram:(NSString *)liveNumber title:(NSString *)title
 {
-	NSLog(@"Official : %@, Titile : %@", liveNumber, title);
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
 	prog.delegate = self;
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
+#ifdef DEBUG
+	NSLog(@"Official : %@, Titile : %@", liveNumber, title);
 	NSLog(@"%@", prog);
-	[activePrograms addObject:prog];
+#endif
+	[activePrograms setValue:prog forKey:liveNumber];
 }// end - (void) officialBroadcast:(NSString *)liveNumber title:(NSString *)title
 
 - (void) channelProgram:(NSString *)liveNumber
@@ -108,15 +118,21 @@
 
 - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen
 {
-	NSLog(@"Community : %@, autoOpen %c", liveNumber, (autoOpen == YES) ? 'Y':'N');
 	NSString *primaryAccount = [accounts primaryAccountForCommunity:community];
 	NLCommunityProgram *prog = [[NLCommunityProgram alloc] initWithLiveNumber:liveNumber owner:owner primaryAccount:primaryAccount];
 	prog.delegate = self;
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToUserMenu:item];
+#ifdef DEBUG
+	NSLog(@"Community : %@, autoOpen %c", liveNumber, (autoOpen == YES) ? 'Y':'N');
 	NSLog(@"%@", prog);
-	[activePrograms addObject:prog];
+#endif
+
+	NLProgram *oldProgram = [activePrograms valueForKey:owner];
+	if (oldProgram != nil)
+		[self removeProgram:oldProgram];
+	[activePrograms setValue:prog forKey:owner];
 
 	if (autoOpen) {
 		[self autoOpen:prog.menuItem];
