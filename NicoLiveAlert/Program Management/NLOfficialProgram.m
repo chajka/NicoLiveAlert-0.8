@@ -50,6 +50,9 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 		[self parseEmbed:liveno];
 		programNumber = [[NSString alloc] initWithString:liveno];
 		communityName = @"Official";
+		NSDate *fireDate = [NSDate dateWithTimeInterval:60.0f sinceDate:openTime];
+		elapsedTimer = [[NSTimer alloc] initWithFireDate:fireDate interval:60.0f target:self selector:@selector(elapsedTimer:) userInfo:nil repeats:YES];
+		[[NSRunLoop mainRunLoop] addTimer:elapsedTimer forMode:NSDefaultRunLoopMode];
 	}// end if self
 
 	return self;
@@ -60,10 +63,43 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 #pragma mark - actions
 #pragma mark - messages
 #pragma mark - private
+- (void) elapsedTimer:(NSTimer *)timer
+{
+	int elapsed = roundf([[NSDate date] timeIntervalSinceDate:startTime]);
+	
+	if ((elapsed % (60 * 5)) == 0) {
+		NSURLResponse *resp = nil;
+		NSString *embed = [HTTPConnection HTTPSource:embedURL response:&resp];
+		if (embed != nil) {
+			OnigRegexp *stateRegex = [OnigRegexp compile:ProgramStatusRegex];
+			OnigResult *res = [stateRegex search:embed];
+			if (res != nil) {
+				NSString *state = [res stringAt:1];
+				if (![state isEqualToString:ONAIRSTATE])
+					[delegate removeProgram:self];
+			}// end if found state
+		}// end if can fetch embed url
+	}// end if each 5 minute
+	
+	NSString *plusMinus = (elapsed < 0)? @"-" : @"+";
+	NSString *hour = [NSString stringWithFormat:@"%02d", (int)(elapsed / (60.0f * 60.0f))];
+	NSString *minute = [NSString stringWithFormat:@"%02d", (int)(elapsed / 60.0f)];
+	
+	NSString *timeString = [NSString stringWithFormat:@"%@ %@ %@:%@", startTimeString, plusMinus, hour, minute];
+	
+		// update time
+	imageBuffer = [[NSImage alloc] initWithSize:NSMakeSize(ProgramBoundsW, ProgramBoundsH)];
+	[imageBuffer lockFocus];
+	[menuImage drawInRect:NSMakeRect(0.0f, 0.0f, ProgramBoundsW, ProgramBoundsH)];
+	[timeString drawAtPoint:NSMakePoint(200.0f, 0.0f) withAttributes:stringAttributes];
+	[imageBuffer unlockFocus];
+	[programMenu setImage:imageBuffer];
+}// end - (void) elapsedTimer:(NSTimer *)timer
+
 - (void) parseEmbed:(NSString *)liveNumber
 {
 	NSString *embedURLString = [NicoStreamEmbedQuery stringByAppendingString:liveNumber];
-	NSURL *embedURL = [NSURL URLWithString:embedURLString];
+	embedURL = [[NSURL alloc] initWithString:embedURLString];
 	NSURLResponse *resp;
 	NSString *embedSource = [HTTPConnection HTTPSource:embedURL response:&resp];
 
@@ -85,15 +121,20 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 		// get start time
 	regex = [OnigRegexp compile:ProgramStartTimeRegex];
 	res = [regex search:embedSource];
+	NSDictionary *localeDict = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
 	if (res != nil) {
 		NSString *originalDateString = [res stringAt:1];
 		NSString *sanitizedDateString = [originalDateString replaceAllByRegexp:DateSanityRegex with:EmptyString];
-		NSDictionary *localeDict = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
 		startTime = [NSDate dateWithNaturalLanguageString:sanitizedDateString locale:localeDict];
 		startTimeString = [startTime descriptionWithCalendarFormat:@"%H:%M" timeZone:[NSTimeZone localTimeZone] locale:nil];
 		if ([startTime compare:[NSDate date]] == NSOrderedDescending)
 			reserved = YES;
 	}// end if
+
+		// make open time
+	NSDate *now = [NSDate date];
+	openTimeString = [now descriptionWithCalendarFormat:@"%H:%M" timeZone:[NSTimeZone localTimeZone] locale:nil];
+	openTime = [NSDate dateWithNaturalLanguageString:openTimeString locale:localeDict];
 	
 }// end - (void) parseEmbed:(NSString *)liveNumber
 
@@ -122,6 +163,21 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 	[stringAttributes setValue:accountColor forKey:NSForegroundColorAttributeName];
 	[communityName drawAtPoint:NSMakePoint(offsetTitleX, 0) withAttributes:stringAttributes];
 	[menuImage unlockFocus];
+		// draw elapsed time
+	[stringAttributes setValue:[NSFont fontWithName:fontNameOfElapsedTime size:12] forKey:NSFontAttributeName];
+	[stringAttributes setValue:timeColor forKey:NSForegroundColorAttributeName];
+	imageBuffer = [[NSImage alloc] initWithSize:NSMakeSize(ProgramBoundsW, ProgramBoundsH)];
+	[imageBuffer lockFocus];
+	[menuImage drawInRect:NSMakeRect(0.0f, 0.0f, ProgramBoundsW, ProgramBoundsH)];
+		// update time
+	int elapsed = roundf([[NSDate date] timeIntervalSinceDate:startTime]);
+	NSString *plusMinus = (elapsed < 0)? @"-" : @"+";
+	NSString *hour = [NSString stringWithFormat:@"%02d", (int)(elapsed / (60.0f * 60.0f))];
+	NSString *minute = [NSString stringWithFormat:@"%02d", (int)(elapsed / 60.0f)];
+	
+	NSString *timeString = [NSString stringWithFormat:@"%@ %@ %@:%@", startTimeString, plusMinus, hour, minute];
+	[timeString drawAtPoint:NSMakePoint(200.0f, 0.0f) withAttributes:stringAttributes];
+	[imageBuffer unlockFocus];
 }// end - (void) drawContents
 #pragma mark - C functions
 
