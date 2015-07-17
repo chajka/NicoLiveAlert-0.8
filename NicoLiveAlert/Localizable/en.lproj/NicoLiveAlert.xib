@@ -668,7 +668,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="NicoLiveAlert" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="NicoLiveAlert" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
@@ -682,6 +682,9 @@
             <items>
                 <menuItem title="AutoOpen Checked Live" tag="1001" alternate="YES" id="tBP-gJ-e4t">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <binding destination="mNU-Ic-kGS" name="value" keyPath="values.AutoOpenCheckedLive" id="bIu-7A-shP"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Programs" onStateImage="NLOnState" tag="1002" id="Jfn-aI-GaP">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -707,9 +710,6 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" tag="1020" id="Yua-ff-b5T"/>
-                <menuItem title="About NicoLiveAlert…" tag="1021" id="Pw3-6M-B3z">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
                 <menuItem title="Check for updates" tag="1022" id="n5C-nH-ol7">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
@@ -722,6 +722,7 @@
             </items>
             <point key="canvasLocation" x="71" y="390.5"/>
         </menu>
+        <userDefaultsController id="mNU-Ic-kGS"/>
     </objects>
     <resources>
         <image name="NLMixedState" width="12" height="12"/>

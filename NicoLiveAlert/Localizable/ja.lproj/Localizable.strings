@@ -1,0 +1,16 @@
+"TitleAutoOpen" = "チェックが付いた放送を自動で開く";
+"TitlePrograms" = "ユーザー放送";
+"TitleAccounts" = "アカウント";
+"TitleResetConnection" = "ネットワークのリセット";
+"TitleScanRSS" = "RSSのスキャン";
+"TitleLauncher" = "簡易ラウンチャー";
+"TitlePreference" = "";
+"TitleCheckUpdate" = "アップデートの確認";
+"TitleAbout" = "NicoLiveAlertについて";
+"TitleQuit" = "終了";
+"TitleUserNoProgram" = "ユーザー放送はありません";
+"TitleUserSingleProgram" = "ユーザー放送";
+"TitleUserSomePrograms" = "ユーザー放送";
+"TitleOfficialNoProgram" = "公式放送はありません";
+"TitleOfficialSingleProgram" = "公式放送";
+"TitleOfficialSomePrograms" = "公式放送";

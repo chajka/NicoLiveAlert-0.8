@@ -7,11 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <dispatch/dispatch.h>
+#import "NLStatusbar.h"
+#import "NLAccounts.h"
+#import "NLProgram.h"
 
-@interface NLProgramSiever : NSObject {
+@interface NLProgramSiever : NSObject<NLProgramController> {
+	dispatch_queue_t					queue;
+	NLAccounts							*accounts;
 	NSDictionary						*watchlist;
+	NLStatusbar							*statusbar;
+
+	NSMutableArray						*activePrograms;
+
 }
-- (id) initWithWatchlist:(NSDictionary *)watchlist;
+@property (readonly) NSXPCConnection	*service;
+- (id) initWithAccounts:(NLAccounts *)accnts statusbar:(NLStatusbar *)statusbar;
 
 - (void) checkProgram:(NSArray *)programInfo;
 @end

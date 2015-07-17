@@ -15,15 +15,18 @@
 #define NicoLoginForm								@"https://secure.nicovideo.jp/secure/login_form"
 #define NicoLoginGetTicketURL						@"https://secure.nicovideo.jp/secure/login"
 #define NicoLiveGetAlertStatusURL					@"http://live.nicovideo.jp/api/getalertstatus"
-#define NicoStreamInfoQuery							@"http://live.nicovideo.jp/api/getstreaminfo/%@"
-#define NicoStreamEmbedQuery						@"http://live.nicovideo.jp/embed/%@"
-#define NicoProgramURLFormat						@"http://live.nicovideo.jp/watch/%@"
-#define NicknameQuery								@"http://seiga.nicovideo.jp/api/user/info?id=%@"
+#define NicoStreamInfoQuery							@"http://live.nicovideo.jp/api/getstreaminfo/"
+#define NicoStreamEmbedQuery						@"http://live.nicovideo.jp/embed/"
+#define NicoPlayerStatusQuery						@"http://live.nicovideo.jp/api/getplayerstatus?v="
+#define NicoProgramURLFormat						@"http://live.nicovideo.jp/watch/"
+#define NicknameQuery								@"http://seiga.nicovideo.jp/api/user/info?id="
 
 #define StartStreamRequestElement					@"<thread thread=\"%@\" version=\"20061206\" res_from=\"-1\"/>"
 
 #pragma mark - Regular expressions
 #define ProgramListRegex							@"<chat .*>(.+)</chat>"
+#define CommunityTitleRegex							@"<name>(.*)</name>"
+#define NicknamePickupRegex							@"<nickname>(.*)</nickname>"
 
 #pragma mark - account info xml element keys
 // Exception definition
@@ -60,6 +63,74 @@ enum elementLiteralIndex {
 	indexCode,
 	indexDesc
 };
+
+#pragma mark -
+#pragma mark definitions for class NLProgram
+// Attribute literal
+#define fontNameOfProgramTitle		@"HiraKakuPro-W6"
+#define fontNameOfProgramOwner		@"HiraKakuPro-W3"
+#define fontNameOfDescription		@"HiraMaruPro-W4"
+#define fontNameOfCommunity			@"HiraKakuPro-W6"
+#define fontNameOfPrimaryAccount	@"Futura-Medium"
+#define fontNameOfElapsedTime		@"CourierNewPS-BoldMT"
+
+#define ProgramFromRSSOwnerName		@"RSS"
+#define OfficialTitleString	NSLocalizedString(@"OfficialTitleString", @"")
+#define StartUserTimeFormat			@" %H:%M + 00:00"
+#define ReserveUserTimeFormat		@" %%H:%%M - 00:%02ld"
+#define StartOfficialTimeFormat		@"  %H:%M + 00:00"
+#define ReserveOfficialTimeFormat	@"  %%H:%%M - 00:%02ld"
+#define ElapsedTimeFormat			@"%02ld:%02ld"
+#define CountDownTimeFormat			@"%02ld:%02ld"
+#define TimeFormatString			@"%H:%M"
+#define TimeSanityFormatString		@"%@%@%@"
+
+#pragma mark - NLOfficialProgram
+#define ProgramTtileRegex							@"<h1 class=\"title\">(.*)</h1>"
+#define ProgramThumbnailRegex						@"<img src=\"(http://(icon\\.n|nl\\.s)img.jp/.*)\" alt=\"\">"
+#define ProgramStatusRegex							@"<div class=\"status (before|beforeTS|onair|done|doneTS)\">"
+#define ProgramStartTimeRegex						@"<div class=\"data\">(.*)</div>"
+#define DateSanityRegex								@"<\\?font[^>]*>"
+
+#define ONAIRSTATE									@"onair"
+#define BEFORESTATE									@"before"
+#define BEFORETSSTATE								@"beforeTS"
+#define DONESTATE									@"done"
+#define DONETSSTATE									@"doneTS"
+
+#pragma mark - getstreaminfo xml keys
+#define elementKeyRequestID							@"request_id"
+#define elementKeyProgramTitle						@"title"
+#define elementKeyProgramDescription				@"description"
+#define elementKeyDefaultCommunity					@"default_community"
+#define elementKeyCommunityName						@"name"
+#define elementKeyCommunityThumbnail				@"thumbnail"
+enum getstreamInfoIndex {
+	IndexRequestID = 1,
+	IndexProgramTitle,
+	IndexProgramDesc,
+	IndexDefaultCommunity,
+	IndexCommunityName,
+	IndexCommunityThumbnail
+};
+
+#pragma mark -
+#pragma mark Application Collaboration
+#pragma mark classic
+#define ServerCharleston			@"Charleston"
+#define ServerFMELauncher			@"FMELauncher"
+#pragma mark XPC
+#define CollaboratorXPCName			"tv.from.chajka.NicoLiveAlert.Collaborator"
+#define XPCNotificationName			@"XPCNotificationName"
+#define TypeProgramStart			@"TypeProgramStart"
+#define TypeProgramEnd				@"TypeProgramEnd"
+#define Information					@"Information"
+#define ImporterXPCName				"tv.from.chajka.NicoLiveAlert.Importer"
+#define ImporterQueueName			"tv.from.cjajka.NicoLiveAlert.Importer.queue"
+#define TypePreference				@"TypePreference"
+#define PrefSource					@"source"
+#define PrefDest					@"dest"
+#define PreferenceData				@"PreferenceData"
 
 #pragma mark - definitions for Statusbar
 #define DeactiveConnection							@"Disconnected"
@@ -119,8 +190,12 @@ enum statusBarMenuItems {
 #define kindOfficial								@"of"
 #define kindProgram									@"lv"
 #define kindOfficalProgram							@"official"
-#define OffsetLiveNumber							(0)
-#define OffsetOfficialTitle							(1)
+enum programInfoKind {
+	OffsetLiveNumber = 0,
+	OffsetOfficialTitle = 1,
+	OffsetCommunityChannelNumber = 1,
+	OffsetProgramOwnerID = 2
+};
 
 enum WatchTargetKind {
 	indexWatchCommunity = 1,
@@ -132,6 +207,31 @@ enum WatchTargetKind {
 #define URLFormatChannel							@"http://ch.nicovideo.jp/channel/%@"
 #define URLFormatLive								@"http://live.nicovideo.jp/watch/%@"
 #define URLFormatUser								@"http://www.nicovideo.jp/user/%@"
+
+#pragma mark - Preference keys
+#define PrefKeyNotifyStartUserProgram				@"NotifyStartUserProgram"
+#define PrefKeyNotifyStartOfficialProgram			@"NotifyStartOfficialProgram"
+#define PrefKeyCheckOfficialChannel					@"CheckOfficialChannel"
+#define PrefKeyAutoOpenCheckedLive					@"AutoOpenCheckedLive"
+#define PrefKeyKickCommentViewerByOpenFromMe		@"KickCommentViewerByOpenFromMe"
+#define PrefKeyKickCommentViewerAtAutoOpen			@"KickCommentViewerAtAutoOpen"
+#define PrefKeyKickCommentViewerOnMyBroadcast		@"KickCommentViewerOnMyBroadcast"
+#define PrefKeyNotifySoundDeviceName				@"NotifySoundDeviceName"
+#define PrefKeyStartUserProgramSound				@"StartUserProgramSound"
+#define PrefKeyStartOfficialProgramSound			@"StartOfficialProgramSound"
+
+
+#pragma mark -
+#pragma mark Growling
+
+#define GrowlNotifyStartMonitoring					@"Start monitoring"
+#define GrowlNotifyDisconnected						@"Disconnected"
+#define GrowlNotifyFoundOfficialProgram				@"Found Official Program"
+#define GrowlNotifyStartOfficialProgram				@"Start Official Program"
+#define GrowlNotifyFoundUserProgram					@"Found User Program"
+#define GrowlNotifyStartUserProgram					@"Start User Program"
+#define	GrowlNotifyFoundListedProgram				@"Found in Manual Watch List"
+#define GrowlNotifyStartListedProgram				@"Start in Manual watch List"
 
 #pragma mark -
 #pragma mark definitions for NLStatusbar

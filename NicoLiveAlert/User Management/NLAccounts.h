@@ -25,6 +25,7 @@
 - (BOOL) addAccount:(NSString *)mailaddress;
 - (BOOL) addAccount:(NSString *)mailaddress password:(NSString *)password;
 - (void) removeAccount:(NSString *)mailaddress;
+- (NSString *) primaryAccountForCommunity:(NSString *)community;
 - (void) addManualWatchItem:(NSString *)item autoOpen:(BOOL)autoOpen;
 - (void) removeManualWatchItem:(NSString *)item;
 - (void) toggleAutoOpen:(NSString *)item;

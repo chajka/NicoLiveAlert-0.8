@@ -306,8 +306,8 @@ static CGFloat disconnectedColorAlpha = 0.70;
 	[statusBarItem setAlternateImage:statusbarAlt];
 	[statusBarItem setToolTip:@"NicoLiveAlert"];
 	[statusBarItem setHighlightMode:YES];
-	// localize
-/*	[[statusbarMenu itemWithTag:tagAutoOpen] setTitle:TITLEAUTOOPEN];
+		// localize
+	[[statusbarMenu itemWithTag:tagAutoOpen] setTitle:TITLEAUTOOPEN];
 	[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERNOPROG];
 	[[statusbarMenu itemWithTag:tagOfficial] setTitle:TITLEOFFICIALNOPROG];
 	[[statusbarMenu itemWithTag:tagAccounts] setTitle:TITLEACCOUNTS];
@@ -315,7 +315,6 @@ static CGFloat disconnectedColorAlpha = 0.70;
 	[[statusbarMenu itemWithTag:tagPreference] setTitle:TITLEPREFERENCE];
 	[[statusbarMenu itemWithTag:tagCheckUpdate] setTitle:TITLECHECKUPDATE];
 	[[statusbarMenu itemWithTag:tagQuit] setTitle:TITLEQUIT];
-*/
 
 	NSImage *onImage = [NSImage imageNamed:OnImageName];
 	NSImage *offImage = [NSImage imageNamed:OffImageName];

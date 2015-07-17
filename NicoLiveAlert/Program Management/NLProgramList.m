@@ -139,19 +139,21 @@
 - (void) readStreamEndEncounted:(NSInputStream *)stream
 {
 }// end - (void) readStreamEndEncounted:(NSInputStream *)stream
-/*
+
 - (void) readStreamErrorOccured:(NSInputStream *)iStream
 {
 }// end - (void) readStreamErrorOccured:(NSInputStream *)iStream
-
+/*
 - (void) readStreamOpenCompleted:(NSInputStream *)iStream
 {
 	￼￼<#code#>
 }// end - (void) readStreamOpenCompleted:(NSInputStream *)iStream
+
 - (void) readStreamCanAcceptBytes:(NSInputStream *)iStream
 {
 	￼￼<#code#>
 }// end
+
 - (void) readStreamNone:(NSStream *)iStream
 {
 	￼￼<#code#>
@@ -170,11 +172,12 @@
 - (void) writeStreamEndEncounted:(NSOutputStream *)oStream
 {
 }// end - (void) writeStreamEndEncounted:(NSOutputStream *)oStream
-/*
+
 - (void) writeStreamErrorOccured:(NSOutputStream *)oStream
 {
 }// end - (void) writeStreamErrorOccured:(NSOutputStream *)oStream
 
+/*
 - (void) writeStreamOpenCompleted:(NSOutputStream *)oStream
 {
 	￼￼<#code#>
