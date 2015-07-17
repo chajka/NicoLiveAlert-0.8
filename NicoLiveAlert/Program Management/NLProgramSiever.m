@@ -85,25 +85,29 @@
 #pragma mark - private
 - (void) officialProgram:(NSString *)liveNumber
 {
-	NSLog(@"Official : %@", liveNumber);
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
 	prog.delegate = self;
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
+#ifdef DEBUG
+	NSLog(@"Official : %@", liveNumber);
 	NSLog(@"%@", prog);
+#endif
 	[activePrograms setValue:prog forKey:liveNumber];
 }// end - (void) officialProgram:(NSString *)liveNumber
 
 - (void) officialProgram:(NSString *)liveNumber title:(NSString *)title
 {
-	NSLog(@"Official : %@, Titile : %@", liveNumber, title);
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
 	prog.delegate = self;
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
+#ifdef DEBUG
+	NSLog(@"Official : %@, Titile : %@", liveNumber, title);
 	NSLog(@"%@", prog);
+#endif
 	[activePrograms setValue:prog forKey:liveNumber];
 }// end - (void) officialBroadcast:(NSString *)liveNumber title:(NSString *)title
 
@@ -114,14 +118,16 @@
 
 - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen
 {
-	NSLog(@"Community : %@, autoOpen %c", liveNumber, (autoOpen == YES) ? 'Y':'N');
 	NSString *primaryAccount = [accounts primaryAccountForCommunity:community];
 	NLCommunityProgram *prog = [[NLCommunityProgram alloc] initWithLiveNumber:liveNumber owner:owner primaryAccount:primaryAccount];
 	prog.delegate = self;
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToUserMenu:item];
+#ifdef DEBUG
+	NSLog(@"Community : %@, autoOpen %c", liveNumber, (autoOpen == YES) ? 'Y':'N');
 	NSLog(@"%@", prog);
+#endif
 
 	NLProgram *oldProgram = [activePrograms valueForKey:owner];
 	if (oldProgram != nil)
