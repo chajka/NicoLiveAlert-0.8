@@ -67,18 +67,24 @@
 #pragma mark NLProgramControll delegate Method
 - (void) removeProgram:(NLProgram *)program
 {
-	if ([[program class] isSubclassOfClass:[NLCommunityProgram class]])
-		[statusbar removeFromUserMenu:program.menuItem];
-	else
-		[statusbar removeFromOfficialMenu:program.menuItem];
-
-	for (NSString *key in [activePrograms allKeys]) {
-		if ([[activePrograms valueForKey:key] isEqual:program]) {
-			[activePrograms removeObjectForKey:key];
-			break;
-		}// end if found old program
-	}// end foreach active programs
-
+	dispatch_queue_t mainQueue = dispatch_get_main_queue();
+	dispatch_sync(mainQueue, ^{
+		@try {
+			if ([program isKindOfClass:[NLCommunityProgram class]])
+				[statusbar removeFromUserMenu:program.menuItem];
+			else
+				[statusbar removeFromOfficialMenu:program.menuItem];
+		}
+		@catch (NSException *exception) {
+		}
+		
+		for (NSString *key in [activePrograms allKeys]) {
+			if ([[activePrograms valueForKey:key] isEqual:program]) {
+				[activePrograms removeObjectForKey:key];
+				break;
+			}// end if found old program
+		}// end foreach active programs
+	});
 		// cleanup
 	program = nil;
 }// end - (void) removeProgram:(NLProgram *)program

@@ -24,6 +24,8 @@
 	<string>50</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>LSUIElement</key>
+	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2015 Instrumentality of Mankind. All rights reserved.</string>
 	<key>NSMainNibFile</key>

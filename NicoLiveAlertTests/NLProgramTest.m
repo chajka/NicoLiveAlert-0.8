@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
+#import <CocoaOniguruma/OnigRegexp.h>
+#import "NicoLiveAlertDefinitions.h"
 
 @interface NLProgramTest : XCTestCase
 
@@ -33,6 +35,14 @@
 	NSString *dateString = [startDate descriptionWithCalendarFormat:@"%H:%M"  timeZone:[NSTimeZone localTimeZone] locale:nil];
 	NSLog(@"%@", dateString);
     XCTAssert(YES, @"Pass");
+}
+
+- (void) test02_SanitizeString
+{
+	NSString *origranString = @"7月18日(<font color='#3366CC'>土</font>) 01:43";
+	OnigRegexp *sanitizeRegex = [OnigRegexp compile:DateSanityRegex];
+	NSString *sanityString = [origranString replaceAllByRegexp:sanitizeRegex with:@""];
+	NSLog(@"%@",sanityString);
 }
 
 - (void)testPerformanceExample {

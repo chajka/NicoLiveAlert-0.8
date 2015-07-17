@@ -95,9 +95,11 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 #pragma mark - private
 - (void) elapsedTimer:(NSTimer *)timer
 {
-	int elapsed = roundf([[NSDate date] timeIntervalSinceDate:startTime]);
+	NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:startTime];
+	double rounded = roundf(interval);
+	long elapsed = (long)rounded;
 
-	if ((elapsed % (60 * 5)) == 0) {
+	if ((((elapsed + 60) % (60 * 5)) == 0) || (elapsed == 60)) {
 		NSURLResponse *resp = nil;
 		NSString *embed = [HTTPConnection HTTPSource:embedURL response:&resp];
 		if (embed != nil) {
@@ -111,9 +113,9 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 		}// end if can fetch embed url
 	}// end if each 5 minute
 	
-	NSString *plusMinus = (elapsed < 0)? @"-" : @"+";
-	NSString *hour = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / (60.0f * 60.0f)))];
-	NSString *minute = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / 60.0f))];
+	NSString *plusMinus = (interval < 0)? @"-" : @"+";
+	NSString *hour = [NSString stringWithFormat:@"%02ld", labs((long)(elapsed / (60 * 60)))];
+	NSString *minute = [NSString stringWithFormat:@"%02ld", labs((long)(elapsed / 60))];
 	
 	NSString *timeString = [NSString stringWithFormat:@"%@ %@ %@:%@", startTimeString, plusMinus, hour, minute];
 
@@ -225,10 +227,11 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 	[imageBuffer lockFocus];
 	[menuImage drawInRect:NSMakeRect(0.0f, 0.0f, ProgramBoundsW, ProgramBoundsH)];
 		// update time
-	int elapsed = roundf([[NSDate date] timeIntervalSinceDate:startTime]);
-	NSString *plusMinus = (elapsed < 0)? @"-" : @"+";
-	NSString *hour = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / (60.0f * 60.0f)))];
-	NSString *minute = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / 60.0f))];
+	NSTimeInterval interval = roundf([[NSDate date] timeIntervalSinceDate:startTime]);
+	long elapsed = (long)roundf(interval);
+	NSString *plusMinus = (interval < 0)? @"-" : @"+";
+	NSString *hour = [NSString stringWithFormat:@"%02ld", labs((long)(elapsed / (60 * 60)))];
+	NSString *minute = [NSString stringWithFormat:@"%02ld", labs((long)(elapsed / 60))];
 	
 	NSString *timeString = [NSString stringWithFormat:@"%@ %@ %@:%@", startTimeString, plusMinus, hour, minute];
 	[timeString drawAtPoint:NSMakePoint(200.0f, 0.0f) withAttributes:stringAttributes];

@@ -90,7 +90,7 @@ enum elementLiteralIndex {
 #define ProgramThumbnailRegex						@"<img src=\"(http://(icon\\.n|nl\\.s)img.jp/.*)\" alt=\"\">"
 #define ProgramStatusRegex							@"<div class=\"status (before|beforeTS|onair|done|doneTS)\">"
 #define ProgramStartTimeRegex						@"<div class=\"data\">(.*)</div>"
-#define DateSanityRegex								@"<\\?font[^>]*>"
+#define DateSanityRegex								@"</?font[^>]*>"
 
 #define ONAIRSTATE									@"onair"
 #define BEFORESTATE									@"before"
