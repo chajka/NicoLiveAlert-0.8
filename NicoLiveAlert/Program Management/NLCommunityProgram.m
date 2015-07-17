@@ -227,8 +227,8 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 		// update time
 	int elapsed = roundf([[NSDate date] timeIntervalSinceDate:startTime]);
 	NSString *plusMinus = (elapsed < 0)? @"-" : @"+";
-	NSString *hour = [NSString stringWithFormat:@"%02d", (int)(abs(elapsed) / (60.0f * 60.0f))];
-	NSString *minute = [NSString stringWithFormat:@"%02d", (int)(abs(elapsed) / 60.0f)];
+	NSString *hour = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / (60.0f * 60.0f)))];
+	NSString *minute = [NSString stringWithFormat:@"%02d", abs((int)(elapsed / 60.0f))];
 	
 	NSString *timeString = [NSString stringWithFormat:@"%@ %@ %@:%@", startTimeString, plusMinus, hour, minute];
 	[timeString drawAtPoint:NSMakePoint(200.0f, 0.0f) withAttributes:stringAttributes];
