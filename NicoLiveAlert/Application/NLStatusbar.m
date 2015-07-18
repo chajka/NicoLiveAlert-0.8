@@ -148,13 +148,16 @@ static CGFloat disconnectedColorAlpha = 0.70;
 {
 	if (userProgramCount == 0)
 	{
-		NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
-		[[statusbarMenu itemWithTag:tagPorgrams] setSubmenu:menu];
-		[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERSINGLEPROG];
-		[[statusbarMenu itemWithTag:tagPorgrams] setEnabled:YES];
+		if (![[statusbarMenu itemWithTag:tagPorgrams] submenu]) {
+			NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
+			[[statusbarMenu itemWithTag:tagPorgrams] setSubmenu:menu];
+			[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERSINGLEPROG];
+			[[statusbarMenu itemWithTag:tagPorgrams] setEnabled:YES];
+			
 #if __has_feature(objc_arc) == 0
-		[menu autorelease];
+			[menu autorelease];
 #endif
+		}// end if has no submenu
 	}
 	else if (userProgramCount == 1)
 	{
@@ -170,18 +173,21 @@ static CGFloat disconnectedColorAlpha = 0.70;
 
 - (void) removeFromUserMenu:(NSMenuItem *)item
 {
-	[[[statusbarMenu itemWithTag:tagPorgrams] submenu] removeItem:item];
+	@try {
+		[[[statusbarMenu itemWithTag:tagPorgrams] submenu] removeItem:item];
+	}
+	@catch (NSException *exception) {
+		NSLog(@"catch exception, exception : %@", exception);
+	}
 	[self decleaseProgCount];
-	if (--userProgramCount == 0)
-	{
+	if (--userProgramCount == 0) {
 		[[statusbarMenu itemWithTag:tagPorgrams] setState:NSOffState];
 		[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERNOPROG];
 		[[statusbarMenu itemWithTag:tagPorgrams] setSubmenu:nil];
 		[[statusbarMenu itemWithTag:tagPorgrams] setEnabled:NO];
 		
 	}
-	else if (userProgramCount == 1)
-	{
+	else if (userProgramCount == 1) {
 		[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERSINGLEPROG];
 	}// end if
 	
@@ -190,18 +196,18 @@ static CGFloat disconnectedColorAlpha = 0.70;
 
 - (void) addToOfficialMenu:(NSMenuItem *)item
 {
-	if (officialProgramCount == 0)
-	{
-		NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
-		[[statusbarMenu itemWithTag:tagOfficial] setSubmenu:menu];
-		[[statusbarMenu itemWithTag:tagOfficial] setTitle:TITLEOFFICIALSINGLEPROG];
-		[[statusbarMenu itemWithTag:tagOfficial] setEnabled:YES];
+	if (officialProgramCount == 0) {
+		if (![[statusbarMenu itemWithTag:tagOfficial] submenu]) {
+			NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
+			[[statusbarMenu itemWithTag:tagOfficial] setSubmenu:menu];
+			[[statusbarMenu itemWithTag:tagOfficial] setTitle:TITLEOFFICIALSINGLEPROG];
+			[[statusbarMenu itemWithTag:tagOfficial] setEnabled:YES];
 #if __has_feature(objc_arc) == 0
-		[menu autorelease];
+			[menu autorelease];
 #endif
+		}// end if
 	}
-	else if (officialProgramCount == 1)
-	{
+	else if (officialProgramCount == 1) {
 		[[statusbarMenu itemWithTag:tagOfficial] setTitle:TITLEOFFICIALSOMEPROG];
 	}
 	[[[statusbarMenu itemWithTag:tagOfficial] submenu] insertItem:item atIndex:0];
