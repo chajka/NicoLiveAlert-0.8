@@ -42,6 +42,19 @@
 
 	return dict;
 }// end - (NSDictionary *) userInfo
+
+- (NSMenuItem *) menuItem
+{
+	if (programMenu == nil) {
+		[self drawContents];
+		programMenu = [[NSMenuItem alloc] initWithTitle:EmptyString action:@selector(openProgram:) keyEquivalent:EmptyString];
+		[programMenu setImage:imageBuffer];
+		[programMenu setRepresentedObject:self];
+	}// end if need create program menu
+	
+	return programMenu;
+}// end - (NSMenuItem *) menuItem
+
 #pragma mark - actions
 - (IBAction) openProgram:(id)sender
 {
@@ -62,17 +75,11 @@
 	[GrowlApplicationBridge notifyWithTitle:programTitle description:programDescription notificationName:notificationName iconData:[thumbnail TIFFRepresentation] priority:0 isSticky:NO clickContext:nil];
 }// end - (void) notify
 
-- (NSMenuItem *) menuItem
+- (void) stopElapsedTimer
 {
-	if (programMenu == nil) {
-		[self drawContents];
-		programMenu = [[NSMenuItem alloc] initWithTitle:EmptyString action:@selector(openProgram:) keyEquivalent:EmptyString];
-		[programMenu setImage:imageBuffer];
-		[programMenu setRepresentedObject:self];
-	}// end if need create program menu
-	
-	return programMenu;
-}// end - (NSMenuItem *) menuItem
+	[elapsedTimer invalidate];
+	elapsedTimer = nil;
+}// end - (void) stopElapsedTimer
 
 #pragma mark - private
 - (void) notifyTimer:(NSTimer *)timer
