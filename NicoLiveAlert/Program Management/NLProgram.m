@@ -57,9 +57,6 @@
 		notifyTimer = [[NSTimer alloc] initWithFireDate:startTime interval:0.0f target:self selector:@selector(notifyTimer:) userInfo:nil repeats:NO];
 		[[NSRunLoop mainRunLoop] addTimer:notifyTimer forMode:NSDefaultRunLoopMode];
 		notificationName = GrowlNotifyFoundOfficialProgram;
-#ifdef DEBUG
-		NSLog(@"FireDate : %@", [[notifyTimer fireDate] descriptionWithCalendarFormat:nil timeZone:[NSTimeZone localTimeZone] locale:nil]);
-#endif
 	}// end if
 	
 	[GrowlApplicationBridge notifyWithTitle:programTitle description:programDescription notificationName:notificationName iconData:[thumbnail TIFFRepresentation] priority:0 isSticky:NO clickContext:nil];

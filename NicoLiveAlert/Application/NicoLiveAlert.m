@@ -12,6 +12,8 @@
 #import "NicoLiveAlertCollaboratorProtocol.h"
 #import "NLProgram.h"
 
+#import "WatchlistController.h"
+
 @interface NicoLiveAlert ()
 
 @property (weak) IBOutlet NSWindow *window;
@@ -28,7 +30,6 @@ static void uncaughtExceptionHandler(NSException *exception);
 
 @implementation NicoLiveAlert
 #pragma mark - synthesize properties
-@synthesize collaborator;
 #pragma mark - class method
 #pragma mark - constructor / destructor
 #pragma mark - override
@@ -96,7 +97,31 @@ static void uncaughtExceptionHandler(NSException *exception);
 	}// end if
 }// end - (IBAction) openProgram:(id)sender
 
+- (IBAction) openPreferenceWindow:(id)sender
+{
+	@autoreleasepool {
+		NSWindowController *winController = [self makePreferenceWindowController];
+		if (firstTime) {
+			firstTime = NO;
+			[preferenceWindowController selectControllerAtIndex:0];
+		}// end if first time
+		[winController showWindow:nil];
+	}// end autorelease pool
+}// end - (IBAction) openPreferenceWindow:(id)sender
+
 #pragma mark - messages
+- (NSWindowController *) makePreferenceWindowController
+{
+	if (!preferenceWindowController) {
+		firstTime = YES;
+		WatchlistController *watchlist = [[WatchlistController alloc] init];
+		NSArray *controllers = [NSArray arrayWithObjects:watchlist, nil];
+		preferenceWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:controllers];
+	}// end if
+
+	return preferenceWindowController;
+}// end - (NSWindowController *) makePreferenceWindowController
+
 - (void) joinToCommentViewer:(NSString *)liveNumber
 {
 	NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];

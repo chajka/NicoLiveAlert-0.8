@@ -51,6 +51,10 @@
 #pragma mark - actions
 #pragma mark - messages
 #pragma mark - private
+- (void) reconnect
+{
+	
+}// end - (void) reconnect
 
 - (NSError *) write:(NSString *)str
 {
@@ -74,6 +78,7 @@
 	
 	return err;
 }// end - (void) write:(NSString *)str
+
 #pragma mark - C functions
 #pragma mark - Common StreamConnectionDelegate methods
 - (void) streamReadyToConnect:(YCStreamSession*)session_ reachable:(BOOL)reachable_
@@ -127,12 +132,10 @@
 	
 	OnigResult *result = [programlistRegex search:resultElement];
 	if (result != nil) {
-		dispatch_async(queue, ^{
-			NSString *programlist = [kindProgram stringByAppendingString:[result stringAt:1]];
-//NSLog(@"} %@ {", programlist);
-			NSArray *programInfo = [programlist componentsSeparatedByString:@","];
-			[siever checkProgram:programInfo];
-		});
+		NSString *programlist = [kindProgram stringByAppendingString:[result stringAt:1]];
+		//NSLog(@"} %@ {", programlist);
+		NSArray *programInfo = [programlist componentsSeparatedByString:@","];
+		[siever checkProgram:programInfo];
 	}// end if result is there
 }// end - (void) readStreamHasBytesAvailable:(NSInputStream *)stream
 

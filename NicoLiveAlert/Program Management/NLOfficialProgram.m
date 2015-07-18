@@ -47,6 +47,8 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 {
 	self = [super init];
 	if (self) {
+		queue = dispatch_queue_create([liveno UTF8String], DISPATCH_QUEUE_CONCURRENT);
+		mainQueue = dispatch_get_main_queue();
 		[self parseEmbed:liveno];
 		programNumber = [[NSString alloc] initWithString:liveno];
 		communityName = @"Official";
@@ -82,8 +84,10 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 			OnigResult *res = [stateRegex search:embed];
 			if (res != nil) {
 				NSString *state = [res stringAt:1];
-				if (![state isEqualToString:ONAIRSTATE])
+				if (![state isEqualToString:ONAIRSTATE]) {
+					[elapsedTimer invalidate];
 					[delegate removeProgram:self];
+				}// end if prgram is ended
 			}// end if found state
 		}// end if can fetch embed url
 	}// end if each 5 minute

@@ -145,9 +145,7 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		}// end if has no submenu
 		[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERSINGLEPROG];
 		[[statusbarMenu itemWithTag:tagPorgrams] setEnabled:YES];
-	}
-	else if (userProgramCount == 1)
-	{
+	} else if (userProgramCount == 1) {
 		[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERSOMEPROG];
 	}// end if user program count
 	
@@ -159,13 +157,13 @@ static CGFloat disconnectedColorAlpha = 0.70;
 }
 
 - (void) removeFromUserMenu:(NSMenuItem *)item
-{
-	@try {
-		[[[statusbarMenu itemWithTag:tagPorgrams] submenu] removeItem:item];
-	}
-	@catch (NSException *exception) {
-		NSLog(@"catch exception, exception : %@", exception);
-	}
+{		// error check
+	NSMenu *userProgramsMenu = [[statusbarMenu itemWithTag:tagPorgrams] submenu];
+	NSArray *userPrograms = [userProgramsMenu itemArray];
+	if (![userPrograms containsObject:item])
+		return;
+	
+	[userProgramsMenu removeItem:item];
 	[self decleaseProgCount];
 	if (--userProgramCount == 0) {
 		[[statusbarMenu itemWithTag:tagPorgrams] setState:NSOffState];
@@ -173,8 +171,7 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		[[statusbarMenu itemWithTag:tagPorgrams] setSubmenu:nil];
 		[[statusbarMenu itemWithTag:tagPorgrams] setEnabled:NO];
 		
-	}
-	else if (userProgramCount == 1) {
+	} else if (userProgramCount == 1) {
 		[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERSINGLEPROG];
 	}// end if
 	
@@ -202,8 +199,13 @@ static CGFloat disconnectedColorAlpha = 0.70;
 }
 
 - (void) removeFromOfficialMenu:(NSMenuItem *)item
-{
-	[[[statusbarMenu itemWithTag:tagOfficial] submenu] removeItem:item];
+{	// error check
+	NSMenu *officialProgramsMenu = [[statusbarMenu itemWithTag:tagOfficial] submenu];
+	NSArray *officialPrograms = [officialProgramsMenu itemArray];
+	if (![officialPrograms containsObject:item])
+		return;
+
+	[officialProgramsMenu removeItem:item];
 	[self decleaseProgCount];
 	if (--officialProgramCount == 0)
 	{
@@ -318,15 +320,12 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		CIImage *destImage = nil;
 		[statusbarIcon setSize:iconSize];
 		[statusbarAlt setSize:iconSize];
-		if ((userState == NSOffState) || (connected == NO))
-		{		// crop image
+		if ((userState == NSOffState) || (connected == NO)) {		// crop image
 			// gamma adjust image
 			[gammaFilter setValue:sourceImage forKey:@"inputImage"];
 			[gammaFilter setValue:gammaPower forKey:@"inputPower"];
 			destImage = [gammaFilter valueForKey:@"outputImage"];
-		}
-		else
-		{
+		} else {
 			destImage = sourceImage;
 		}// end if number of programs
 		
@@ -338,29 +337,22 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		
 		// draw program count on image
 		NSString *progCountStr = [NSString stringWithFormat:@"%ld", numberOfPrograms];
-		if ((numberOfPrograms == 0) || (connected == NO))
-		{
+		if ((numberOfPrograms == 0) || (connected == NO)) {
 			statusbarIcon = [[NSImage alloc] initWithSize:NSMakeSize(noProgWidth, iconSizeW)];
 			statusbarAlt = [[NSImage alloc] initWithSize:NSMakeSize(noProgWidth, iconSizeW)];
-		}
-		else if (numberOfPrograms > 99)
-		{
+		} else if (numberOfPrograms > 99) {
 			[progCountBackground removeAllPoints];
 			[progCountBackground moveToPoint:NSMakePoint(progCountBackGrountFromX, progCountBackGrountFromY)];
 			[progCountBackground lineToPoint:NSMakePoint(progCountBackGrountToX + (progCountBackDigitOffset * 2), progCountBackGrountToY)];
 			statusbarIcon = [[NSImage alloc] initWithSize:NSMakeSize(haveProgWidth + (progCountBackDigitOffset * 2), iconSizeW)];
 			statusbarAlt = [[NSImage alloc] initWithSize:NSMakeSize(haveProgWidth + (progCountBackDigitOffset * 2), iconSizeW)];
-		}
-		else if (numberOfPrograms > 9)
-		{
+		} else if (numberOfPrograms > 9) {
 			[progCountBackground removeAllPoints];
 			[progCountBackground moveToPoint:NSMakePoint(progCountBackGrountFromX, progCountBackGrountFromY)];
 			[progCountBackground lineToPoint:NSMakePoint(progCountBackGrountToX + progCountBackDigitOffset, progCountBackGrountToY)];
 			statusbarIcon = [[NSImage alloc] initWithSize:NSMakeSize(haveProgWidth + progCountBackDigitOffset, iconSizeW)];
 			statusbarAlt = [[NSImage alloc] initWithSize:NSMakeSize(haveProgWidth + progCountBackDigitOffset, iconSizeW)];
-		}
-		else if (numberOfPrograms > 0)
-		{
+		} else if (numberOfPrograms > 0) {
 			[progCountBackground removeAllPoints];
 			[progCountBackground moveToPoint:NSMakePoint(progCountBackGrountFromX, progCountBackGrountFromY)];
 			[progCountBackground lineToPoint:NSMakePoint(progCountBackGrountToX, progCountBackGrountToY)];
@@ -372,11 +364,11 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		[statusbarIcon lockFocus];
 		[sb drawAtPoint:NSMakePoint(origin, origin)];
 		// set connect/disconnect status
-		if (connected == NO)
-		{
+		if (connected == NO) {
 			[disconnectColor set];
 			[disconnectPath stroke];
 		}// end if disconnected
+
 		[progCountBackColor set];
 		[progCountBackground stroke];
 		[progCountStr drawAtPoint:drawPoint withAttributes:fontAttrDict];
@@ -386,8 +378,7 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		[statusbarAlt lockFocus];
 		[alt drawAtPoint:NSMakePoint(origin, origin)];
 		[[NSColor whiteColor] set];
-		if (connected == NO)
-		{
+		if (connected == NO) {
 			[disconnectPath stroke];
 		}// end if disconnected
 		[progCountBackground stroke];

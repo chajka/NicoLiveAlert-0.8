@@ -10,10 +10,13 @@
 #import "MASPreferencesViewController.h"
 
 @interface WatchlistController : NSViewController <MASPreferencesViewController> {
-	
+	IBOutlet NSArrayController					*aryctrlWatchlist;
+	IBOutlet NSTextField						*txtfldWatchItem;
+	IBOutlet NSTextField						*txtfldItemNote;
+	IBOutlet NSButton							*chkboxAutoOpen;
 }
-@property (nonatomic, readonly) NSString *identifier;
-@property (nonatomic, readonly) NSImage *toolbarItemImage;
-@property (nonatomic, readonly) NSString *toolbarItemLabel;
+@property (nonatomic, readonly) NSString		*identifier;
+@property (nonatomic, readonly) NSImage			*toolbarItemImage;
+@property (nonatomic, readonly) NSString		*toolbarItemLabel;
 
 @end

@@ -18,6 +18,9 @@
 @end
 
 @interface NLProgram : NSObject {
+	dispatch_queue_t						queue;
+	dispatch_queue_t						mainQueue;
+	
 	id<NLProgramController>					delegate;
 	NLStatusbar								*statusbar;
 

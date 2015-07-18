@@ -43,7 +43,6 @@
 		C67402661B4C2448009F956F /* Applications.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025D1B4C2448009F956F /* Applications.png */; };
 		C67402671B4C2448009F956F /* About.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025E1B4C2448009F956F /* About.png */; };
 		C67AF0941B49D08F000B8272 /* NLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0931B49D08F000B8272 /* NLAccount.m */; };
-		C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */; };
 		C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0981B49E137000B8272 /* HTTPConnection.m */; };
 		C67AF09D1B49E4A0000B8272 /* NLAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */; };
 		C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09F1B4A23CA000B8272 /* NLAccounts.m */; };
@@ -150,8 +149,6 @@
 		C674025E1B4C2448009F956F /* About.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = About.png; path = Images/About.png; sourceTree = "<group>"; };
 		C67AF0921B49D08F000B8272 /* NLAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLAccount.h; path = "User Management/NLAccount.h"; sourceTree = "<group>"; };
 		C67AF0931B49D08F000B8272 /* NLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLAccount.m; path = "User Management/NLAccount.m"; sourceTree = "<group>"; };
-		C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YCStreamSessionGCD.m; path = NetworkBits/YCStreamSessionGCD.m; sourceTree = "<group>"; };
-		C67AF0971B49E137000B8272 /* YCStreamSessionGCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YCStreamSessionGCD.h; path = NetworkBits/YCStreamSessionGCD.h; sourceTree = "<group>"; };
 		C67AF0981B49E137000B8272 /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPConnection.m; path = NetworkBits/HTTPConnection.m; sourceTree = "<group>"; };
 		C67AF0991B49E137000B8272 /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPConnection.h; path = NetworkBits/HTTPConnection.h; sourceTree = "<group>"; };
 		C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLAccountTests.m; sourceTree = "<group>"; };
@@ -415,8 +412,6 @@
 				C67AF0981B49E137000B8272 /* HTTPConnection.m */,
 				C674024D1B4BEC1B009F956F /* YCStreamSession.h */,
 				C674024C1B4BEC1B009F956F /* YCStreamSession.m */,
-				C67AF0971B49E137000B8272 /* YCStreamSessionGCD.h */,
-				C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -614,7 +609,6 @@
 				C673352D1B49B47900AC88AD /* main.m in Sources */,
 				C63B1A531B4F853C005CA9B9 /* NLCommunityProgram.m in Sources */,
 				C67402511B4BF576009F956F /* NLProgramSiever.m in Sources */,
-				C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */,
 				C67AF0941B49D08F000B8272 /* NLAccount.m in Sources */,
 				C6F332A81B4D38AC009BE435 /* NLOfficialProgram.m in Sources */,
 				C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */,

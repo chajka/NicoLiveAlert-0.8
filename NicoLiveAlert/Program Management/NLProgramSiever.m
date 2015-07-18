@@ -69,19 +69,16 @@
 #pragma mark NLProgramControll delegate Method
 - (void) removeProgram:(NLProgram *)program
 {
-	dispatch_sync(mainQueue, ^{
-		if ([program isKindOfClass:[NLCommunityProgram class]])
-			[statusbar removeFromUserMenu:program.menuItem];
-		else
-			[statusbar removeFromOfficialMenu:program.menuItem];
-
-		for (NSString *key in [activePrograms allKeys]) {
-			if ([[activePrograms valueForKey:key] isEqual:program]) {
-				[activePrograms removeObjectForKey:key];
-				break;
-			}// end if found old program
-		}// end foreach active programs
-	});
+	for (NSString *key in [activePrograms allKeys]) {
+		if ([[activePrograms valueForKey:key] isEqual:program]) {
+			[activePrograms removeObjectForKey:key];
+			if ([program isKindOfClass:[NLCommunityProgram class]])
+				[statusbar removeFromUserMenu:program.menuItem];
+			else
+				[statusbar removeFromOfficialMenu:program.menuItem];
+			break;
+		}// end if found old program
+	}// end foreach active programs
 		// cleanup
 	program = nil;
 }// end - (void) removeProgram:(NLProgram *)program
@@ -89,21 +86,21 @@
 - (void) officialProgram:(NSString *)liveNumber
 {
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
-	prog.delegate = self;
-	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
 	[activePrograms setValue:prog forKey:liveNumber];
+	prog.delegate = self;
+	[prog notify];
 }// end - (void) officialProgram:(NSString *)liveNumber
 
 - (void) officialProgram:(NSString *)liveNumber title:(NSString *)title
 {
 	NLOfficialProgram *prog = [[NLOfficialProgram alloc] initWithLiveNumber:liveNumber];
-	prog.delegate = self;
-	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
 	[activePrograms setValue:prog forKey:liveNumber];
+	prog.delegate = self;
+	[prog notify];
 }// end - (void) officialBroadcast:(NSString *)liveNumber title:(NSString *)title
 
 - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen
@@ -115,11 +112,9 @@
 
 	NSString *primaryAccount = [accounts primaryAccountForCommunity:community];
 	NLCommunityProgram *prog = [[NLCommunityProgram alloc] initWithLiveNumber:liveNumber owner:owner primaryAccount:primaryAccount];
-	prog.delegate = self;
-	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToUserMenu:item];
-
+	
 	NLProgram *oldProgram = [activePrograms valueForKey:owner];
 	if (oldProgram != nil)
 		[self removeProgram:oldProgram];
@@ -140,12 +135,15 @@
 		[userInfo setValue:[NSNumber numberWithInteger:broadcastKindUser] forKey:BroadCastKind];
 		[[connection remoteObjectProxy] notifyStartBroadcast:userInfo];
 	}// end if
+
+	prog.delegate = self;
+	[prog notify];
 }// end - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen
 
 - (void) autoOpen:(NSMenuItem *)item
 {
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:PrefKeyAutoOpenCheckedLive])
-		dispatch_async(queue, ^{ [(NicoLiveAlert *)NSApp openProgram:item]; });
+		[(NicoLiveAlert *)NSApp openProgram:item];
 }// end - (void) autoOpen:(NSMenuItem *)item
 #pragma mark - C functions
 

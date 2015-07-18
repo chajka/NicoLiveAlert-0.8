@@ -7,6 +7,7 @@
 //
 
 #import "WatchlistController.h"
+#import "NicoLiveAlertDefinitions.h"
 #import "NicoLiveAlertPreferenceDefinitions.h"
 
 @interface WatchlistController ()
@@ -21,14 +22,32 @@
 - (void) viewDidLoad
 {
 	[super viewDidLoad];
-	// Do view setup here.
-}
+	NSArray *watchlist = [[NSUserDefaults standardUserDefaults] arrayForKey:SavedWatchListKey];
+	[aryctrlWatchlist addObjects:watchlist];
+}// end - (void) viewDidLoad
 #pragma mark - delegate
+- (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
+{
+	return YES;
+}// end - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
+
 #pragma mark - properties
 - (NSString *) identifier { return WatchlistIdentifierName; }
+
 - (NSImage *) toolbarItemImage { return [NSImage imageNamed:WatchlistToolbarImageName]; }
+
 - (NSString *) toolbarItemLabel { return WatchlistToolbarLabel; }
+
 #pragma mark - actions
+- (IBAction) addButtonPressed:(id)sender
+{
+	
+}// end - (IBAction) addButtonPressed:(id)sender
+
+- (IBAction) deleteButtonPressed:(id)sender
+{
+	
+}// end - (IBAction) deleteButtonPressed:(id)sender
 #pragma mark - messages
 #pragma mark - private
 #pragma mark - C functions
