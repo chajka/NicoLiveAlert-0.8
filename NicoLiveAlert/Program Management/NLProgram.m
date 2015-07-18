@@ -67,12 +67,12 @@
 
 - (NSMenuItem *) menuItem
 {
-	if (programMenu == nil)
+	if (programMenu == nil) {
 		[self drawContents];
-	programMenu = [[NSMenuItem alloc] initWithTitle:EmptyString action:@selector(openProgram:) keyEquivalent:EmptyString];
-	[programMenu setImage:imageBuffer];
-	[programMenu setRepresentedObject:self];
-	
+		programMenu = [[NSMenuItem alloc] initWithTitle:EmptyString action:@selector(openProgram:) keyEquivalent:EmptyString];
+		[programMenu setImage:imageBuffer];
+		[programMenu setRepresentedObject:self];
+	}// end if need create program menu
 	
 	return programMenu;
 }// end - (NSMenuItem *) menuItem

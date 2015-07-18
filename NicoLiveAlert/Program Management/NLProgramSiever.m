@@ -8,6 +8,8 @@
 
 #import "NLProgramSiever.h"
 #import "NicoLiveAlertDefinitions.h"
+#import "NicoLiveAlertCollaboration.h"
+#import "NicoLiveAlertCollaboratorProtocol.h"
 #import "NLOfficialProgram.h"
 #import "NLCommunityProgram.h"
 #import "NicoLiveAlert.h"
@@ -15,13 +17,12 @@
 @interface NLProgramSiever ()
 - (void) officialProgram:(NSString *)liveNumber;
 - (void) officialProgram:(NSString *)liveNumber title:(NSString *)title;
-- (void) channelProgram:(NSString *)liveNumber;
 - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen;
 - (void) autoOpen:(NSMenuItem *)item;
 @end
 
 @implementation NLProgramSiever
-@synthesize service;
+@synthesize connection;
 #pragma mark - synthesize properties
 #pragma mark - class method
 #pragma mark - constructor / destructor
@@ -34,6 +35,7 @@
 		statusbar = bar;
 		activePrograms = [[NSMutableDictionary alloc] init];
 		queue = dispatch_queue_create([[self className] UTF8String], DISPATCH_QUEUE_CONCURRENT);
+		mainQueue = dispatch_get_main_queue();
 	}// end if self
 
 	return self;
@@ -44,17 +46,17 @@
 #pragma mark - actions
 #pragma mark - messages
 - (void) checkProgram:(NSArray *)programInfo
-{
+{		// check official program
 	if ([programInfo count] == 2) {
 		[self officialProgram:[programInfo objectAtIndex:OffsetLiveNumber] title:[programInfo objectAtIndex:OffsetOfficialTitle]];
 		return;
 	}// end if
-
+		// check offical program
 	if ([[programInfo objectAtIndex:1] isEqualToString:kindOfficalProgram]) {
 		[self officialProgram:[programInfo objectAtIndex:OffsetLiveNumber]];
 		return;
 	}// end if
-
+		// check program in watchlist
 	for (NSString *item in programInfo) {
 		NSNumber *autoOpen = [watchlist valueForKey:item];
 		if (autoOpen != nil) {
@@ -67,17 +69,12 @@
 #pragma mark NLProgramControll delegate Method
 - (void) removeProgram:(NLProgram *)program
 {
-	dispatch_queue_t mainQueue = dispatch_get_main_queue();
 	dispatch_sync(mainQueue, ^{
-		@try {
-			if ([program isKindOfClass:[NLCommunityProgram class]])
-				[statusbar removeFromUserMenu:program.menuItem];
-			else
-				[statusbar removeFromOfficialMenu:program.menuItem];
-		}
-		@catch (NSException *exception) {
-		}
-		
+		if ([program isKindOfClass:[NLCommunityProgram class]])
+			[statusbar removeFromUserMenu:program.menuItem];
+		else
+			[statusbar removeFromOfficialMenu:program.menuItem];
+
 		for (NSString *key in [activePrograms allKeys]) {
 			if ([[activePrograms valueForKey:key] isEqual:program]) {
 				[activePrograms removeObjectForKey:key];
@@ -96,10 +93,6 @@
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
-#ifdef DEBUG
-	NSLog(@"Official : %@", liveNumber);
-	NSLog(@"%@", prog);
-#endif
 	[activePrograms setValue:prog forKey:liveNumber];
 }// end - (void) officialProgram:(NSString *)liveNumber
 
@@ -110,30 +103,22 @@
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToOfficialMenu:item];
-#ifdef DEBUG
-	NSLog(@"Official : %@, Titile : %@", liveNumber, title);
-	NSLog(@"%@", prog);
-#endif
 	[activePrograms setValue:prog forKey:liveNumber];
 }// end - (void) officialBroadcast:(NSString *)liveNumber title:(NSString *)title
 
-- (void) channelProgram:(NSString *)liveNumber
-{
-	NSLog(@"Channel : %@", liveNumber);
-}// end - (void) channelProgram:(NSString *)liveNumber
-
 - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen
 {
+	for (NLProgram *program in [activePrograms allValues]) {
+		if ([liveNumber isEqualToString:program.programNumber])
+			return;
+	}// end foreach program
+
 	NSString *primaryAccount = [accounts primaryAccountForCommunity:community];
 	NLCommunityProgram *prog = [[NLCommunityProgram alloc] initWithLiveNumber:liveNumber owner:owner primaryAccount:primaryAccount];
 	prog.delegate = self;
 	[prog notify];
 	NSMenuItem *item = [prog menuItem];
 	[statusbar addToUserMenu:item];
-#ifdef DEBUG
-	NSLog(@"Community : %@, autoOpen %c", liveNumber, (autoOpen == YES) ? 'Y':'N');
-	NSLog(@"%@", prog);
-#endif
 
 	NLProgram *oldProgram = [activePrograms valueForKey:owner];
 	if (oldProgram != nil)
@@ -142,6 +127,18 @@
 
 	if (autoOpen) {
 		[self autoOpen:prog.menuItem];
+	}// end if
+
+	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+	if ([ud boolForKey:PrefKeyKickCommentViewerOnMyBroadcast] && [accounts userIDisMine:owner]) {
+		NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+		NSString *url = [NicoProgramURLFormat stringByAppendingString:liveNumber];
+		[userInfo setValue:url forKey:ProgramURL];
+		[userInfo setValue:liveNumber forKey:liveNumber];
+		[userInfo setValue:[NSNumber numberWithBool:YES] forKey:CommentViewer];
+		[userInfo setValue:[NSNumber numberWithBool:NO] forKey:BroadcastStreamer];
+		[userInfo setValue:[NSNumber numberWithInteger:broadcastKindUser] forKey:BroadCastKind];
+		[[connection remoteObjectProxy] notifyStartBroadcast:userInfo];
 	}// end if
 }// end - (void) communityProgram:(NSString *)liveNumber community:(NSString *)community owner:(NSString *)owner autoOpen:(BOOL)autoOpen
 

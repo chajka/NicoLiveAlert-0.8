@@ -14,14 +14,15 @@
 
 @interface NLProgramSiever : NSObject<NLProgramController> {
 	dispatch_queue_t					queue;
+	dispatch_queue_t					mainQueue;
 	NLAccounts							*accounts;
 	NSDictionary						*watchlist;
 	NLStatusbar							*statusbar;
 
 	NSMutableDictionary					*activePrograms;
-
+	NSXPCConnection						*connection;
 }
-@property (readonly) NSXPCConnection	*service;
+@property (readwrite) NSXPCConnection	*connection;
 - (id) initWithAccounts:(NLAccounts *)accnts statusbar:(NLStatusbar *)statusbar;
 
 - (void) checkProgram:(NSArray *)programInfo;

@@ -74,7 +74,7 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 	double rounded = roundf(interval);
 	long elapsed = (long)rounded;
 	
-	if ((((elapsed + 60) % (60 * 5)) == 0) || (elapsed == 60)) {
+	if ((((elapsed - 60) % (60 * 5)) == 0) || (elapsed == 60)) {
 		NSURLResponse *resp = nil;
 		NSString *embed = [HTTPConnection HTTPSource:embedURL response:&resp];
 		if (embed != nil) {
