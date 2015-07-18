@@ -63,15 +63,6 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		numberOfPrograms = 0;
 		statusbarMenu = menu;
 		[self setupMembers:imageName];
-		
-#if __has_feature(objc_arc) == 0
-		[sourceImage retain];
-		[gammaFilter retain];
-		[invertFilter retain];
-		[progCountBackground retain];
-		[progCountBackColor retain];
-		[disconnectColor retain];
-#endif
 		userProgramCount = 0;
 		officialProgramCount = 0;
 		[self installStatusbarMenu];
@@ -151,13 +142,9 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		if (![[statusbarMenu itemWithTag:tagPorgrams] submenu]) {
 			NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
 			[[statusbarMenu itemWithTag:tagPorgrams] setSubmenu:menu];
-			[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERSINGLEPROG];
-			[[statusbarMenu itemWithTag:tagPorgrams] setEnabled:YES];
-			
-#if __has_feature(objc_arc) == 0
-			[menu autorelease];
-#endif
 		}// end if has no submenu
+		[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERSINGLEPROG];
+		[[statusbarMenu itemWithTag:tagPorgrams] setEnabled:YES];
 	}
 	else if (userProgramCount == 1)
 	{
@@ -200,12 +187,9 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		if (![[statusbarMenu itemWithTag:tagOfficial] submenu]) {
 			NSMenu *menu = [[NSMenu alloc] initWithTitle:@""];
 			[[statusbarMenu itemWithTag:tagOfficial] setSubmenu:menu];
-			[[statusbarMenu itemWithTag:tagOfficial] setTitle:TITLEOFFICIALSINGLEPROG];
-			[[statusbarMenu itemWithTag:tagOfficial] setEnabled:YES];
-#if __has_feature(objc_arc) == 0
-			[menu autorelease];
-#endif
 		}// end if
+		[[statusbarMenu itemWithTag:tagOfficial] setTitle:TITLEOFFICIALSINGLEPROG];
+		[[statusbarMenu itemWithTag:tagOfficial] setEnabled:YES];
 	}
 	else if (officialProgramCount == 1) {
 		[[statusbarMenu itemWithTag:tagOfficial] setTitle:TITLEOFFICIALSOMEPROG];
@@ -261,9 +245,6 @@ static CGFloat disconnectedColorAlpha = 0.70;
 
 - (void) setupMembers:(NSString *)imageName
 {
-#if __has_feature(objc_arc)
-#else
-#endif
 	drawPoint = NSMakePoint(progCountPointSingleDigitX, progCountPointY);
 	iconSize = NSMakeSize(iconSizeW, iconSizeH);
 	sourceImage = [self createFromResource:imageName];
@@ -294,9 +275,6 @@ static CGFloat disconnectedColorAlpha = 0.70;
 	// make each color for background and disconnect cross
 	progCountBackColor = [NSColor colorWithCalibratedRed:progCountBackColorRed green:progCountBackColorGreen blue:progCountBackColorBlue alpha:progCountBackColorAlpha];
 	disconnectColor = [NSColor colorWithCalibratedRed:disconnectedColorRed green:disconnectedColorGreen blue:disconnectedColorBlue alpha:disconnectedColorAlpha];
-#if __has_feature(objc_arc)
-#else
-#endif
 }// end - (void) setupMembers
 
 - (void) installStatusbarMenu
