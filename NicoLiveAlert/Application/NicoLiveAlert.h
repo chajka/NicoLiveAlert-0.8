@@ -24,7 +24,9 @@
 	NSTimer								*checkTimer;
 	NSXPCConnection						*collaborator;
 }
+@property (readonly) NSXPCConnection	*collaborator;
 
 - (IBAction) openProgram:(id)sender;
+- (void) joinToCommentViewer:(NSString *)liveNumber;
 @end
 

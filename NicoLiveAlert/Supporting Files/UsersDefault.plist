@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NotifyStartUserProgram</key>
+	<false/>
+	<key>NotifyStartOfficialProgram</key>
+	<true/>
+	<key>CheckOfficialChannel</key>
+	<true/>
+	<key>AutoOpenCheckedLive</key>
+	<string></string>
+	<key>KickCommentViewerByOpenFromMe</key>
+	<false/>
+	<key>KickCommentViewerAtAutoOpen</key>
+	<false/>
+	<key>KickCommentViewerOnMyBroadcast</key>
+	<true/>
+	<key>KickStreamerOnMyBroadcast</key>
+	<false/>
+	<key>NotifySoundDeviceName</key>
+	<string></string>
+	<key>StartUserProgramSound</key>
+	<string></string>
+	<key>StartOfficialProgramSound</key>
+	<string></string>
+	<key>WatchListTable</key>
+	<array>
+		<dict>
+			<key>WatchItem</key>
+			<string>co387285</string>
+			<key>Note</key>
+			<string>名称未設定</string>
+			<key>AutoOpen</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>WatchItem</key>
+			<string>co547708</string>
+			<key>Note</key>
+			<string>Mac de NicoNico</string>
+			<key>AutoOpen</key>
+			<false/>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -28,11 +28,17 @@ static void uncaughtExceptionHandler(NSException *exception);
 
 @implementation NicoLiveAlert
 #pragma mark - synthesize properties
+@synthesize collaborator;
 #pragma mark - class method
 #pragma mark - constructor / destructor
 #pragma mark - override
 - (void) awakeFromNib
 {
+	NSBundle *bundle = [NSBundle mainBundle];
+	NSString *defaultslistPath = [bundle pathForResource:@"UsersDefault" ofType:@"plist"];
+	NSDictionary *usersDefault = [NSDictionary dictionaryWithContentsOfFile:defaultslistPath];
+	[[NSUserDefaults standardUserDefaults] registerDefaults:usersDefault];
+
 	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 	statusbar = [[NLStatusbar alloc] initWithMenu:menuStatusbar andImageName:@"sbicon"];
 }// end - (void) awakeFromNib
@@ -49,6 +55,7 @@ static void uncaughtExceptionHandler(NSException *exception);
 	collaborator = [[NSXPCConnection alloc] initWithServiceName:@"tv.from.chajka.NicoLiveAlertCollaborator"];
 	collaborator.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(NicoLiveAlertCollaboratorProtocol)];
 	[collaborator resume];
+	siever.connection = collaborator;
 }// end - (void) applicationWillFinishLaunching:(NSNotification *)notification
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -90,6 +97,19 @@ static void uncaughtExceptionHandler(NSException *exception);
 }// end - (IBAction) openProgram:(id)sender
 
 #pragma mark - messages
+- (void) joinToCommentViewer:(NSString *)liveNumber
+{
+	NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+	NSString *url = [NicoProgramURLFormat stringByAppendingString:liveNumber];
+	[userInfo setValue:url forKey:ProgramURL];
+	[userInfo setValue:liveNumber forKey:liveNumber];
+	[userInfo setValue:[NSNumber numberWithBool:YES] forKey:CommentViewer];
+	[userInfo setValue:[NSNumber numberWithBool:NO] forKey:BroadcastStreamer];
+	[userInfo setValue:[NSNumber numberWithInteger:broadcastKindUser] forKey:BroadCastKind];
+	[[collaborator remoteObjectProxy] notifyStartBroadcast:userInfo];
+//	PrefKeyKickStreamerOnMyBroadcast
+}// end - (void) joinToCommentViewer:(NSString *)liveNumber
+
 #pragma mark - private
 - (void) setAccountsMenu
 {
