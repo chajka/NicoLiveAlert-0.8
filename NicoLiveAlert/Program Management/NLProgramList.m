@@ -52,8 +52,18 @@
 #pragma mark - messages
 #pragma mark - private
 - (void) reconnect
-{
-	
+{		// cleanup last session
+	[session closeReadStream];
+	[session closeWriteStream];
+	[session disconnect];
+
+	NLAccount *account = [accounts.accounts objectAtIndex:0];
+	NSString *hostName = account.server;
+	int port = (int)account.port;
+	requestPosted = NO;
+	session = [[YCStreamSession alloc] initWithHostName:hostName andPort:port];
+	[session setDelegate:self];
+	[session checkReadyToConnect];
 }// end - (void) reconnect
 
 - (NSError *) write:(NSString *)str
