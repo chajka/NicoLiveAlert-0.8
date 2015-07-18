@@ -7,7 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MASPreferencesViewController.h"
 
-@interface WatchlistController : NSViewController
+@interface WatchlistController : NSViewController <MASPreferencesViewController> {
+	
+}
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, readonly) NSImage *toolbarItemImage;
+@property (nonatomic, readonly) NSString *toolbarItemLabel;
 
 @end
