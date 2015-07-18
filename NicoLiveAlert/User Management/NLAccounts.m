@@ -112,6 +112,16 @@
 	[self rebuildWatchlist];
 }// end - (void) refresh
 
+- (BOOL) userIDisMine:(NSString *)uid
+{
+	for (NLAccount *account in accounts) {
+		if ([account.userID isEqualToString:uid])
+			return YES;
+	}// end foreach account
+
+	return NO;
+}// end - (BOOL) userIDisMine:(NSString *)uid
+
 #pragma mark - private
 - (void) restoreFromSavedPreference
 {

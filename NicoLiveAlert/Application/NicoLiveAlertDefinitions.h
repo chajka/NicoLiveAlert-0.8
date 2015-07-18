@@ -216,6 +216,7 @@ enum WatchTargetKind {
 #define PrefKeyKickCommentViewerByOpenFromMe		@"KickCommentViewerByOpenFromMe"
 #define PrefKeyKickCommentViewerAtAutoOpen			@"KickCommentViewerAtAutoOpen"
 #define PrefKeyKickCommentViewerOnMyBroadcast		@"KickCommentViewerOnMyBroadcast"
+#define PrefKeyKickStreamerOnMyBroadcast			@"KickStreamerOnMyBroadcast"
 #define PrefKeyNotifySoundDeviceName				@"NotifySoundDeviceName"
 #define PrefKeyStartUserProgramSound				@"StartUserProgramSound"
 #define PrefKeyStartOfficialProgramSound			@"StartOfficialProgramSound"

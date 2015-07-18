@@ -30,4 +30,5 @@
 - (void) removeManualWatchItem:(NSString *)item;
 - (void) toggleAutoOpen:(NSString *)item;
 - (void) refresh;
+- (BOOL) userIDisMine:(NSString *)userID;
 @end
