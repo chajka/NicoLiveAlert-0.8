@@ -116,8 +116,10 @@
 	[statusbar addToUserMenu:item];
 	
 	NLProgram *oldProgram = [activePrograms valueForKey:owner];
-	if (oldProgram != nil)
+	if (oldProgram != nil) {
+		[oldProgram stopElapsedTimer];
 		[self removeProgram:oldProgram];
+	}
 	[activePrograms setValue:prog forKey:owner];
 
 	if (autoOpen) {
