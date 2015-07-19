@@ -31,6 +31,9 @@
 }
 
 - (IBAction) openProgram:(id)sender;
+- (IBAction) openPreferenceWindow:(id)sender;
+- (IBAction) openProgramHistory:(id)sender;
+
 - (void) joinToCommentViewer:(NSString *)liveNumber;
 @end
 

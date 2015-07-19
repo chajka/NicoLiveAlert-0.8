@@ -109,6 +109,12 @@ static void uncaughtExceptionHandler(NSException *exception);
 	}// end autorelease pool
 }// end - (IBAction) openPreferenceWindow:(id)sender
 
+- (IBAction) openProgramHistory:(id)sender
+{
+	NSURL *history = [NSURL URLWithString:NicoLiveHistoryPage];
+	[[NSWorkspace sharedWorkspace] openURL:history];
+}// end - (IBAction) openProgramHistory:(id)sender
+
 #pragma mark - messages
 - (NSWindowController *) makePreferenceWindowController
 {

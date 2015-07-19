@@ -692,6 +692,12 @@
                 <menuItem title="OfficialPrograms" onStateImage="NLOnState" tag="1003" id="xq4-ai-Ovp">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
+                <menuItem title="History" tag="1004" id="mVY-5Q-C2E">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openProgramHistory:" target="-1" id="zzT-Ol-udb"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" tag="1010" id="lZv-YU-AAF"/>
                 <menuItem title="Accounts" state="mixed" onStateImage="NLOnState" offStateImage="NLOffState" mixedStateImage="NLMixedState" tag="1011" id="W9Z-Ee-MS3">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -708,6 +714,9 @@
                 </menuItem>
                 <menuItem title="Preference…" tag="1015" id="0CA-lg-AAu">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openPreferenceWindow:" target="-1" id="WMA-dv-xnP"/>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" tag="1020" id="Yua-ff-b5T"/>
                 <menuItem title="Check for updates" tag="1022" id="n5C-nH-ol7">

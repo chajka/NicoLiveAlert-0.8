@@ -20,6 +20,7 @@
 #define NicoPlayerStatusQuery						@"http://live.nicovideo.jp/api/getplayerstatus?v="
 #define NicoProgramURLFormat						@"http://live.nicovideo.jp/watch/"
 #define NicknameQuery								@"http://seiga.nicovideo.jp/api/user/info?id="
+#define NicoLiveHistoryPage							@"http://www.nicovideo.jp/my/top"
 
 #define StartStreamRequestElement					@"<thread thread=\"%@\" version=\"20061206\" res_from=\"-1\"/>"
 
@@ -144,6 +145,7 @@ enum statusBarMenuItems {
 	tagAutoOpen = 1001,
 	tagPorgrams,
 	tagOfficial,
+	tagHistory,
 	tagSep1 = 1010,
 	tagAccounts,
 	tagResetConnection,
@@ -162,6 +164,7 @@ enum statusBarMenuItems {
 // Status Bar menu's localized string definition
 #define TITLEAUTOOPEN								NSLocalizedString(@"TitleAutoOpen", @"")
 #define	TITLEPROGRAMS								NSLocalizedString(@"TitlePrograms", @"")
+#define TITLEPROGRAMHISTRORY						NSLocalizedString(@"TitleProgramHistory", @"")
 
 #define	TITLEACCOUNTS								NSLocalizedString(@"TitleAccounts", @"")
 #define TITLERESETCONNECTION						NSLocalizedString(@"TitleResetConnection", @"")
@@ -241,16 +244,5 @@ enum WatchTargetKind {
 #define UsersDefaultResourceType					@"plist"
 #define UsersDefaultFileName						@"UsersDefaults"
 
-#pragma mark - saved preference keys
-#define SavedAccountListKey							@"AccountsList"
-#define AccountValueUserID							@"UserID"
-#define AccountValueNickname						@"Nickname"
-#define AccountValueMailAddress						@"MailAddress"
-#define AccountValueWatchEnabled					@"WatchEnabled"
-
-#define SavedWatchListKey							@"WatchListTable"
-#define WatchListValueWatchItem						@"WatchItem"
-#define WatchListValueNote							@"Note"
-#define WatchListValueAutoOpen						@"AutoOpen"
 
 #endif
