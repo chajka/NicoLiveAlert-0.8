@@ -9,6 +9,7 @@
 #import "NLProgramList.h"
 #import "NicoLiveAlertDefinitions.h"
 #import <CocoaOniguruma/OnigRegexp.h>
+#import <Growl/Growl.h>
 
 #define UNLIMITED								(0)
 
@@ -105,6 +106,8 @@
 	if (reachable)
 		[session connect];
 	statusbar.connected = YES;
+
+	[GrowlApplicationBridge notifyWithTitle:@"Start monitoring" description:@"Start monitoring" notificationName:@"Start monitoring" iconData:nil priority:0 isSticky:NO clickContext:nil];
 }// end - (void) streamReadyToConnect:(YCStreamSessionGCD *)session reachable:(BOOL)reachable
 
 /*
@@ -161,6 +164,9 @@
 
 - (void) readStreamErrorOccured:(NSInputStream *)iStream
 {
+	// Growling
+	[GrowlApplicationBridge notifyWithTitle:@"Disconnected" description:@"Disconnected" notificationName:@"Disconnected" iconData:nil priority:0 isSticky:NO clickContext:nil];
+	
 	[self reconnect];
 }// end - (void) readStreamErrorOccured:(NSInputStream *)iStream
 /*
@@ -195,6 +201,9 @@
 
 - (void) writeStreamErrorOccured:(NSOutputStream *)oStream
 {
+	// Growling
+	[GrowlApplicationBridge notifyWithTitle:@"Disconnected" description:@"Disconnected" notificationName:@"Disconnected" iconData:nil priority:0 isSticky:NO clickContext:nil];
+	
 	[self reconnect];
 }// end - (void) writeStreamErrorOccured:(NSOutputStream *)oStream
 
