@@ -56,8 +56,7 @@ static CGFloat disconnectedColorAlpha = 0.70;
 - (id) initWithMenu:(NSMenu *)menu andImageName:(NSString *)imageName
 {
 	self = [super init];
-	if (self)
-	{
+	if (self) {
 		connected = NO;
 		userState = NSOffState;
 		numberOfPrograms = 0;
@@ -67,7 +66,6 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		officialProgramCount = 0;
 		[self installStatusbarMenu];
 		[self makeStatusbarIcon];
-
 	}// end if
 
 	return self;
@@ -207,15 +205,13 @@ static CGFloat disconnectedColorAlpha = 0.70;
 
 	[officialProgramsMenu removeItem:item];
 	[self decleaseProgCount];
-	if (--officialProgramCount == 0)
-	{
+	if (--officialProgramCount == 0) {
 		[[statusbarMenu itemWithTag:tagOfficial] setState:NSOffState];
 		[[statusbarMenu itemWithTag:tagOfficial] setTitle:TITLEOFFICIALNOPROG];
 		[[statusbarMenu itemWithTag:tagOfficial] setSubmenu:nil];
 		[[statusbarMenu itemWithTag:tagOfficial] setEnabled:NO];
 	}
-	else if (officialProgramCount == 1)
-	{
+	else if (officialProgramCount == 1) {
 		[[statusbarMenu itemWithTag:tagOfficial] setTitle:TITLEOFFICIALSINGLEPROG];
 	}// end if
 	
@@ -394,27 +390,24 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		
 		// update tooltip
 		[self updateToolTip];
-	}
+	}// end autorelease pool
 }// end - (CIImage *) makeStatusbarIcon
 
 - (void) updateToolTip
 {
 	NSMutableString *tooltip = nil;
 	NSMutableArray *array = [NSMutableArray array];
-	if (connected == NO)
-	{
+	if (connected == NO) {
 		[statusBarItem setToolTip:DeactiveConnection];
 		return;
 	}// end if disconnected
 	
-	if ((userProgramCount == 0) && (officialProgramCount == 0))
-	{
+	if ((userProgramCount == 0) && (officialProgramCount == 0)) {
 		[statusBarItem setToolTip:ActiveNoprogString];
 		return;
 	}// end if program not found
 	
-	if (userProgramCount > 0)
-	{
+	if (userProgramCount > 0) {
 		tooltip = [NSMutableString stringWithFormat:userProgramOnly, userProgramCount];
 		if (userProgramCount > 1)
 			[tooltip appendString:TwoOrMoreSuffix];
@@ -423,8 +416,7 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		tooltip = nil;
 	}// end if user program found
 	
-	if (officialProgramCount > 0)
-	{
+	if (officialProgramCount > 0) {
 		tooltip = [NSMutableString stringWithFormat:officialProgramOnly, officialProgramCount];
 		if (officialProgramCount > 1)
 			[tooltip appendString:TwoOrMoreSuffix];
