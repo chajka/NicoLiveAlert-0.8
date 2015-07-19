@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C62FEA3E1B59E106006F16B6 /* UsersDefault.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62FEA3D1B59E106006F16B6 /* UsersDefault.plist */; };
+		C62FEA461B5A3A34006F16B6 /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C62FEA421B5A3A34006F16B6 /* MASPreferencesWindowController.m */; };
+		C62FEA471B5A3A34006F16B6 /* MASPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C62FEA441B5A3A34006F16B6 /* MASPreferencesWindow.xib */; };
+		C62FEA4B1B5A3A91006F16B6 /* WatchlistController.m in Sources */ = {isa = PBXBuildFile; fileRef = C62FEA491B5A3A91006F16B6 /* WatchlistController.m */; };
+		C62FEA4F1B5A3AC2006F16B6 /* WatchlistController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C62FEA4D1B5A3AC2006F16B6 /* WatchlistController.xib */; };
 		C63B1A531B4F853C005CA9B9 /* NLCommunityProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */; };
 		C64CBCB81B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */; };
 		C64CBCD71B5718A500ACA92D /* NLProgramTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C64CBCD61B5718A500ACA92D /* NLProgramTest.m */; };
@@ -32,14 +36,13 @@
 		C674025F1B4C2448009F956F /* NLOnState.png in Resources */ = {isa = PBXBuildFile; fileRef = C67402561B4C2448009F956F /* NLOnState.png */; };
 		C67402601B4C2448009F956F /* NLOffState.png in Resources */ = {isa = PBXBuildFile; fileRef = C67402571B4C2448009F956F /* NLOffState.png */; };
 		C67402611B4C2448009F956F /* NLMixedState.png in Resources */ = {isa = PBXBuildFile; fileRef = C67402581B4C2448009F956F /* NLMixedState.png */; };
-		C67402621B4C2448009F956F /* watch.png in Resources */ = {isa = PBXBuildFile; fileRef = C67402591B4C2448009F956F /* watch.png */; };
+		C67402621B4C2448009F956F /* watchlist.png in Resources */ = {isa = PBXBuildFile; fileRef = C67402591B4C2448009F956F /* watchlist.png */; };
 		C67402631B4C2448009F956F /* sbicon.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025A1B4C2448009F956F /* sbicon.png */; };
 		C67402641B4C2448009F956F /* Password.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025B1B4C2448009F956F /* Password.png */; };
 		C67402651B4C2448009F956F /* NicoLiveAlert.icns in Resources */ = {isa = PBXBuildFile; fileRef = C674025C1B4C2448009F956F /* NicoLiveAlert.icns */; };
 		C67402661B4C2448009F956F /* Applications.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025D1B4C2448009F956F /* Applications.png */; };
 		C67402671B4C2448009F956F /* About.png in Resources */ = {isa = PBXBuildFile; fileRef = C674025E1B4C2448009F956F /* About.png */; };
 		C67AF0941B49D08F000B8272 /* NLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0931B49D08F000B8272 /* NLAccount.m */; };
-		C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */; };
 		C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0981B49E137000B8272 /* HTTPConnection.m */; };
 		C67AF09D1B49E4A0000B8272 /* NLAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */; };
 		C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09F1B4A23CA000B8272 /* NLAccounts.m */; };
@@ -100,6 +103,14 @@
 
 /* Begin PBXFileReference section */
 		C62FEA3D1B59E106006F16B6 /* UsersDefault.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = UsersDefault.plist; path = "Supporting Files/UsersDefault.plist"; sourceTree = "<group>"; };
+		C62FEA421B5A3A34006F16B6 /* MASPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MASPreferencesWindowController.m; path = Preferences/MASPreferences/MASPreferencesWindowController.m; sourceTree = "<group>"; };
+		C62FEA431B5A3A34006F16B6 /* MASPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MASPreferencesWindowController.h; path = Preferences/MASPreferences/MASPreferencesWindowController.h; sourceTree = "<group>"; };
+		C62FEA441B5A3A34006F16B6 /* MASPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MASPreferencesWindow.xib; path = Preferences/MASPreferences/MASPreferencesWindow.xib; sourceTree = "<group>"; };
+		C62FEA451B5A3A34006F16B6 /* MASPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MASPreferencesViewController.h; path = Preferences/MASPreferences/MASPreferencesViewController.h; sourceTree = "<group>"; };
+		C62FEA481B5A3A91006F16B6 /* WatchlistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchlistController.h; path = Preferences/WatchlistController.h; sourceTree = "<group>"; };
+		C62FEA491B5A3A91006F16B6 /* WatchlistController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchlistController.m; path = Preferences/WatchlistController.m; sourceTree = "<group>"; };
+		C62FEA4E1B5A3AC2006F16B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Localizable/en.lproj/WatchlistController.xib; sourceTree = "<group>"; };
+		C62FEA501B5A3CF5006F16B6 /* NicoLiveAlertPreferenceDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NicoLiveAlertPreferenceDefinitions.h; path = Preferences/NicoLiveAlertPreferenceDefinitions.h; sourceTree = "<group>"; };
 		C63B1A511B4F853C005CA9B9 /* NLCommunityProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLCommunityProgram.h; path = "Program Management/NLCommunityProgram.h"; sourceTree = "<group>"; };
 		C63B1A521B4F853C005CA9B9 /* NLCommunityProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLCommunityProgram.m; path = "Program Management/NLCommunityProgram.m"; sourceTree = "<group>"; };
 		C64CBCB71B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Growl Registration Ticket.growlRegDict"; path = "Supporting Files/Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
@@ -130,7 +141,7 @@
 		C67402561B4C2448009F956F /* NLOnState.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NLOnState.png; path = Images/NLOnState.png; sourceTree = "<group>"; };
 		C67402571B4C2448009F956F /* NLOffState.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NLOffState.png; path = Images/NLOffState.png; sourceTree = "<group>"; };
 		C67402581B4C2448009F956F /* NLMixedState.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NLMixedState.png; path = Images/NLMixedState.png; sourceTree = "<group>"; };
-		C67402591B4C2448009F956F /* watch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watch.png; path = Images/watch.png; sourceTree = "<group>"; };
+		C67402591B4C2448009F956F /* watchlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watchlist.png; path = Images/watchlist.png; sourceTree = "<group>"; };
 		C674025A1B4C2448009F956F /* sbicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sbicon.png; path = Images/sbicon.png; sourceTree = "<group>"; };
 		C674025B1B4C2448009F956F /* Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Password.png; path = Images/Password.png; sourceTree = "<group>"; };
 		C674025C1B4C2448009F956F /* NicoLiveAlert.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = NicoLiveAlert.icns; path = Images/NicoLiveAlert.icns; sourceTree = "<group>"; };
@@ -138,8 +149,6 @@
 		C674025E1B4C2448009F956F /* About.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = About.png; path = Images/About.png; sourceTree = "<group>"; };
 		C67AF0921B49D08F000B8272 /* NLAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLAccount.h; path = "User Management/NLAccount.h"; sourceTree = "<group>"; };
 		C67AF0931B49D08F000B8272 /* NLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLAccount.m; path = "User Management/NLAccount.m"; sourceTree = "<group>"; };
-		C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YCStreamSessionGCD.m; path = NetworkBits/YCStreamSessionGCD.m; sourceTree = "<group>"; };
-		C67AF0971B49E137000B8272 /* YCStreamSessionGCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YCStreamSessionGCD.h; path = NetworkBits/YCStreamSessionGCD.h; sourceTree = "<group>"; };
 		C67AF0981B49E137000B8272 /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPConnection.m; path = NetworkBits/HTTPConnection.m; sourceTree = "<group>"; };
 		C67AF0991B49E137000B8272 /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPConnection.h; path = NetworkBits/HTTPConnection.h; sourceTree = "<group>"; };
 		C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLAccountTests.m; sourceTree = "<group>"; };
@@ -194,6 +203,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C62FEA401B5A390E006F16B6 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				C62FEA501B5A3CF5006F16B6 /* NicoLiveAlertPreferenceDefinitions.h */,
+				C62FEA411B5A3A19006F16B6 /* MASPreference */,
+				C62FEA481B5A3A91006F16B6 /* WatchlistController.h */,
+				C62FEA491B5A3A91006F16B6 /* WatchlistController.m */,
+				C62FEA4D1B5A3AC2006F16B6 /* WatchlistController.xib */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		C62FEA411B5A3A19006F16B6 /* MASPreference */ = {
+			isa = PBXGroup;
+			children = (
+				C62FEA421B5A3A34006F16B6 /* MASPreferencesWindowController.m */,
+				C62FEA431B5A3A34006F16B6 /* MASPreferencesWindowController.h */,
+				C62FEA441B5A3A34006F16B6 /* MASPreferencesWindow.xib */,
+				C62FEA451B5A3A34006F16B6 /* MASPreferencesViewController.h */,
+			);
+			name = MASPreference;
+			sourceTree = "<group>";
+		};
 		C64CBCB91B56435C00ACA92D /* XPC */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +279,7 @@
 				C65015101B4A93E500FC44DD /* Program Management */,
 				C67AF0901B49D04A000B8272 /* User Management */,
 				C67335471B49C23C00AC88AD /* Application */,
+				C62FEA401B5A390E006F16B6 /* Preferences */,
 				C67AF0951B49E114000B8272 /* Network */,
 				C650C3671B49A944005AC163 /* Images.xcassets */,
 				C650C3601B49A944005AC163 /* Supporting Files */,
@@ -351,7 +384,7 @@
 				C67402561B4C2448009F956F /* NLOnState.png */,
 				C67402571B4C2448009F956F /* NLOffState.png */,
 				C67402581B4C2448009F956F /* NLMixedState.png */,
-				C67402591B4C2448009F956F /* watch.png */,
+				C67402591B4C2448009F956F /* watchlist.png */,
 				C674025A1B4C2448009F956F /* sbicon.png */,
 				C674025B1B4C2448009F956F /* Password.png */,
 				C674025C1B4C2448009F956F /* NicoLiveAlert.icns */,
@@ -379,8 +412,6 @@
 				C67AF0981B49E137000B8272 /* HTTPConnection.m */,
 				C674024D1B4BEC1B009F956F /* YCStreamSession.h */,
 				C674024C1B4BEC1B009F956F /* YCStreamSession.m */,
-				C67AF0971B49E137000B8272 /* YCStreamSessionGCD.h */,
-				C67AF0961B49E137000B8272 /* YCStreamSessionGCD.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -522,13 +553,15 @@
 				C67402631B4C2448009F956F /* sbicon.png in Resources */,
 				C67402611B4C2448009F956F /* NLMixedState.png in Resources */,
 				C674025F1B4C2448009F956F /* NLOnState.png in Resources */,
+				C62FEA471B5A3A34006F16B6 /* MASPreferencesWindow.xib in Resources */,
 				C67335461B49BDC800AC88AD /* NicoLiveAlert.xib in Resources */,
-				C67402621B4C2448009F956F /* watch.png in Resources */,
+				C67402621B4C2448009F956F /* watchlist.png in Resources */,
 				C67402661B4C2448009F956F /* Applications.png in Resources */,
 				C67402671B4C2448009F956F /* About.png in Resources */,
 				C67402651B4C2448009F956F /* NicoLiveAlert.icns in Resources */,
 				C67402641B4C2448009F956F /* Password.png in Resources */,
 				C64CBCB81B563CAF00ACA92D /* Growl Registration Ticket.growlRegDict in Resources */,
+				C62FEA4F1B5A3AC2006F16B6 /* WatchlistController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,18 +603,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62FEA461B5A3A34006F16B6 /* MASPreferencesWindowController.m in Sources */,
 				C6CB9F861B5501DF001373ED /* NLProgram.m in Sources */,
 				C674024E1B4BEC1B009F956F /* YCStreamSession.m in Sources */,
 				C673352D1B49B47900AC88AD /* main.m in Sources */,
 				C63B1A531B4F853C005CA9B9 /* NLCommunityProgram.m in Sources */,
 				C67402511B4BF576009F956F /* NLProgramSiever.m in Sources */,
-				C67AF09A1B49E137000B8272 /* YCStreamSessionGCD.m in Sources */,
 				C67AF0941B49D08F000B8272 /* NLAccount.m in Sources */,
 				C6F332A81B4D38AC009BE435 /* NLOfficialProgram.m in Sources */,
 				C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */,
 				C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */,
 				C67402541B4C193B009F956F /* NLStatusbar.m in Sources */,
 				C65015131B4A943700FC44DD /* NLProgramList.m in Sources */,
+				C62FEA4B1B5A3A91006F16B6 /* WatchlistController.m in Sources */,
 				C67AF09B1B49E137000B8272 /* HTTPConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,6 +657,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C62FEA4D1B5A3AC2006F16B6 /* WatchlistController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C62FEA4E1B5A3AC2006F16B6 /* en */,
+			);
+			name = WatchlistController.xib;
+			sourceTree = "<group>";
+		};
 		C67335441B49BDC800AC88AD /* NicoLiveAlert.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

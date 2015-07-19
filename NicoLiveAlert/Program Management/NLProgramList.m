@@ -12,6 +12,11 @@
 
 #define UNLIMITED								(0)
 
+@interface NLProgramList ()
+- (void) reconnect;
+- (NSError *) write:(NSString *)str;
+@end
+
 @implementation NLProgramList
 #pragma mark - synthesize properties
 #pragma mark - class method
@@ -51,6 +56,21 @@
 #pragma mark - actions
 #pragma mark - messages
 #pragma mark - private
+- (void) reconnect
+{		// cleanup last session
+	[session closeReadStream];
+	[session closeWriteStream];
+	[session disconnect];
+
+	[accounts refresh];
+	NLAccount *account = [accounts.accounts objectAtIndex:0];
+	NSString *hostName = account.server;
+	int port = (int)account.port;
+	requestPosted = NO;
+	session = [[YCStreamSession alloc] initWithHostName:hostName andPort:port];
+	[session setDelegate:self];
+	[session checkReadyToConnect];
+}// end - (void) reconnect
 
 - (NSError *) write:(NSString *)str
 {
@@ -74,6 +94,7 @@
 	
 	return err;
 }// end - (void) write:(NSString *)str
+
 #pragma mark - C functions
 #pragma mark - Common StreamConnectionDelegate methods
 - (void) streamReadyToConnect:(YCStreamSession*)session_ reachable:(BOOL)reachable_
@@ -127,12 +148,10 @@
 	
 	OnigResult *result = [programlistRegex search:resultElement];
 	if (result != nil) {
-		dispatch_async(queue, ^{
-			NSString *programlist = [kindProgram stringByAppendingString:[result stringAt:1]];
-//NSLog(@"} %@ {", programlist);
-			NSArray *programInfo = [programlist componentsSeparatedByString:@","];
-			[siever checkProgram:programInfo];
-		});
+		NSString *programlist = [kindProgram stringByAppendingString:[result stringAt:1]];
+		//NSLog(@"} %@ {", programlist);
+		NSArray *programInfo = [programlist componentsSeparatedByString:@","];
+		[siever checkProgram:programInfo];
 	}// end if result is there
 }// end - (void) readStreamHasBytesAvailable:(NSInputStream *)stream
 
@@ -142,6 +161,7 @@
 
 - (void) readStreamErrorOccured:(NSInputStream *)iStream
 {
+	[self reconnect];
 }// end - (void) readStreamErrorOccured:(NSInputStream *)iStream
 /*
 - (void) readStreamOpenCompleted:(NSInputStream *)iStream
@@ -175,6 +195,7 @@
 
 - (void) writeStreamErrorOccured:(NSOutputStream *)oStream
 {
+	[self reconnect];
 }// end - (void) writeStreamErrorOccured:(NSOutputStream *)oStream
 
 /*

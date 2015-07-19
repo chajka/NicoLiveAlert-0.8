@@ -8,6 +8,7 @@
 
 #import "NLAccounts.h"
 #import "NicoLiveAlertDefinitions.h"
+#import "NicoLiveAlertPreferenceDefinitions.h"
 
 @interface NLAccounts ()
 - (void) restoreFromSavedPreference;

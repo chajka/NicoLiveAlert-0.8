@@ -1,5 +1,6 @@
 "TitleAutoOpen" = "チェックが付いた放送を自動で開く";
 "TitlePrograms" = "ユーザー放送";
+"TitleProgramHistory" = "放送履歴";
 "TitleAccounts" = "アカウント";
 "TitleResetConnection" = "ネットワークのリセット";
 "TitleScanRSS" = "RSSのスキャン";

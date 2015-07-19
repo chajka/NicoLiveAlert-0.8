@@ -12,6 +12,8 @@
 #import "NLProgramList.h"
 #import "NLProgramSiever.h"
 #import "NLStatusbar.h"
+#import "MASPreferencesWindowController.h"
+#import "MASPreferencesViewController.h"
 
 @interface NicoLiveAlert : NSObject <NSApplicationDelegate, GrowlApplicationBridgeDelegate> {
 	IBOutlet NSMenu						*menuStatusbar;
@@ -21,12 +23,17 @@
 	NLProgramList						*programLister;
 	NLStatusbar							*statusbar;
 
+	MASPreferencesWindowController		*preferenceWindowController;
+	BOOL								firstTime;
+
 	NSTimer								*checkTimer;
 	NSXPCConnection						*collaborator;
 }
-@property (readonly) NSXPCConnection	*collaborator;
 
 - (IBAction) openProgram:(id)sender;
+- (IBAction) openPreferenceWindow:(id)sender;
+- (IBAction) openProgramHistory:(id)sender;
+
 - (void) joinToCommentViewer:(NSString *)liveNumber;
 @end
 

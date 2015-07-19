@@ -83,51 +83,12 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 	return self;
 }// end - (id) initWithLiveNumber:(NSString *)liveno owner:(NSString *)owner primaryAccount:(NSString *)accnt
 
-- (void) dealloc
-{
-	[elapsedTimer invalidate];
-}// end - (void) dealloc
 #pragma mark - override
 #pragma mark - delegate
 #pragma mark - properties
 #pragma mark - actions
 #pragma mark - messages
 #pragma mark - private
-- (void) elapsedTimer:(NSTimer *)timer
-{
-	NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:startTime];
-	double rounded = roundf(interval);
-	long elapsed = (long)rounded;
-
-	if ((((elapsed + 60) % (60 * 5)) == 0) || (elapsed == 60)) {
-		NSURLResponse *resp = nil;
-		NSString *embed = [HTTPConnection HTTPSource:embedURL response:&resp];
-		if (embed != nil) {
-			OnigRegexp *stateRegex = [OnigRegexp compile:ProgramStatusRegex];
-			OnigResult *res = [stateRegex search:embed];
-			if (res != nil) {
-				NSString *state = [res stringAt:1];
-				if (![state isEqualToString:ONAIRSTATE])
-					[delegate removeProgram:self];
-			}// end if found state
-		}// end if can fetch embed url
-	}// end if each 5 minute
-	
-	NSString *plusMinus = (interval < 0)? @"-" : @"+";
-	NSString *hour = [NSString stringWithFormat:@"%02ld", labs((long)(elapsed / (60 * 60)))];
-	NSString *minute = [NSString stringWithFormat:@"%02ld", labs((long)(elapsed / 60))];
-	
-	NSString *timeString = [NSString stringWithFormat:@"%@ %@ %@:%@", startTimeString, plusMinus, hour, minute];
-
-		// update time
-	imageBuffer = [[NSImage alloc] initWithSize:NSMakeSize(ProgramBoundsW, ProgramBoundsH)];
-	[imageBuffer lockFocus];
-	[menuImage drawInRect:NSMakeRect(0.0f, 0.0f, ProgramBoundsW, ProgramBoundsH)];
-	[timeString drawAtPoint:NSMakePoint(200.0f, 0.0f) withAttributes:stringAttributes];
-	[imageBuffer unlockFocus];
-	[programMenu setImage:imageBuffer];
-}// end - (void) elapsedTimer:(NSTimer *)timer
-
 - (void) parseStreamInfo:(NSString *)liveNumber
 {
 	NSString *streaminfoString = [NicoStreamInfoQuery stringByAppendingString:liveNumber];
@@ -164,6 +125,43 @@ static const CGFloat TimeColorBlue = (64.0 / 255);
 	[GrowlApplicationBridge notifyWithTitle:programTitle description:programDescription notificationName:notificationName iconData:[thumbnail TIFFRepresentation] priority:0 isSticky:NO clickContext:nil];
 }// end - (void) notify
 #pragma mark - private
+- (void) elapsedTimer:(NSTimer *)timer
+{
+	NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:startTime];
+	double rounded = roundf(interval);
+	long elapsed = (long)rounded;
+	
+	if ((((elapsed - 60) % (60 * 5)) == 0) || (elapsed == 60)) {
+		NSURLResponse *resp = nil;
+		NSString *embed = [HTTPConnection HTTPSource:embedURL response:&resp];
+		if (embed != nil) {
+			OnigRegexp *stateRegex = [OnigRegexp compile:ProgramStatusRegex];
+			OnigResult *res = [stateRegex search:embed];
+			if (res != nil) {
+				NSString *state = [res stringAt:1];
+				if (![state isEqualToString:ONAIRSTATE]) {
+					[elapsedTimer invalidate];
+					[delegate removeProgram:self];
+				}// end if prgram is ended
+			}// end if found state
+		}// end if can fetch embed url
+	}// end if each 5 minute
+	
+	NSString *plusMinus = (elapsed < 0)? @"-" : @"+";
+	NSString *hour = [NSString stringWithFormat:@"%02ld", labs((long)(elapsed / (60 * 60)))];
+	NSString *minute = [NSString stringWithFormat:@"%02ld", labs((long)(elapsed / 60))];
+	
+	NSString *timeString = [NSString stringWithFormat:@"%@ %@ %@:%@", startTimeString, plusMinus, hour, minute];
+	
+	// update time
+	imageBuffer = [[NSImage alloc] initWithSize:NSMakeSize(ProgramBoundsW, ProgramBoundsH)];
+	[imageBuffer lockFocus];
+	[menuImage drawInRect:NSMakeRect(0.0f, 0.0f, ProgramBoundsW, ProgramBoundsH)];
+	[timeString drawAtPoint:NSMakePoint(200.0f, 0.0f) withAttributes:stringAttributes];
+	[imageBuffer unlockFocus];
+	[programMenu setImage:imageBuffer];
+}// end - (void) elapsedTimer:(NSTimer *)timer
+
 - (void) notifyTimer:(NSTimer *)timer
 {
 #ifdef DEBUG
