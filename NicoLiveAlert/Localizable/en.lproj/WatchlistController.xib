@@ -8,7 +8,10 @@
         <customObject id="-2" userLabel="File's Owner" customClass="WatchlistController">
             <connections>
                 <outlet property="aryctrlWatchlist" destination="Mb7-6i-jWt" id="BGr-Cg-15v"/>
+                <outlet property="buttonAppendItem" destination="fM0-Yd-lCW" id="71c-Vd-oIE"/>
+                <outlet property="buttonDeleteItem" destination="OSh-UP-4zk" id="5tX-OZ-4eV"/>
                 <outlet property="chkboxAutoOpen" destination="c6U-nU-AtT" id="4zb-Nl-a70"/>
+                <outlet property="tableviewWatchlist" destination="YKO-94-rk0" id="BYC-76-9c7"/>
                 <outlet property="txtfldItemNote" destination="G72-cd-aME" id="lMd-d0-thL"/>
                 <outlet property="txtfldWatchItem" destination="t8h-qh-2Fe" id="jWt-VV-gjo"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -27,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="jZT-6Z-Xih" id="YKO-94-rk0">
-                                <rect key="frame" x="0.0" y="0.0" width="238" height="117"/>
+                                <rect key="frame" x="0.0" y="0.0" width="398" height="19"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -114,7 +117,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <outlet property="delegate" destination="-2" id="PD2-Xp-hYj"/>
+                        <outlet property="delegate" destination="-2" id="tv7-QU-d0v"/>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3h-4l-BLN">
@@ -135,14 +138,14 @@
                 </textField>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6U-nU-AtT">
                     <rect key="frame" x="426" y="120" width="196" height="18"/>
-                    <buttonCell key="cell" type="check" title="Auto Open" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tTo-EQ-qf2">
+                    <buttonCell key="cell" type="check" title="Auto Open" bezelStyle="regularSquare" imagePosition="left" inset="2" id="tTo-EQ-qf2">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSh-UP-4zk">
                     <rect key="frame" x="422" y="13" width="97" height="32"/>
-                    <buttonCell key="cell" type="push" title="削除" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QaM-05-0XF">
+                    <buttonCell key="cell" type="push" title="削除" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QaM-05-0XF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="13" name="STHeitiSC-Light"/>
                     </buttonCell>
@@ -152,7 +155,7 @@
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fM0-Yd-lCW">
                     <rect key="frame" x="529" y="13" width="97" height="32"/>
-                    <buttonCell key="cell" type="push" title="追加" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="V9h-aR-CJD">
+                    <buttonCell key="cell" type="push" title="追加" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="V9h-aR-CJD">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="13" name="STHeitiSC-Light"/>
                     </buttonCell>
@@ -163,7 +166,7 @@
             </subviews>
             <point key="canvasLocation" x="403" y="268"/>
         </customView>
-        <arrayController id="Mb7-6i-jWt" userLabel="Watchlist Array">
+        <arrayController selectsInsertedObjects="NO" id="Mb7-6i-jWt" userLabel="Watchlist Array">
             <declaredKeys>
                 <string>AutoOpen</string>
                 <string>Key</string>

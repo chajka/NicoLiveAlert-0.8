@@ -8,12 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MASPreferencesViewController.h"
+#import "NLAccounts.h"
 
-@interface WatchlistController : NSViewController <MASPreferencesViewController> {
+@interface WatchlistController : NSViewController <MASPreferencesViewController, NSTableViewDelegate> {
 	IBOutlet NSArrayController					*aryctrlWatchlist;
+	IBOutlet NSTableView						*tableviewWatchlist;
 	IBOutlet NSTextField						*txtfldWatchItem;
 	IBOutlet NSTextField						*txtfldItemNote;
 	IBOutlet NSButton							*chkboxAutoOpen;
+	IBOutlet NSButton							*buttonAppendItem;
+	IBOutlet NSButton							*buttonDeleteItem;
+
+	NLAccounts									*allAccounts;
 }
 @property (nonatomic, readonly) NSString		*identifier;
 @property (nonatomic, readonly) NSImage			*toolbarItemImage;
