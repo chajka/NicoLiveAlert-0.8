@@ -12,6 +12,11 @@
 
 #define UNLIMITED								(0)
 
+@interface NLProgramList ()
+- (void) reconnect;
+- (NSError *) write:(NSString *)str;
+@end
+
 @implementation NLProgramList
 #pragma mark - synthesize properties
 #pragma mark - class method
@@ -57,6 +62,7 @@
 	[session closeWriteStream];
 	[session disconnect];
 
+	[accounts refresh];
 	NLAccount *account = [accounts.accounts objectAtIndex:0];
 	NSString *hostName = account.server;
 	int port = (int)account.port;
@@ -155,6 +161,7 @@
 
 - (void) readStreamErrorOccured:(NSInputStream *)iStream
 {
+	[self reconnect];
 }// end - (void) readStreamErrorOccured:(NSInputStream *)iStream
 /*
 - (void) readStreamOpenCompleted:(NSInputStream *)iStream
@@ -188,6 +195,7 @@
 
 - (void) writeStreamErrorOccured:(NSOutputStream *)oStream
 {
+	[self reconnect];
 }// end - (void) writeStreamErrorOccured:(NSOutputStream *)oStream
 
 /*

@@ -291,6 +291,7 @@ static CGFloat disconnectedColorAlpha = 0.70;
 		// localize
 	[[statusbarMenu itemWithTag:tagAutoOpen] setTitle:TITLEAUTOOPEN];
 	[[statusbarMenu itemWithTag:tagPorgrams] setTitle:TITLEUSERNOPROG];
+	[[statusbarMenu itemWithTag:tagHistory] setTitle:TITLEPROGRAMHISTRORY];
 	[[statusbarMenu itemWithTag:tagOfficial] setTitle:TITLEOFFICIALNOPROG];
 	[[statusbarMenu itemWithTag:tagAccounts] setTitle:TITLEACCOUNTS];
 	[[statusbarMenu	itemWithTag:tagLaunchApplications] setTitle:TITLELAUNCHER];
