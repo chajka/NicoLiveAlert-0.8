@@ -144,7 +144,7 @@
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSh-UP-4zk">
-                    <rect key="frame" x="422" y="13" width="97" height="32"/>
+                    <rect key="frame" x="422" y="74" width="97" height="32"/>
                     <buttonCell key="cell" type="push" title="削除" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QaM-05-0XF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="13" name="STHeitiSC-Light"/>
@@ -154,13 +154,23 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fM0-Yd-lCW">
-                    <rect key="frame" x="529" y="13" width="97" height="32"/>
+                    <rect key="frame" x="529" y="74" width="97" height="32"/>
                     <buttonCell key="cell" type="push" title="追加" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="V9h-aR-CJD">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="13" name="STHeitiSC-Light"/>
                     </buttonCell>
                     <connections>
                         <action selector="addButtonPressed:" target="-2" id="CIE-4o-xrx"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toJ-la-JJ2">
+                    <rect key="frame" x="428" y="18" width="194" height="18"/>
+                    <buttonCell key="cell" type="check" title="公式放送を通知" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dsk-uI-27I">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" size="13" name="STHeitiSC-Light"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="Z71-Ra-3Jo" name="value" keyPath="values.NotifyStartOfficialProgram" id="hQh-TE-uvi"/>
                     </connections>
                 </button>
             </subviews>
@@ -173,5 +183,6 @@
                 <string>Note</string>
             </declaredKeys>
         </arrayController>
+        <userDefaultsController id="Z71-Ra-3Jo"/>
     </objects>
 </document>

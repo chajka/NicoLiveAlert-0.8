@@ -47,6 +47,8 @@
 		C67AF09D1B49E4A0000B8272 /* NLAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09C1B49E4A0000B8272 /* NLAccountTests.m */; };
 		C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF09F1B4A23CA000B8272 /* NLAccounts.m */; };
 		C67AF0A21B4A6E83000B8272 /* NLAccountsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */; };
+		C69F16D71B5C09D100BE022C /* AccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69F16D51B5C09D100BE022C /* AccountController.m */; };
+		C69F16D81B5C09D100BE022C /* AccountController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C69F16D61B5C09D100BE022C /* AccountController.xib */; };
 		C6CB9F861B5501DF001373ED /* NLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CB9F851B5501DF001373ED /* NLProgram.m */; };
 		C6F332A81B4D38AC009BE435 /* NLOfficialProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F332A71B4D38AC009BE435 /* NLOfficialProgram.m */; };
 		C6FD33CF1B581897005E9269 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6FD33CC1B581897005E9269 /* Localizable.strings */; };
@@ -156,6 +158,9 @@
 		C67AF09F1B4A23CA000B8272 /* NLAccounts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLAccounts.m; path = "User Management/NLAccounts.m"; sourceTree = "<group>"; };
 		C67AF0A11B4A6E83000B8272 /* NLAccountsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLAccountsTest.m; sourceTree = "<group>"; };
 		C67AF0A31B4A706C000B8272 /* NicoLiveAlert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NicoLiveAlert.entitlements; sourceTree = "<group>"; };
+		C69F16D41B5C09D100BE022C /* AccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountController.h; path = Preferences/AccountController.h; sourceTree = "<group>"; };
+		C69F16D51B5C09D100BE022C /* AccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountController.m; path = Preferences/AccountController.m; sourceTree = "<group>"; };
+		C69F16D61B5C09D100BE022C /* AccountController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AccountController.xib; path = Preferences/AccountController.xib; sourceTree = "<group>"; };
 		C6CB9F841B5501DF001373ED /* NLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLProgram.h; path = "Program Management/NLProgram.h"; sourceTree = "<group>"; };
 		C6CB9F851B5501DF001373ED /* NLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NLProgram.m; path = "Program Management/NLProgram.m"; sourceTree = "<group>"; };
 		C6F332A61B4D38AC009BE435 /* NLOfficialProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NLOfficialProgram.h; path = "Program Management/NLOfficialProgram.h"; sourceTree = "<group>"; };
@@ -211,6 +216,9 @@
 				C62FEA481B5A3A91006F16B6 /* WatchlistController.h */,
 				C62FEA491B5A3A91006F16B6 /* WatchlistController.m */,
 				C62FEA4D1B5A3AC2006F16B6 /* WatchlistController.xib */,
+				C69F16D41B5C09D100BE022C /* AccountController.h */,
+				C69F16D51B5C09D100BE022C /* AccountController.m */,
+				C69F16D61B5C09D100BE022C /* AccountController.xib */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -554,6 +562,7 @@
 				C67402611B4C2448009F956F /* NLMixedState.png in Resources */,
 				C674025F1B4C2448009F956F /* NLOnState.png in Resources */,
 				C62FEA471B5A3A34006F16B6 /* MASPreferencesWindow.xib in Resources */,
+				C69F16D81B5C09D100BE022C /* AccountController.xib in Resources */,
 				C67335461B49BDC800AC88AD /* NicoLiveAlert.xib in Resources */,
 				C67402621B4C2448009F956F /* watchlist.png in Resources */,
 				C67402661B4C2448009F956F /* Applications.png in Resources */,
@@ -613,6 +622,7 @@
 				C6F332A81B4D38AC009BE435 /* NLOfficialProgram.m in Sources */,
 				C67AF0A01B4A23CA000B8272 /* NLAccounts.m in Sources */,
 				C67335291B49B45E00AC88AD /* NicoLiveAlert.m in Sources */,
+				C69F16D71B5C09D100BE022C /* AccountController.m in Sources */,
 				C67402541B4C193B009F956F /* NLStatusbar.m in Sources */,
 				C65015131B4A943700FC44DD /* NLProgramList.m in Sources */,
 				C62FEA4B1B5A3A91006F16B6 /* WatchlistController.m in Sources */,

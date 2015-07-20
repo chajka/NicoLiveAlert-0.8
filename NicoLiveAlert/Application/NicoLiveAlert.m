@@ -13,6 +13,7 @@
 #import "NLProgram.h"
 
 #import "WatchlistController.h"
+#import "AccountController.h"
 
 @interface NicoLiveAlert ()
 
@@ -120,8 +121,9 @@ static void uncaughtExceptionHandler(NSException *exception);
 {
 	if (!preferenceWindowController) {
 		firstTime = YES;
-		WatchlistController *watchlist = [[WatchlistController alloc] init];
-		NSArray *controllers = [NSArray arrayWithObjects:watchlist, nil];
+		WatchlistController *watchlist = [[WatchlistController alloc] initWithAccounts:allUsers];
+		AccountController *account = [[AccountController alloc] initWithAccounts:allUsers];
+		NSArray *controllers = [NSArray arrayWithObjects:watchlist, account, nil];
 		preferenceWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:controllers];
 	}// end if
 
