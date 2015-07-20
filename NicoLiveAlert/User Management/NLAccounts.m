@@ -38,28 +38,29 @@
 #pragma mark - properties
 #pragma mark - actions
 #pragma mark - messages
-- (BOOL) addAccount:(NSString *)mailaddress
+- (NLAccount *) addAccount:(NSString *)mailaddress
 {
 	NLAccount *account = [[NLAccount alloc] initWithAccount:mailaddress];
 	if (account == nil)
-		return NO;
+		return nil;
 
 	[accounts addObject:account];
 	[self rebuildWatchlist];
 
-	return YES;
+	return account;
 }// end - (BOOL) addAccount:(NSString *)mailaddress
 
-- (BOOL) addAccount:(NSString *)mailaddress password:(NSString *)password
+- (NLAccount *) addAccount:(NSString *)mailaddress password:(NSString *)password
 {
 	NLAccount *account = [[NLAccount alloc] initWithAccount:mailaddress password:password];
 	if (account == nil)
-		return NO;
+		return nil;
 	
+	account.watchEnable = YES;
 	[accounts addObject:account];
 	[self rebuildWatchlist];
 	
-	return YES;
+	return account;
 }// end - (BOOL) addAccount:(NSString *)mailaddress password:(NSString *)password
 
 - (void) removeAccount:(NSString *)mailaddress

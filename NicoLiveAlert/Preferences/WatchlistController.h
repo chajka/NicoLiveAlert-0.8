@@ -25,4 +25,5 @@
 @property (nonatomic, readonly) NSImage			*toolbarItemImage;
 @property (nonatomic, readonly) NSString		*toolbarItemLabel;
 
+- (id) initWithAccounts:(NLAccounts *)accounts;
 @end
